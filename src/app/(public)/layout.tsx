@@ -10,6 +10,7 @@ import Analytics from "@/components/shared/Analytics";
 import DataLayerEvents from "@/components/shared/DataLayerEvents";
 import SchemaOrg from "@/components/shared/SchemaOrg";
 import WebVitals from "@/components/shared/WebVitals";
+import RevealObserver from "@/components/shared/RevealObserver";
 
 const NAV_LINKS = [
   { number: "01", label: "Rooms & Suites", href: "/rooms" },
@@ -118,6 +119,7 @@ export default async function PublicLayout({
       />
       <DataLayerEvents />
       <WebVitals />
+      <RevealObserver />
     </>
   );
 }
