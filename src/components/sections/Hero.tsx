@@ -10,24 +10,13 @@ function Breadcrumb({
   items: { label: string; url: string }[];
 }) {
   return (
-    <nav
-      aria-label="Breadcrumb"
-      className="mb-4 text-[0.6rem] uppercase tracking-[0.4em] text-gold-light"
-    >
-      <ol className="flex flex-wrap gap-x-2">
-        {items.map((item, i) => (
-          <li key={i} className="flex items-center gap-x-2">
-            {i > 0 && (
-              <span className="opacity-40" aria-hidden="true">
-                /
-              </span>
-            )}
-            <a href={item.url} className="transition-opacity hover:opacity-70">
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ol>
+    <nav aria-label="Breadcrumb" className="page-hero-breadcrumb">
+      {items.map((item, i) => (
+        <span key={i}>
+          {i > 0 && <span aria-hidden="true">→</span>}
+          <a href={item.url}>{item.label}</a>
+        </span>
+      ))}
     </nav>
   );
 }
@@ -36,44 +25,10 @@ function Breadcrumb({
 
 function ScrollIndicator() {
   return (
-    <div className="absolute bottom-8 right-12 flex flex-col items-center gap-3 text-[0.55rem] uppercase tracking-[0.3em] text-white/50">
+    <div className="hero-scroll">
       <span className="writing-vertical">Scroll</span>
-      <span className="block h-[50px] w-px bg-white/30" aria-hidden="true" />
+      <span className="line" aria-hidden="true" />
     </div>
-  );
-}
-
-/* ─── Background Image + Overlay ─────────────────────── */
-
-function HeroBackground({
-  image,
-  overlayOpacity,
-}: {
-  image: HeroSection["image"];
-  overlayOpacity?: number;
-}) {
-  const fromAlpha = overlayOpacity != null ? overlayOpacity * 0.27 : 0.15;
-  const toAlpha = overlayOpacity != null ? overlayOpacity : 0.55;
-
-  return (
-    <>
-      <Image
-        src={image.url}
-        alt={image.alt}
-        fill
-        priority
-        className="animate-slow-zoom object-cover"
-        sizes="100vw"
-        {...(image.blurhash ? { placeholder: "blur", blurDataURL: image.blurhash } : {})}
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `linear-gradient(to bottom, rgba(13,47,58,${fromAlpha}) 0%, rgba(13,47,58,${toAlpha}) 100%)`,
-        }}
-        aria-hidden="true"
-      />
-    </>
   );
 }
 
@@ -81,24 +36,31 @@ function HeroBackground({
 
 function HeroFull({ data }: { data: HeroSection }) {
   return (
-    <section className="relative flex h-screen min-h-[600px] items-end overflow-hidden">
-      <HeroBackground image={data.image} overlayOpacity={data.overlayOpacity} />
+    <section className="hero">
+      <Image
+        src={data.image.url}
+        alt={data.image.alt}
+        fill
+        priority
+        className="hero-img"
+        sizes="100vw"
+        {...(data.image.blurhash
+          ? { placeholder: "blur", blurDataURL: data.image.blurhash }
+          : {})}
+      />
+      <div className="hero-bg" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-[900px] px-12 pb-20">
+      <div className="hero-content">
         {data.eyebrow && (
-          <p className="mb-5 text-[0.6rem] font-normal uppercase tracking-[0.5em] text-gold-light">
-            {data.eyebrow}
-          </p>
+          <p className="hero-eyebrow">{data.eyebrow}</p>
         )}
 
-        <h1 className="mb-6 font-heading text-[clamp(3rem,7vw,6.5rem)] font-light leading-[1.05] text-white">
-          {renderTitle(data.title, data.titleItalic, "text-sand")}
+        <h1 className="hero-title">
+          {renderTitle(data.title, data.titleItalic, "")}
         </h1>
 
         {data.subtitle && (
-          <p className="max-w-[480px] text-[0.85rem] font-light leading-[1.7] text-white/70">
-            {data.subtitle}
-          </p>
+          <p className="hero-sub">{data.subtitle}</p>
         )}
       </div>
 
@@ -111,26 +73,33 @@ function HeroFull({ data }: { data: HeroSection }) {
 
 function HeroShort({ data }: { data: HeroSection }) {
   return (
-    <section className="relative flex h-[70vh] min-h-[480px] items-end overflow-hidden">
-      <HeroBackground image={data.image} overlayOpacity={data.overlayOpacity} />
+    <section className="page-hero">
+      <Image
+        src={data.image.url}
+        alt={data.image.alt}
+        fill
+        priority
+        className="page-hero-img"
+        sizes="100vw"
+        {...(data.image.blurhash
+          ? { placeholder: "blur", blurDataURL: data.image.blurhash }
+          : {})}
+      />
+      <div className="page-hero-bg" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-[800px] px-12 pb-16">
+      <div className="page-hero-content">
         {data.showBreadcrumb && data.breadcrumb && (
           <Breadcrumb items={data.breadcrumb} />
         )}
 
-        <h1 className="mb-6 font-heading text-[clamp(2.8rem,6vw,5.5rem)] font-light leading-[1.05] text-white">
-          {renderTitle(data.title, data.titleItalic, "text-sand")}
+        <h1 className="page-hero-title">
+          {renderTitle(data.title, data.titleItalic, "")}
         </h1>
 
         {data.subtitle && (
-          <p className="max-w-[480px] text-[0.85rem] font-light leading-[1.7] text-white/70">
-            {data.subtitle}
-          </p>
+          <p className="page-hero-sub">{data.subtitle}</p>
         )}
       </div>
-
-      {data.showScrollIndicator && <ScrollIndicator />}
     </section>
   );
 }
@@ -139,22 +108,31 @@ function HeroShort({ data }: { data: HeroSection }) {
 
 function HeroCentered({ data }: { data: HeroSection }) {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <HeroBackground image={data.image} overlayOpacity={data.overlayOpacity} />
+    <section className="hero" style={{ alignItems: "center", justifyContent: "center" }}>
+      <Image
+        src={data.image.url}
+        alt={data.image.alt}
+        fill
+        priority
+        className="hero-img"
+        sizes="100vw"
+        {...(data.image.blurhash
+          ? { placeholder: "blur", blurDataURL: data.image.blurhash }
+          : {})}
+      />
+      <div className="hero-bg" aria-hidden="true" />
 
-      <div className="relative z-10 px-6 text-center">
+      <div className="hero-content" style={{ textAlign: "center", maxWidth: "none", padding: "0 1.5rem" }}>
         {data.eyebrow && (
-          <p className="mb-5 text-[0.6rem] font-normal uppercase tracking-[0.5em] text-gold-light">
-            {data.eyebrow}
-          </p>
+          <p className="hero-eyebrow">{data.eyebrow}</p>
         )}
 
-        <h1 className="mb-6 font-heading text-[clamp(2.5rem,6vw,5rem)] font-light leading-[1.05] text-white">
-          {renderTitle(data.title, data.titleItalic, "text-sand")}
+        <h1 className="hero-title" style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}>
+          {renderTitle(data.title, data.titleItalic, "")}
         </h1>
 
         {data.subtitle && (
-          <p className="mx-auto max-w-[480px] font-heading text-lg italic leading-relaxed text-white/60">
+          <p className="hero-sub" style={{ margin: "0 auto", fontFamily: "var(--font-heading)", fontStyle: "italic", fontSize: "1.125rem", maxWidth: "480px", color: "rgba(255,255,255,0.6)" }}>
             {data.subtitle}
           </p>
         )}

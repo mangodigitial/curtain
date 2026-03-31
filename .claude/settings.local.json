@@ -43,7 +43,8 @@
       "Bash(vercel deploy:*)",
       "Bash(vercel project:*)",
       "Bash(curl:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "WebFetch(domain:curtain-kappa.vercel.app)"
     ]
   }
 }

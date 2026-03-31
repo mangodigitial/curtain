@@ -2,32 +2,6 @@ import Image from "next/image";
 import type { GalleryMosaicSection } from "./types";
 import { renderTitle } from "./render-title";
 
-/* ─── Grid Item ──────────────────────────────────────── */
-
-function MosaicItem({
-  image,
-  className,
-}: {
-  image: GalleryMosaicSection["images"][number];
-  className?: string;
-}) {
-  return (
-    <div className={`overflow-hidden ${className ?? ""}`}>
-      <Image
-        src={image.url}
-        alt={image.alt}
-        width={image.width ?? 800}
-        height={image.height ?? 600}
-        className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.06]"
-        sizes="(min-width: 768px) 25vw, 50vw"
-        {...(image.blurhash
-          ? { placeholder: "blur", blurDataURL: image.blurhash }
-          : {})}
-      />
-    </div>
-  );
-}
-
 /* ─── Main Export ─────────────────────────────────────── */
 
 export default function GalleryMosaic({
@@ -38,30 +12,37 @@ export default function GalleryMosaic({
   const hasHeader = data.label || data.title;
 
   return (
-    <section className="bg-sand-light px-12 py-28">
+    <section className="gallery reveal" id="gallery">
       {hasHeader && (
-        <header className="mb-12 text-center">
+        <div className="gallery-header">
           {data.label && (
-            <p className="mb-3 text-[0.6rem] uppercase tracking-[0.4em] text-gold-light">
+            <div className="section-label" style={{ justifyContent: "center" }}>
               {data.label}
-            </p>
+            </div>
           )}
           {data.title && (
-            <h2 className="font-heading text-[clamp(2.2rem,4vw,3.6rem)] font-light leading-tight text-ocean-deep">
+            <h2 className="section-heading" style={{ textAlign: "center" }}>
               {renderTitle(data.title, data.titleItalic)}
             </h2>
           )}
-        </header>
+        </div>
       )}
 
-      <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-[0.8rem] md:grid-cols-4">
-        {data.images.map((image, i) => {
-          let span = "";
-          if (i === 0) span = "col-span-2 row-span-2";
-          else if (i === 4) span = "col-span-2";
-
-          return <MosaicItem key={image.id} image={image} className={span} />;
-        })}
+      <div className="gallery-grid">
+        {data.images.map((image) => (
+          <div key={image.id} className="gi">
+            <Image
+              src={image.url}
+              alt={image.alt}
+              width={image.width ?? 800}
+              height={image.height ?? 600}
+              sizes="(min-width: 768px) 25vw, 50vw"
+              {...(image.blurhash
+                ? { placeholder: "blur", blurDataURL: image.blurhash }
+                : {})}
+            />
+          </div>
+        ))}
       </div>
     </section>
   );

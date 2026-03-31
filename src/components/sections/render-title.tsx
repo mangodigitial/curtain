@@ -7,7 +7,7 @@ import React from "react";
 export function renderTitle(
   title: string,
   titleItalic?: string,
-  italicClass: string = "text-coral"
+  italicClass?: string,
 ) {
   if (!titleItalic) return <>{title}</>;
 

@@ -1,44 +1,6 @@
 import Image from "next/image";
 import type { EditorialSplitSection } from "./types";
 
-/* ─── Theme Maps ────────────────────────────────────────── */
-
-const bgMap = {
-  light: "bg-white",
-  dark: "bg-ocean-deep",
-  sand: "bg-sand-light",
-} as const;
-
-const headingColorMap = {
-  light: "text-ocean-deep",
-  dark: "text-sand",
-  sand: "text-ocean-deep",
-} as const;
-
-const bodyColorMap = {
-  light: "text-text-light",
-  dark: "text-sand-dark",
-  sand: "text-text-light",
-} as const;
-
-const labelColorMap = {
-  light: "text-gold",
-  dark: "text-gold-light",
-  sand: "text-gold",
-} as const;
-
-const italicColorMap = {
-  light: "text-coral",
-  dark: "text-coral-soft",
-  sand: "text-coral",
-} as const;
-
-const statValueColorMap = {
-  light: "text-coral",
-  dark: "text-gold-light",
-  sand: "text-coral",
-} as const;
-
 /* ─── Component ─────────────────────────────────────────── */
 
 export default function EditorialSplit({ data }: { data: EditorialSplitSection }) {
@@ -60,23 +22,26 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
     menuLinks,
   } = data;
 
-  const bg = bgMap[background];
-  const headingColor = headingColorMap[background];
-  const bodyColor = bodyColorMap[background];
-  const labelColor = labelColorMap[background];
-  const italicColor = italicColorMap[background];
-  const statValueColor = statValueColorMap[background];
+  /* Build the section className */
+  const sectionClasses = [
+    "editorial",
+    layout === "image-right" ? "reversed" : "",
+    background === "dark" ? "dark-bg" : "",
+    "reveal",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
-  const imageFirst = layout === "image-left";
+  /* Sand background uses inline style */
+  const sectionStyle =
+    background === "sand"
+      ? { background: "var(--sand-light)" }
+      : undefined;
 
   return (
-    <section className={`${bg} grid grid-cols-1 lg:grid-cols-2 lg:min-h-[85vh]`}>
+    <section className={sectionClasses} style={sectionStyle}>
       {/* ── Image Column ─────────────────────────────────── */}
-      <div
-        className={`relative overflow-hidden ${
-          !imageFirst ? "lg:order-2" : ""
-        } ${gallery && gallery.length > 0 ? "" : "min-h-[60vh] lg:min-h-0"}`}
-      >
+      <div className="editorial-media">
         {gallery && gallery.length > 0 ? (
           <div className="grid grid-cols-2 h-full">
             {/* Main image spans both columns */}
@@ -119,33 +84,29 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
       </div>
 
       {/* ── Text Column ──────────────────────────────────── */}
-      <div className="relative flex flex-col justify-center p-8 lg:p-20">
+      <div className="editorial-text">
         {/* Number overlay */}
         {number && (
-          <span className="pointer-events-none absolute right-0 top-[-2.5rem] font-heading text-[8rem] font-light text-sand-dark/35">
+          <span
+            className="pointer-events-none absolute right-0 top-[-2.5rem] font-heading text-[8rem] font-light text-sand-dark/35"
+            aria-hidden="true"
+          >
             {number}
           </span>
         )}
 
         {/* Label */}
         {label && (
-          <p
-            className={`mb-5 flex items-center gap-3 text-[0.55rem] font-medium uppercase tracking-[0.5em] ${labelColor}`}
-          >
-            <span className="block h-px w-[30px] bg-current" />
-            {label}
-          </p>
+          <div className="section-label">{label}</div>
         )}
 
         {/* Title */}
-        <h2
-          className={`mb-2 font-heading text-[clamp(2.2rem,4vw,3.6rem)] font-light leading-[1.15] ${headingColor}`}
-        >
+        <h2 className="section-heading">
           {title}
           {titleItalic && (
             <>
               {" "}
-              <em className={`${italicColor}`}>{titleItalic}</em>
+              <em>{titleItalic}</em>
             </>
           )}
         </h2>
@@ -158,13 +119,11 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
         )}
 
         {/* Body */}
-        <p className={`mb-8 max-w-[520px] text-[0.9rem] font-light leading-[1.85] ${bodyColor}`}>
-          {body}
-        </p>
+        <p className="section-body">{body}</p>
 
         {/* Meals */}
         {meals && meals.length > 0 && (
-          <div className="mb-8 flex flex-wrap gap-6">
+          <div className="mb-8 flex flex-wrap gap-6" style={{ marginTop: "2rem" }}>
             {meals.map((meal) => (
               <div
                 key={meal.name}
@@ -183,7 +142,7 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
 
         {/* Dress code */}
         {dressCode && (
-          <div className="mb-8 border-l-2 border-gold bg-ocean-deep/[0.04] p-4">
+          <div className="mb-8 border-l-2 border-gold bg-ocean-deep/[0.04] p-4" style={{ marginTop: "1rem" }}>
             <p className="text-[0.55rem] font-medium uppercase tracking-[0.25em] text-gold">
               {dressCode.label}
             </p>
@@ -195,7 +154,7 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
 
         {/* Menu links */}
         {menuLinks && menuLinks.length > 0 && (
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4" style={{ marginTop: "1rem" }}>
             {menuLinks.map((link) => (
               <a
                 key={link.url}
@@ -210,15 +169,15 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
 
         {/* Stats */}
         {stats && stats.length > 0 && (
-          <div className="mt-8 flex flex-wrap gap-8">
+          <div style={{ display: "flex", gap: "2rem", marginTop: "2rem", flexWrap: "wrap" }}>
             {stats.map((stat) => (
               <div key={stat.label}>
-                <p className={`font-heading text-[2rem] font-light ${statValueColor}`}>
+                <div className="font-heading text-[2rem] font-light text-coral">
                   {stat.value}
-                </p>
-                <p className="text-[0.6rem] uppercase tracking-[0.2em] text-text-light">
+                </div>
+                <div className="text-[0.6rem] uppercase tracking-[0.2em] text-text-light">
                   {stat.label}
-                </p>
+                </div>
               </div>
             ))}
           </div>
@@ -226,15 +185,8 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
 
         {/* CTA */}
         {cta && (
-          <a
-            href={cta.url}
-            className={`mt-8 inline-flex items-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.3em] ${headingColor}`}
-          >
-            {cta.label}
-            <span className="inline-flex items-center">
-              <span className="block h-px w-8 bg-current" />
-              <span className="-ml-1.5 block h-0 w-0 border-y-[3px] border-l-[5px] border-y-transparent border-l-current" />
-            </span>
+          <a href={cta.url} className="btn-line">
+            {cta.label} <span className="arrow" />
           </a>
         )}
       </div>

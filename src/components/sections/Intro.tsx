@@ -2,64 +2,32 @@ import Image from "next/image";
 import type { IntroSection } from "./types";
 import { renderTitle } from "./render-title";
 
-/* ─── Label with gold lines ──────────────────────────── */
-
-function Label({
-  text,
-  centered = false,
-}: {
-  text: string;
-  centered?: boolean;
-}) {
-  return (
-    <p
-      className={`mb-6 flex items-center gap-4 text-[0.55rem] font-medium uppercase tracking-[0.5em] text-gold ${
-        centered ? "justify-center" : ""
-      }`}
-    >
-      <span className="h-px w-[40px] bg-gold" aria-hidden="true" />
-      {text}
-      <span className="h-px w-[40px] bg-gold" aria-hidden="true" />
-    </p>
-  );
-}
-
-/* ─── CTA (btn-line style) ───────────────────────────── */
-
-function CTALine({
-  label,
-  url,
-}: {
-  label: string;
-  url: string;
-}) {
-  return (
-    <a
-      href={url}
-      className="mt-8 inline-flex items-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.3em] text-ocean-deep transition-opacity hover:opacity-70"
-    >
-      {label}
-      <span className="block h-px w-8 bg-ocean-deep" aria-hidden="true" />
-    </a>
-  );
-}
-
 /* ─── Simple (no images) ─────────────────────────────── */
 
 function IntroSimple({ data }: { data: IntroSection }) {
   return (
-    <section className="mx-auto max-w-[800px] px-12 py-20 text-center">
-      {data.label && <Label text={data.label} centered />}
+    <section className="intro reveal" style={{ gridTemplateColumns: "1fr", maxWidth: 800, textAlign: "center" }}>
+      <div>
+        {data.label && (
+          <div className="section-label" style={{ justifyContent: "center" }}>
+            {data.label}
+          </div>
+        )}
 
-      <h2 className="mb-5 font-heading text-[clamp(2.2rem,4vw,3.6rem)] font-light leading-[1.3] text-ocean-deep">
-        {renderTitle(data.title, data.titleItalic)}
-      </h2>
+        <h2 className="section-heading">
+          {renderTitle(data.title, data.titleItalic, "")}
+        </h2>
 
-      <p className="text-[0.92rem] font-light leading-[1.85] text-text-light">
-        {data.body}
-      </p>
+        <p className="section-body" style={{ margin: "0 auto" }}>
+          {data.body}
+        </p>
 
-      {data.cta && <CTALine label={data.cta.label} url={data.cta.url} />}
+        {data.cta && (
+          <a href={data.cta.url} className="btn-line">
+            {data.cta.label} <span className="arrow" />
+          </a>
+        )}
+      </div>
     </section>
   );
 }
@@ -71,62 +39,59 @@ function IntroWithImages({ data }: { data: IntroSection }) {
   if (!images) return null;
 
   return (
-    <section className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-16 px-12 py-32 lg:grid-cols-2">
+    <section className="intro reveal">
       {/* Left: overlapping images */}
-      <div className="relative">
-        <div className="relative w-[85%]">
-          <Image
-            src={images.main.url}
-            alt={images.main.alt}
-            width={images.main.width ?? 800}
-            height={images.main.height ?? 1067}
-            className="aspect-[3/4] object-cover"
-            sizes="(max-width: 1024px) 85vw, 42vw"
-            {...(images.main.blurhash
-              ? { placeholder: "blur", blurDataURL: images.main.blurhash }
-              : {})}
-          />
-        </div>
+      <div className="intro-visual">
+        <Image
+          src={images.main.url}
+          alt={images.main.alt}
+          width={images.main.width ?? 800}
+          height={images.main.height ?? 1067}
+          className="intro-img-main"
+          sizes="(max-width: 900px) 85vw, 42vw"
+          {...(images.main.blurhash
+            ? { placeholder: "blur" as const, blurDataURL: images.main.blurhash }
+            : {})}
+        />
 
         {images.float && (
-          <div className="absolute bottom-[-2rem] right-0 w-[55%]">
-            <Image
-              src={images.float.url}
-              alt={images.float.alt}
-              width={images.float.width ?? 600}
-              height={images.float.height ?? 450}
-              className="aspect-[4/3] border-[6px] border-white object-cover shadow-[20px_20px_60px_rgba(0,0,0,0.12)]"
-              sizes="(max-width: 1024px) 55vw, 24vw"
-              {...(images.float.blurhash
-                ? { placeholder: "blur", blurDataURL: images.float.blurhash }
-                : {})}
-            />
-          </div>
+          <Image
+            src={images.float.url}
+            alt={images.float.alt}
+            width={images.float.width ?? 600}
+            height={images.float.height ?? 450}
+            className="intro-img-float"
+            sizes="(max-width: 900px) 55vw, 24vw"
+            {...(images.float.blurhash
+              ? { placeholder: "blur" as const, blurDataURL: images.float.blurhash }
+              : {})}
+          />
         )}
 
         {data.yearOverlay && (
-          <span
-            className="absolute right-8 top-[-1rem] font-heading text-[7rem] font-light text-sand-dark/40"
-            aria-hidden="true"
-          >
+          <div className="intro-year" aria-hidden="true">
             {data.yearOverlay}
-          </span>
+          </div>
         )}
       </div>
 
       {/* Right: text column */}
       <div>
-        {data.label && <Label text={data.label} />}
+        {data.label && (
+          <div className="section-label">{data.label}</div>
+        )}
 
-        <h2 className="mb-5 font-heading text-[clamp(2.2rem,4vw,3.6rem)] font-light leading-[1.3] text-ocean-deep">
-          {renderTitle(data.title, data.titleItalic)}
+        <h2 className="section-heading">
+          {renderTitle(data.title, data.titleItalic, "")}
         </h2>
 
-        <p className="text-[0.92rem] font-light leading-[1.85] text-text-light">
-          {data.body}
-        </p>
+        <p className="section-body">{data.body}</p>
 
-        {data.cta && <CTALine label={data.cta.label} url={data.cta.url} />}
+        {data.cta && (
+          <a href={data.cta.url} className="btn-line">
+            {data.cta.label} <span className="arrow" />
+          </a>
+        )}
       </div>
     </section>
   );
