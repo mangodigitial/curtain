@@ -1,22 +1,6 @@
 import Image from "next/image";
 import type { GalleryMosaicSection } from "./types";
-
-/* ─── Helper: render title with italic spans ─────────── */
-
-function renderTitle(title: string, titleItalic?: string) {
-  if (!titleItalic) return title;
-
-  const parts = title.split(titleItalic);
-  if (parts.length < 2) return title;
-
-  return (
-    <>
-      {parts[0]}
-      <em className="text-sand">{titleItalic}</em>
-      {parts.slice(1).join(titleItalic)}
-    </>
-  );
-}
+import { renderTitle } from "./render-title";
 
 /* ─── Grid Item ──────────────────────────────────────── */
 
@@ -63,14 +47,14 @@ export default function GalleryMosaic({
             </p>
           )}
           {data.title && (
-            <h2 className="font-heading text-[clamp(2rem,4vw,3rem)] font-light leading-tight text-ocean-deep">
+            <h2 className="font-heading text-[clamp(2.2rem,4vw,3.6rem)] font-light leading-tight text-ocean-deep">
               {renderTitle(data.title, data.titleItalic)}
             </h2>
           )}
         </header>
       )}
 
-      <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-3 md:grid-cols-4">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-[0.8rem] md:grid-cols-4">
         {data.images.map((image, i) => {
           let span = "";
           if (i === 0) span = "col-span-2 row-span-2";

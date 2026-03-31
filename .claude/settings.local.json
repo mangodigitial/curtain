@@ -32,7 +32,18 @@
       "Bash(npm run:*)",
       "Bash(npx tsx -e \":*)",
       "Bash(npx tsx:*)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(vercel --version)",
+      "Bash(mkdir -p .vercel)",
+      "Bash(.vercel/project.json:*)",
+      "Bash(vercel whoami:*)",
+      "Bash(vercel link:*)",
+      "Bash(vercel env:*)",
+      "Bash(printf 'postgresql://neondb_owner:npg_ze2cGsiDaMS0@ep-fragrant-tooth-am42ankv.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require')",
+      "Bash(vercel deploy:*)",
+      "Bash(vercel project:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)"
     ]
   }
 }

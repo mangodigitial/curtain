@@ -3,23 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import type { RoomDetailSection } from "./types";
-
-/* ─── Helper: render name with italic spans ──────────── */
-
-function renderName(name: string, nameItalic?: string) {
-  if (!nameItalic) return name;
-
-  const parts = name.split(nameItalic);
-  if (parts.length < 2) return name;
-
-  return (
-    <>
-      {parts[0]}
-      <em className="text-coral">{nameItalic}</em>
-      {parts.slice(1).join(nameItalic)}
-    </>
-  );
-}
+import { renderTitle } from "./render-title";
 
 /* ─── Image Carousel ─────────────────────────────────── */
 
@@ -127,7 +111,7 @@ function Amenities({ items }: { items: string[] }) {
     <div>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="flex items-center gap-2 text-[0.65rem] font-medium uppercase tracking-[0.3em] text-ocean-deep transition-opacity hover:opacity-70"
+        className="flex items-center gap-2 text-[0.65rem] font-medium uppercase tracking-[0.3em] text-ocean-deep transition-colors hover:text-coral"
         aria-expanded={open}
       >
         Amenities
@@ -157,7 +141,7 @@ function Amenities({ items }: { items: string[] }) {
               className="flex items-center gap-2 text-[0.75rem] text-text-light"
             >
               <span
-                className="h-1.5 w-1.5 flex-none rounded-full bg-gold"
+                className="h-1 w-1 flex-none rounded-full bg-gold"
                 aria-hidden="true"
               />
               {item}
@@ -187,7 +171,7 @@ export default function RoomDetail({ data }: { data: RoomDetailSection }) {
 
         {/* Name */}
         <h2 className="mb-5 font-heading text-[clamp(1.8rem,3vw,2.8rem)] font-light leading-[1.15] text-ocean-deep">
-          {renderName(data.name, data.nameItalic)}
+          {renderTitle(data.name, data.nameItalic)}
         </h2>
 
         {/* Description */}

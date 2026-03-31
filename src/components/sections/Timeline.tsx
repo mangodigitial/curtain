@@ -1,22 +1,6 @@
 import Image from "next/image";
 import type { TimelineSection } from "./types";
-
-/* ─── Helper: render heading with italic spans ────────── */
-
-function renderHeading(heading: string, headingItalic?: string) {
-  if (!headingItalic) return heading;
-
-  const parts = heading.split(headingItalic);
-  if (parts.length < 2) return heading;
-
-  return (
-    <>
-      {parts[0]}
-      <em className="text-coral">{headingItalic}</em>
-      {parts.slice(1).join(headingItalic)}
-    </>
-  );
-}
+import { renderTitle } from "./render-title";
 
 /* ─── Timeline Item ──────────────────────────────────── */
 
@@ -40,7 +24,7 @@ function TimelineItem({
           {item.year}
         </p>
         <h3 className="mb-3 font-heading text-[clamp(1.4rem,2vw,1.8rem)] font-normal leading-tight text-ocean-deep">
-          {renderHeading(item.heading, item.headingItalic)}
+          {renderTitle(item.heading, item.headingItalic)}
         </h3>
         <p className="text-[0.88rem] font-light leading-[1.85] text-text-light">
           {item.text}

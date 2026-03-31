@@ -1,27 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ExploreCardsSection } from "./types";
-
-/* ─── Helper: render title with italic spans ─────────── */
-
-function renderTitle(
-  title: string,
-  titleItalic?: string,
-  italicClass?: string,
-) {
-  if (!titleItalic) return title;
-
-  const parts = title.split(titleItalic);
-  if (parts.length < 2) return title;
-
-  return (
-    <>
-      {parts[0]}
-      <em className={italicClass}>{titleItalic}</em>
-      {parts.slice(1).join(titleItalic)}
-    </>
-  );
-}
+import { renderTitle } from "./render-title";
 
 /* ─── Main Export ─────────────────────────────────────── */
 

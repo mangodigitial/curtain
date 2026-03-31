@@ -139,7 +139,7 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
 
         {/* Title */}
         <h2
-          className={`mb-2 font-heading text-[clamp(2rem,3.5vw,3rem)] font-light leading-[1.15] ${headingColor}`}
+          className={`mb-2 font-heading text-[clamp(2.2rem,4vw,3.6rem)] font-light leading-[1.15] ${headingColor}`}
         >
           {title}
           {titleItalic && (
@@ -158,7 +158,7 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
         )}
 
         {/* Body */}
-        <p className={`mb-8 max-w-[520px] text-[0.85rem] font-light leading-[1.85] ${bodyColor}`}>
+        <p className={`mb-8 max-w-[520px] text-[0.9rem] font-light leading-[1.85] ${bodyColor}`}>
           {body}
         </p>
 

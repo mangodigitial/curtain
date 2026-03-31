@@ -2,23 +2,7 @@
 
 import Image from "next/image";
 import type { WellnessScrollSection } from "./types";
-
-/* ─── Helper: render title with italic spans ─────────── */
-
-function renderTitle(title: string, titleItalic?: string) {
-  if (!titleItalic) return title;
-
-  const parts = title.split(titleItalic);
-  if (parts.length < 2) return title;
-
-  return (
-    <>
-      {parts[0]}
-      <em className="text-coral-soft">{titleItalic}</em>
-      {parts.slice(1).join(titleItalic)}
-    </>
-  );
-}
+import { renderTitle } from "./render-title";
 
 /* ─── Main Export ─────────────────────────────────────── */
 
@@ -38,7 +22,7 @@ export default function WellnessScroll({
         )}
         {data.title && (
           <h2 className="font-heading text-[clamp(1.8rem,3vw,2.4rem)] font-light leading-tight text-sand">
-            {renderTitle(data.title, data.titleItalic)}
+            {renderTitle(data.title, data.titleItalic, "text-coral-soft")}
           </h2>
         )}
       </div>

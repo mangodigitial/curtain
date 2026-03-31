@@ -1,21 +1,5 @@
 import type { DetailColumnsSection } from "./types";
-
-/* ─── Helper: render title with italic spans ─────────── */
-
-function renderTitle(title: string, titleItalic?: string) {
-  if (!titleItalic) return title;
-
-  const parts = title.split(titleItalic);
-  if (parts.length < 2) return title;
-
-  return (
-    <>
-      {parts[0]}
-      <em className="text-coral">{titleItalic}</em>
-      {parts.slice(1).join(titleItalic)}
-    </>
-  );
-}
+import { renderTitle } from "./render-title";
 
 /* ─── Main Export ─────────────────────────────────────── */
 

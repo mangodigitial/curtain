@@ -1,22 +1,6 @@
 import Image from "next/image";
 import type { HeroSection } from "./types";
-
-/* ─── Helper: render title with italic spans ─────────── */
-
-function renderTitle(title: string, titleItalic?: string) {
-  if (!titleItalic) return title;
-
-  const parts = title.split(titleItalic);
-  if (parts.length < 2) return title;
-
-  return (
-    <>
-      {parts[0]}
-      <em className="text-sand">{titleItalic}</em>
-      {parts.slice(1).join(titleItalic)}
-    </>
-  );
-}
+import { renderTitle } from "./render-title";
 
 /* ─── Breadcrumb ─────────────────────────────────────── */
 
@@ -54,7 +38,7 @@ function ScrollIndicator() {
   return (
     <div className="absolute bottom-8 right-12 flex flex-col items-center gap-3 text-[0.55rem] uppercase tracking-[0.3em] text-white/50">
       <span className="writing-vertical">Scroll</span>
-      <span className="block h-10 w-px bg-white/30" aria-hidden="true" />
+      <span className="block h-[50px] w-px bg-white/30" aria-hidden="true" />
     </div>
   );
 }
@@ -108,11 +92,11 @@ function HeroFull({ data }: { data: HeroSection }) {
         )}
 
         <h1 className="mb-6 font-heading text-[clamp(3rem,7vw,6.5rem)] font-light leading-[1.05] text-white">
-          {renderTitle(data.title, data.titleItalic)}
+          {renderTitle(data.title, data.titleItalic, "text-sand")}
         </h1>
 
         {data.subtitle && (
-          <p className="max-w-[480px] text-[0.85rem] font-light leading-relaxed text-white/70">
+          <p className="max-w-[480px] text-[0.85rem] font-light leading-[1.7] text-white/70">
             {data.subtitle}
           </p>
         )}
@@ -136,11 +120,11 @@ function HeroShort({ data }: { data: HeroSection }) {
         )}
 
         <h1 className="mb-6 font-heading text-[clamp(2.8rem,6vw,5.5rem)] font-light leading-[1.05] text-white">
-          {renderTitle(data.title, data.titleItalic)}
+          {renderTitle(data.title, data.titleItalic, "text-sand")}
         </h1>
 
         {data.subtitle && (
-          <p className="max-w-[480px] text-[0.85rem] font-light leading-relaxed text-white/70">
+          <p className="max-w-[480px] text-[0.85rem] font-light leading-[1.7] text-white/70">
             {data.subtitle}
           </p>
         )}
@@ -166,7 +150,7 @@ function HeroCentered({ data }: { data: HeroSection }) {
         )}
 
         <h1 className="mb-6 font-heading text-[clamp(2.5rem,6vw,5rem)] font-light leading-[1.05] text-white">
-          {renderTitle(data.title, data.titleItalic)}
+          {renderTitle(data.title, data.titleItalic, "text-sand")}
         </h1>
 
         {data.subtitle && (

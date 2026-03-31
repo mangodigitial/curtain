@@ -25,7 +25,7 @@ export default function Footer({
   badges,
 }: FooterProps) {
   return (
-    <footer className="bg-[#0A1E26] text-sand-dark py-20 px-12">
+    <footer className="bg-[#0A1E26] text-sand-dark pt-20 pb-8 px-12">
       {/* Footer Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-12 max-w-[1400px] mx-auto mb-12">
         {/* Brand Column */}

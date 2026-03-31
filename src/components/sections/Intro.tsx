@@ -1,22 +1,6 @@
 import Image from "next/image";
 import type { IntroSection } from "./types";
-
-/* ─── Helper: render title with italic spans ─────────── */
-
-function renderTitle(title: string, titleItalic?: string) {
-  if (!titleItalic) return title;
-
-  const parts = title.split(titleItalic);
-  if (parts.length < 2) return title;
-
-  return (
-    <>
-      {parts[0]}
-      <em className="text-coral">{titleItalic}</em>
-      {parts.slice(1).join(titleItalic)}
-    </>
-  );
-}
+import { renderTitle } from "./render-title";
 
 /* ─── Label with gold lines ──────────────────────────── */
 
@@ -33,9 +17,9 @@ function Label({
         centered ? "justify-center" : ""
       }`}
     >
-      <span className="h-px w-8 bg-gold" aria-hidden="true" />
+      <span className="h-px w-[40px] bg-gold" aria-hidden="true" />
       {text}
-      <span className="h-px w-8 bg-gold" aria-hidden="true" />
+      <span className="h-px w-[40px] bg-gold" aria-hidden="true" />
     </p>
   );
 }
@@ -67,7 +51,7 @@ function IntroSimple({ data }: { data: IntroSection }) {
     <section className="mx-auto max-w-[800px] px-12 py-20 text-center">
       {data.label && <Label text={data.label} centered />}
 
-      <h2 className="mb-5 font-heading text-[clamp(1.8rem,3vw,2.4rem)] font-light leading-[1.3] text-ocean-deep">
+      <h2 className="mb-5 font-heading text-[clamp(2.2rem,4vw,3.6rem)] font-light leading-[1.3] text-ocean-deep">
         {renderTitle(data.title, data.titleItalic)}
       </h2>
 
@@ -111,7 +95,7 @@ function IntroWithImages({ data }: { data: IntroSection }) {
               alt={images.float.alt}
               width={images.float.width ?? 600}
               height={images.float.height ?? 450}
-              className="aspect-[4/3] border-[6px] border-white object-cover shadow-xl"
+              className="aspect-[4/3] border-[6px] border-white object-cover shadow-[20px_20px_60px_rgba(0,0,0,0.12)]"
               sizes="(max-width: 1024px) 55vw, 24vw"
               {...(images.float.blurhash
                 ? { placeholder: "blur", blurDataURL: images.float.blurhash }
@@ -134,7 +118,7 @@ function IntroWithImages({ data }: { data: IntroSection }) {
       <div>
         {data.label && <Label text={data.label} />}
 
-        <h2 className="mb-5 font-heading text-[clamp(1.8rem,3vw,2.4rem)] font-light leading-[1.3] text-ocean-deep">
+        <h2 className="mb-5 font-heading text-[clamp(2.2rem,4vw,3.6rem)] font-light leading-[1.3] text-ocean-deep">
           {renderTitle(data.title, data.titleItalic)}
         </h2>
 

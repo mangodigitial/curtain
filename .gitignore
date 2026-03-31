@@ -39,3 +39,5 @@ next-env.d.ts
 /curtain-bluff-templates/
 /hotel-cms-spec.md
 /claude-code-briefing.md
+
+.vercel
