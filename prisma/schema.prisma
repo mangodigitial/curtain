@@ -1,0 +1,185 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ──────────────────────────────────────────────
+
+enum PageStatus {
+  published
+  draft
+  scheduled
+}
+
+enum PostCategory {
+  news
+  press
+  travel
+  dining
+  events
+}
+
+enum OfferStatus {
+  active
+  expired
+  draft
+}
+
+enum UserRole {
+  admin
+  editor
+}
+
+// ─── Site Settings (single row) ─────────────────────────
+
+model SiteSettings {
+  id              String   @id @default(uuid()) @db.Uuid
+  name            String   @default("Hotel Name")
+  domain          String   @default("example.com")
+  branding        Json     @default("{}") @db.JsonB
+  seoDefaults     Json     @default("{}") @map("seo_defaults") @db.JsonB
+  analytics       Json     @default("{}") @db.JsonB
+  contact         Json     @default("{}") @db.JsonB
+  integrations    Json     @default("{}") @db.JsonB
+  legal           Json     @default("{}") @db.JsonB
+  announcementBar Json     @default("{}") @map("announcement_bar") @db.JsonB
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("site_settings")
+}
+
+// ─── Pages ──────────────────────────────────────────────
+
+model Page {
+  id         String     @id @default(uuid()) @db.Uuid
+  title      String
+  slug       String     @unique
+  parentId   String?    @map("parent_id") @db.Uuid
+  parent     Page?      @relation("PageHierarchy", fields: [parentId], references: [id])
+  children   Page[]     @relation("PageHierarchy")
+  template   String     @default("generic")
+  sections   Json       @default("[]") @db.JsonB
+  seo        Json       @default("{}") @db.JsonB
+  status     PageStatus @default(draft)
+  publishAt  DateTime?  @map("publish_at")
+  sortOrder  Int        @default(0) @map("sort_order")
+  showInNav  Boolean    @default(true) @map("show_in_nav")
+  navLabel   String?    @map("nav_label")
+  createdAt  DateTime   @default(now()) @map("created_at")
+  updatedAt  DateTime   @updatedAt @map("updated_at")
+
+  @@map("pages")
+}
+
+// ─── Media Library ──────────────────────────────────────
+
+model Media {
+  id        String   @id @default(uuid()) @db.Uuid
+  url       String
+  filename  String
+  altText   String   @default("") @map("alt_text")
+  caption   String?
+  width     Int      @default(0)
+  height    Int      @default(0)
+  sizeBytes Int      @default(0) @map("size_bytes")
+  mimeType  String   @default("image/webp") @map("mime_type")
+  folder    String   @default("general")
+  blurhash  String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("media")
+}
+
+// ─── Blog / News ────────────────────────────────────────
+
+model Post {
+  id            String        @id @default(uuid()) @db.Uuid
+  title         String
+  slug          String        @unique
+  excerpt       String?
+  content       Json          @default("{}") @db.JsonB
+  featuredImage String?       @map("featured_image") @db.Uuid
+  category      PostCategory  @default(news)
+  tags          String[]      @default([])
+  authorName    String        @default("") @map("author_name")
+  seo           Json          @default("{}") @db.JsonB
+  status        PageStatus    @default(draft)
+  publishAt     DateTime?     @map("publish_at")
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+
+  @@map("posts")
+}
+
+// ─── Special Offers ─────────────────────────────────────
+
+model Offer {
+  id             String      @id @default(uuid()) @db.Uuid
+  title          String
+  slug           String      @unique
+  description    String      @default("")
+  image          String?     @db.Uuid
+  discountLabel  String?     @map("discount_label")
+  details        Json        @default("{}") @db.JsonB
+  includes       String[]    @default([])
+  terms          String?
+  bookingUrl     String?     @map("booking_url")
+  validFrom      DateTime?   @map("valid_from")
+  validTo        DateTime?   @map("valid_to")
+  blackoutDates  Json        @default("[]") @map("blackout_dates") @db.JsonB
+  roomCategories String[]    @default([]) @map("room_categories")
+  isFeatured     Boolean     @default(false) @map("is_featured")
+  status         OfferStatus @default(draft)
+  createdAt      DateTime    @default(now()) @map("created_at")
+  updatedAt      DateTime    @updatedAt @map("updated_at")
+
+  @@map("offers")
+}
+
+// ─── Redirects ──────────────────────────────────────────
+
+model Redirect {
+  id        String   @id @default(uuid()) @db.Uuid
+  fromPath  String   @map("from_path")
+  toPath    String   @map("to_path")
+  type      Int      @default(301)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("redirects")
+}
+
+// ─── Form Submissions ───────────────────────────────────
+
+model Submission {
+  id        String   @id @default(uuid()) @db.Uuid
+  formType  String   @map("form_type")
+  data      Json     @default("{}") @db.JsonB
+  read      Boolean  @default(false)
+  replied   Boolean  @default(false)
+  ipAddress String?  @map("ip_address")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("submissions")
+}
+
+// ─── Admin Users ────────────────────────────────────────
+
+model User {
+  id           String    @id @default(uuid()) @db.Uuid
+  email        String    @unique
+  passwordHash String    @map("password_hash")
+  name         String
+  role         UserRole  @default(editor)
+  lastLogin    DateTime? @map("last_login")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  @@map("users")
+}

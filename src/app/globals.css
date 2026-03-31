@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  /* Sand palette */
+  --color-sand: #E8DED1;
+  --color-sand-light: #F5F0EA;
+  --color-sand-dark: #D4C8B8;
+
+  /* Ocean palette */
+  --color-ocean: #1A4B5C;
+  --color-ocean-deep: #0D2F3A;
+  --color-ocean-light: #2A7A8F;
+
+  /* Coral palette */
+  --color-coral: #C4705A;
+  --color-coral-soft: #D4917E;
+
+  /* Gold palette */
+  --color-gold: #B8944F;
+  --color-gold-light: #D4B87A;
+
+  /* Neutrals */
+  --color-white: #FEFCF9;
+  --color-text: #3A342E;
+  --color-text-light: #7A7068;
+
+  /* Fonts */
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Libre Franklin", sans-serif;
+
+  /* Animations */
+  --animate-slow-zoom: slow-zoom 25s ease-in-out infinite alternate;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-sand-dark);
+  color: var(--color-ocean-deep);
+}
+
+/* Hero slow-zoom keyframes */
+@keyframes slow-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+/* Vertical writing mode utility */
+.writing-vertical {
+  writing-mode: vertical-rl;
+}
+
+/* Scroll reveal utilities */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar for body */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) var(--color-sand-light);
+}

@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx next:*)",
+      "Bash(npx prisma:*)",
+      "Bash(DATABASE_URL=\"postgresql://dummy:dummy@localhost:5432/dummy\" npx prisma generate)",
+      "Bash(npx tsc:*)",
+      "Bash(grep -E \"\\\\.tsx$\")",
+      "Bash(find C:UsersmattyDocumentsProgramscurtaincurtain-bluff-download -type f \\\\\\(-name *.jpg -o -name *.jpeg -o -name *.png -o -name *.webp \\\\\\))",
+      "Bash(find C:UsersmattyDocumentsProgramscurtaincurtain-bluff-download -path */wp-content/uploads/* -type f \\\\\\(-name *.jpg -o -name *.jpeg -o -name *.png -o -name *.webp \\\\\\) ! -name *-[0-9]*x[0-9]*.*)",
+      "Bash(find C:/Users/matty/Documents/Programs/curtain/curtain-bluff-download/curtainbluff/curtainbluff.com/wp-content/uploads -type f \\\\\\(-name *.jpg -o -name *.jpeg -o -name *.png \\\\\\) ! -name *-[0-9]*x[0-9]*.* ! -path */elementor/* ! -path */revslider/*)",
+      "Bash(mkdir -p \"C:/Users/matty/Documents/Programs/curtain/src/app/api/pages/[id]\")",
+      "Bash(mkdir -p \"C:/Users/matty/Documents/Programs/curtain/src/app/admin/pages/[id]\")",
+      "Bash(cp:*)",
+      "Bash(find \"C:/Users/matty/Documents/Programs/curtain/src/app/admin/\\(dashboard\\)\" -type d)",
+      "Bash(ls -la \"C:/Users/matty/Documents/Programs/curtain/src/app/admin/\\(dashboard\\)/pages/page.tsx\")",
+      "Bash(ls -la \"C:/Users/matty/Documents/Programs/curtain/src/app/admin/\\(dashboard\\)/pages/new/page.tsx\")",
+      "Bash(ls -la \"C:/Users/matty/Documents/Programs/curtain/src/app/admin/\\(dashboard\\)/pages/[id]/page.tsx\")",
+      "Bash(mkdir -p \"\\(dashboard\\)/blog/new\" \"\\(dashboard\\)/blog\" \"\\(dashboard\\)/offers/new\" \"\\(dashboard\\)/offers\" \"\\(dashboard\\)/redirects\" \"\\(dashboard\\)/submissions\" \"\\(dashboard\\)/settings\")",
+      "Bash(mv blog/page.tsx \"\\(dashboard\\)/blog/page.tsx\")",
+      "Bash(mv blog/new/page.tsx \"\\(dashboard\\)/blog/new/page.tsx\")",
+      "Bash(mv blog/*/page.tsx)",
+      "Bash(mv offers/page.tsx \"\\(dashboard\\)/offers/page.tsx\")",
+      "Bash(cd:*)",
+      "Bash(mkdir -p \"\\(dashboard\\)/blog/[id]\" \"\\(dashboard\\)/offers/[id]\")",
+      "Bash(cp blog/[id]/page.tsx \"\\(dashboard\\)/blog/[id]/page.tsx\")",
+      "Bash(cp offers/[id]/page.tsx \"\\(dashboard\\)/offers/[id]/page.tsx\")",
+      "Bash(rm -rf blog offers redirects submissions settings)",
+      "Bash(xargs wc:*)"
+    ]
+  }
+}
