@@ -106,7 +106,7 @@ export default function HoneymoonTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="gallery-band reveal">
+      <div className="sub-gallery-band reveal">
         <img
           src={`${BLOB}honeymoon-1.webp`}
           alt="Couple strolling along the beach at Curtain Bluff"

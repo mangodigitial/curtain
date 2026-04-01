@@ -139,14 +139,14 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
       </section>
 
       {/* ═══ GALLERY ═══ */}
-      <section className="gallery reveal">
-        <div className="gallery-grid">
-          <div className="gi"><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-5.webp" alt="Spa terrace with ocean views at Curtain Bluff" /></div>
-          <div className="gi"><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-6.webp" alt="Spa treatment detail at Curtain Bluff" /></div>
-          <div className="gi"><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-7.webp" alt="Spa treatment room interior at Curtain Bluff" /></div>
-          <div className="gi"><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-8.webp" alt="Premium spa products used at Curtain Bluff" /></div>
-          <div className="gi"><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-9.webp" alt="Relaxation area at the Curtain Bluff Spa" /></div>
-          <div className="gi"><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-10-1.webp" alt="Massage therapy at the Curtain Bluff Spa" /></div>
+      <section className="home-gallery reveal">
+        <div className="home-gallery-grid">
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-5.webp" alt="Spa terrace with ocean views at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-6.webp" alt="Spa treatment detail at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-7.webp" alt="Spa treatment room interior at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-8.webp" alt="Premium spa products used at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-9.webp" alt="Relaxation area at the Curtain Bluff Spa" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-10-1.webp" alt="Massage therapy at the Curtain Bluff Spa" /></div>
         </div>
       </section>
 

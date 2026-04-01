@@ -99,7 +99,7 @@ export default function WaterSportsTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="gallery-band reveal">
+      <div className="sub-gallery-band reveal">
         <img
           src={`${BLOB}activities-7.webp`}
           alt="Sailing a Hobie Cat at Curtain Bluff"

@@ -91,7 +91,7 @@ export default function KidsCampTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="gallery-band reveal">
+      <div className="sub-gallery-band reveal">
         <img
           src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-3.webp"
           alt="Kids enjoying beach fun at Curtain Bluff"

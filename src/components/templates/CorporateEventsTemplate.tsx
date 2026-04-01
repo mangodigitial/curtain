@@ -98,7 +98,7 @@ export default function CorporateEventsTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="gallery-band reveal">
+      <div className="sub-gallery-band reveal">
         <img
           src={`${BLOB}corporateevent-1.webp`}
           alt="Corporate team gathering at Curtain Bluff resort"

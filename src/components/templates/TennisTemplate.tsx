@@ -81,7 +81,7 @@ export default function TennisTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="gallery-band reveal">
+      <div className="sub-gallery-band reveal">
         <img
           src={`${BLOB}/pt-tennis-bg.webp`}
           alt="Aerial view of Curtain Bluff tennis courts"

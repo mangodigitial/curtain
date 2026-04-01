@@ -82,7 +82,7 @@ export default function ScubaDivingTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="gallery-band reveal">
+      <div className="sub-gallery-band reveal">
         <img
           src={`${BLOB}/activities-8.webp`}
           alt="Scuba diver exploring Cades Reef near Curtain Bluff"

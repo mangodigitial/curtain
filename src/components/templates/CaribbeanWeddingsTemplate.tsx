@@ -97,7 +97,7 @@ export default function CaribbeanWeddingsTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="gallery-band reveal">
+      <div className="sub-gallery-band reveal">
         <img
           src={`${BLOB}wedding03.webp`}
           alt="Beach wedding ceremony at Curtain Bluff"

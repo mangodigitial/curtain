@@ -85,7 +85,7 @@ export default function GroundSportsTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="gallery-band reveal">
+      <div className="sub-gallery-band reveal">
         <img
           src={`${BLOB}/25-tennis-at-curtain-bluff.webp`}
           alt="Championship tennis courts at Curtain Bluff"

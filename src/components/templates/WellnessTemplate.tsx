@@ -86,7 +86,7 @@ export default function WellnessTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="gallery-band reveal">
+      <div className="sub-gallery-band reveal">
         <img
           src={`${BLOB}/spa-at-curtain-bluff.webp`}
           alt="Spa and wellness facilities at Curtain Bluff"

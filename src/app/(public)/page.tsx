@@ -231,26 +231,20 @@ export default async function HomePage() {
       </section>
 
       {/* ═══════ GALLERY ═══════ */}
-      <section className="gallery reveal" id="gallery">
-        <div className="gallery-header">
+      <section className="home-gallery reveal" id="gallery">
+        <div className="home-gallery-header">
           <div className="section-label" style={{ justifyContent: 'center' }}>Gallery</div>
           <h2 className="section-heading">
             A Glimpse of <em>Our Spirit</em>
           </h2>
         </div>
-        <div className="gallery-grid">
-          {[
-            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery01.webp', alt: 'Aerial view of Curtain Bluff resort' },
-            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery02-1.webp', alt: 'Pool suites at Curtain Bluff' },
-            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery03-1.webp', alt: 'Wedding ceremony on the beach' },
-            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery04-1.webp', alt: 'Fine dining at Curtain Bluff' },
-            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery05.webp', alt: 'Pristine beach at Curtain Bluff' },
-            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery06.webp', alt: 'Spa treatment room' },
-          ].map((img, i) => (
-            <div className="gi" key={i}>
-              <img src={img.src} alt={img.alt} />
-            </div>
-          ))}
+        <div className="home-gallery-grid">
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery01.webp" alt="Aerial view of Curtain Bluff resort" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery02-1.webp" alt="Pool suites at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery03-1.webp" alt="Wedding ceremony on the beach" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery04-1.webp" alt="Fine dining at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery05.webp" alt="Pristine beach at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery06.webp" alt="Spa treatment room" /></div>
         </div>
       </section>
 
