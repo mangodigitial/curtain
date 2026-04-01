@@ -37,6 +37,35 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
         </div>
       </section>
 
+      {/* ═══ CENTERED INTRO TEXT ═══ */}
+      <section className="about-intro reveal">
+        <div className="section-label" style={{ justifyContent: "center" }}>
+          THE SPA
+        </div>
+        <h2>
+          Close Your Eyes, <em>Inhale Deeply</em>
+        </h2>
+        <p>
+          Our tranquil full-service spa invites you to escape into a world of
+          serenity. Set within lush tropical gardens with ocean breezes, every
+          treatment is designed to restore, rejuvenate, and inspire.
+        </p>
+        <div className="spa-stats" style={{ justifyContent: "center" }}>
+          <div>
+            <div className="spa-stat-val">5,000</div>
+            <div className="spa-stat-label">Sq. Ft.</div>
+          </div>
+          <div>
+            <div className="spa-stat-val">4</div>
+            <div className="spa-stat-label">Treatment Rooms</div>
+          </div>
+          <div>
+            <div className="spa-stat-val">5</div>
+            <div className="spa-stat-label">Island Views</div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ INTRO EDITORIAL ═══ */}
       <section className="spa-intro reveal">
         <div className="spa-intro-media">

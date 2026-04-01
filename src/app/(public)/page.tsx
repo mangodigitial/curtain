@@ -194,6 +194,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <div className="dark-section-divider" />
+
       {/* ═══════ WELLNESS ═══════ */}
       <section className="wellness reveal" id="wellness">
         <div className="wellness-header">

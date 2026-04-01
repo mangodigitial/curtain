@@ -897,31 +897,6 @@ footer {
   padding: 0.4rem 0.8rem;
 }
 
-/* ═══════════════ CUSTOM CURSOR ═══════════════ */
-@media (pointer: fine) {
-  body { cursor: none; }
-  a, button { cursor: none; }
-}
-
-.cursor {
-  width: 12px; height: 12px;
-  background: var(--coral);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 10000;
-  transition: transform 0.15s ease, opacity 0.15s ease;
-  mix-blend-mode: difference;
-  filter: invert(1);
-}
-.cursor.hover {
-  transform: scale(3.5);
-}
-
-@media (pointer: coarse) {
-  .cursor { display: none; }
-}
-
 /* ═══════════════ BOOKING BAR ═══════════════ */
 .book-bar {
   position: fixed;
@@ -3876,4 +3851,10 @@ footer {
   color: var(--sand-dark);
   font-weight: 400;
   margin-top: 0.3rem;
+}
+
+/* ═══════════════ SECTION DIVIDERS ═══════════════ */
+.dark-section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
 }

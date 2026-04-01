@@ -1,7 +1,6 @@
 import { getSiteSettings } from "@/lib/site-settings";
 import Navigation from "@/components/shared/Navigation";
 import Footer from "@/components/shared/Footer";
-import CustomCursor from "@/components/shared/CustomCursor";
 import GrainOverlay from "@/components/shared/GrainOverlay";
 import BookingBar from "@/components/shared/BookingBar";
 import AnnouncementBar from "@/components/shared/AnnouncementBar";
@@ -107,7 +106,6 @@ export default async function PublicLayout({
       />
 
       <BookingBar bookingUrl={bookingUrl} />
-      <CustomCursor />
       <GrainOverlay />
       <CookieConsent />
 
