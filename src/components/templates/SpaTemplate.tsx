@@ -146,13 +146,13 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
         </div>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gridAutoRows: '250px',
+          gridTemplateColumns: '2fr 1fr 1fr',
+          gridTemplateRows: '300px 300px',
           gap: '0.8rem',
           maxWidth: '1400px',
           margin: '0 auto'
         }}>
-          <div style={{ overflow: 'hidden', gridColumn: '1 / 3', gridRow: '1 / 3' }}>
+          <div style={{ overflow: 'hidden', gridRow: '1 / 3' }}>
             <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-5.webp" alt="Spa terrace with ocean views at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
           <div style={{ overflow: 'hidden' }}>
@@ -164,11 +164,8 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
           <div style={{ overflow: 'hidden' }}>
             <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-8.webp" alt="Premium spa products used at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
-          <div style={{ overflow: 'hidden', gridColumn: '3 / 5' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-9.webp" alt="Relaxation area at the Curtain Bluff Spa" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
           <div style={{ overflow: 'hidden' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-10-1.webp" alt="Massage therapy at the Curtain Bluff Spa" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-9.webp" alt="Relaxation area at the Curtain Bluff Spa" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
         </div>
       </section>

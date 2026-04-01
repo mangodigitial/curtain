@@ -238,13 +238,13 @@ export default async function HomePage() {
         </div>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gridAutoRows: '250px',
+          gridTemplateColumns: '2fr 1fr 1fr',
+          gridTemplateRows: '300px 300px',
           gap: '0.8rem',
           maxWidth: '1400px',
           margin: '0 auto'
         }}>
-          <div style={{ overflow: 'hidden', gridColumn: '1 / 3', gridRow: '1 / 3' }}>
+          <div style={{ overflow: 'hidden', gridRow: '1 / 3' }}>
             <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery01.webp" alt="Aerial view of Curtain Bluff resort" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
           <div style={{ overflow: 'hidden' }}>
@@ -256,11 +256,8 @@ export default async function HomePage() {
           <div style={{ overflow: 'hidden' }}>
             <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery04-1.webp" alt="Fine dining at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
-          <div style={{ overflow: 'hidden', gridColumn: '3 / 5' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery05.webp" alt="Pristine beach at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
           <div style={{ overflow: 'hidden' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery06.webp" alt="Spa treatment room" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery05.webp" alt="Pristine beach at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
         </div>
       </section>
