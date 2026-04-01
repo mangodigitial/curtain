@@ -99,23 +99,16 @@ export default function WaterSportsTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="sub-gallery-band reveal">
-        <img
-          src={`${BLOB}activities-7.webp`}
-          alt="Sailing a Hobie Cat at Curtain Bluff"
-        />
-        <img
-          src={`${BLOB}activities-8.webp`}
-          alt="Kayaking on calm Caribbean waters"
-        />
-        <img
-          src={`${BLOB}activities-9.webp`}
-          alt="Waterskiing off Curtain Bluff beach"
-        />
-        <img
-          src={`${BLOB}pt-water-sports-bg.webp`}
-          alt="Snorkelling along Antigua reefs"
-        />
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridAutoRows: '300px',
+        gap: '0.4rem'
+      }}>
+        <img src={`${BLOB}activities-7.webp`} alt="Sailing a Hobie Cat at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}activities-8.webp`} alt="Kayaking on calm Caribbean waters" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}activities-9.webp`} alt="Waterskiing off Curtain Bluff beach" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}pt-water-sports-bg.webp`} alt="Snorkelling along Antigua reefs" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
       </div>
 
       {/* ═══════ EDITORIAL: SAILING & HOBIE CATS ═══════ */}

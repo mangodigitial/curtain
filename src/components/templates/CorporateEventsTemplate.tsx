@@ -98,23 +98,16 @@ export default function CorporateEventsTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="sub-gallery-band reveal">
-        <img
-          src={`${BLOB}corporateevent-1.webp`}
-          alt="Corporate team gathering at Curtain Bluff resort"
-        />
-        <img
-          src={`${BLOB}corporateevent-2.webp`}
-          alt="Executive meeting in the Tamarind events room"
-        />
-        <img
-          src={`${BLOB}corporateevent-3.webp`}
-          alt="Corporate cocktail reception overlooking the Caribbean"
-        />
-        <img
-          src={`${BLOB}corporateevent-4.webp`}
-          alt="Group dining event at Curtain Bluff"
-        />
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridAutoRows: '300px',
+        gap: '0.4rem'
+      }}>
+        <img src={`${BLOB}corporateevent-1.webp`} alt="Corporate team gathering at Curtain Bluff resort" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}corporateevent-2.webp`} alt="Executive meeting in the Tamarind events room" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}corporateevent-3.webp`} alt="Corporate cocktail reception overlooking the Caribbean" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}corporateevent-4.webp`} alt="Group dining event at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
       </div>
 
       {/* ═══════ DETAIL: FACILITIES & SERVICES ═══════ */}

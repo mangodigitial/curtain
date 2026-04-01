@@ -81,23 +81,16 @@ export default function TennisTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="sub-gallery-band reveal">
-        <img
-          src={`${BLOB}/pt-tennis-bg.webp`}
-          alt="Aerial view of Curtain Bluff tennis courts"
-        />
-        <img
-          src={`${BLOB}/25-tennis-at-curtain-bluff.webp`}
-          alt="Tennis match at Curtain Bluff"
-        />
-        <img
-          src={`${BLOB}/curtain-bluff-tennis-class.webp`}
-          alt="Tennis coaching clinic at Curtain Bluff"
-        />
-        <img
-          src={`${BLOB}/activities-5.webp`}
-          alt="Tennis and activities at Curtain Bluff"
-        />
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridAutoRows: '300px',
+        gap: '0.4rem'
+      }}>
+        <img src={`${BLOB}/pt-tennis-bg.webp`} alt="Aerial view of Curtain Bluff tennis courts" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}/25-tennis-at-curtain-bluff.webp`} alt="Tennis match at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}/curtain-bluff-tennis-class.webp`} alt="Tennis coaching clinic at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}/activities-5.webp`} alt="Tennis and activities at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
       </div>
 
       {/* ═══════ THE COURTS ═══════ */}

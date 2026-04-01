@@ -86,23 +86,16 @@ export default function WellnessTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="sub-gallery-band reveal">
-        <img
-          src={`${BLOB}/spa-at-curtain-bluff.webp`}
-          alt="Spa and wellness facilities at Curtain Bluff"
-        />
-        <img
-          src={`${BLOB}/spa-1.webp`}
-          alt="Treatment room at the Curtain Bluff Spa"
-        />
-        <img
-          src={`${BLOB}/morris-bay-terrace-with-spa-curtain-bluff.webp`}
-          alt="Morris Bay terrace overlooking the sea at Curtain Bluff"
-        />
-        <img
-          src={`${BLOB}/spa-3.webp`}
-          alt="Spa treatment and relaxation at Curtain Bluff"
-        />
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridAutoRows: '300px',
+        gap: '0.4rem'
+      }}>
+        <img src={`${BLOB}/spa-at-curtain-bluff.webp`} alt="Spa and wellness facilities at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}/spa-1.webp`} alt="Treatment room at the Curtain Bluff Spa" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}/morris-bay-terrace-with-spa-curtain-bluff.webp`} alt="Morris Bay terrace overlooking the sea at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}/spa-3.webp`} alt="Spa treatment and relaxation at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
       </div>
 
       {/* ═══════ FITNESS CENTRE ═══════ */}

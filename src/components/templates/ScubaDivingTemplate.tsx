@@ -82,23 +82,16 @@ export default function ScubaDivingTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="sub-gallery-band reveal">
-        <img
-          src={`${BLOB}/activities-8.webp`}
-          alt="Scuba diver exploring Cades Reef near Curtain Bluff"
-        />
-        <img
-          src={`${BLOB}/activities-10.webp`}
-          alt="Colourful marine life at Cades Reef"
-        />
-        <img
-          src={`${BLOB}/pt-padi-bg.webp`}
-          alt="Underwater diving adventure at Curtain Bluff"
-        />
-        <img
-          src={`${BLOB}/curtain-bluff-diving.webp`}
-          alt="Dive boat departing from Curtain Bluff beach"
-        />
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridAutoRows: '300px',
+        gap: '0.4rem'
+      }}>
+        <img src={`${BLOB}/activities-8.webp`} alt="Scuba diver exploring Cades Reef near Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}/activities-10.webp`} alt="Colourful marine life at Cades Reef" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}/pt-padi-bg.webp`} alt="Underwater diving adventure at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}/curtain-bluff-diving.webp`} alt="Dive boat departing from Curtain Bluff beach" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
       </div>
 
       {/* ═══════ DIVE SITES ═══════ */}

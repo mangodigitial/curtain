@@ -106,23 +106,16 @@ export default function HoneymoonTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="sub-gallery-band reveal">
-        <img
-          src={`${BLOB}honeymoon-1.webp`}
-          alt="Couple strolling along the beach at Curtain Bluff"
-        />
-        <img
-          src={`${BLOB}honeymoon-2.webp`}
-          alt="Romantic sunset dinner for two on the sand"
-        />
-        <img
-          src={`${BLOB}honeymoon-3.webp`}
-          alt="Couple relaxing in a secluded garden daybed"
-        />
-        <img
-          src={`${BLOB}honeymoon-5.webp`}
-          alt="Oceanside spa treatments for honeymooners"
-        />
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridAutoRows: '300px',
+        gap: '0.4rem'
+      }}>
+        <img src={`${BLOB}honeymoon-1.webp`} alt="Couple strolling along the beach at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}honeymoon-2.webp`} alt="Romantic sunset dinner for two on the sand" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}honeymoon-3.webp`} alt="Couple relaxing in a secluded garden daybed" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src={`${BLOB}honeymoon-5.webp`} alt="Oceanside spa treatments for honeymooners" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
       </div>
 
       {/* ═══════ DETAIL: ROMANCE ═══════ */}

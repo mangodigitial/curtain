@@ -91,23 +91,16 @@ export default function KidsCampTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div className="sub-gallery-band reveal">
-        <img
-          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-3.webp"
-          alt="Kids enjoying beach fun at Curtain Bluff"
-        />
-        <img
-          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-4.webp"
-          alt="Supervised kids activities at Curtain Bluff"
-        />
-        <img
-          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-7.webp"
-          alt="Kids playing water sports at Curtain Bluff"
-        />
-        <img
-          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-8.webp"
-          alt="Children enjoying water activities at Curtain Bluff"
-        />
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridAutoRows: '300px',
+        gap: '0.4rem'
+      }}>
+        <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-3.webp" alt="Kids enjoying beach fun at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-4.webp" alt="Supervised kids activities at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-7.webp" alt="Kids playing water sports at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-8.webp" alt="Children enjoying water activities at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
       </div>
 
       {/* ═══════ DETAIL SECTION ═══════ */}
