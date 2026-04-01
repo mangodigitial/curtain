@@ -1,14 +1,43 @@
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
 import { getSiteSettings } from "@/lib/site-settings";
-import SectionRenderer from "@/components/sections/SectionRenderer";
 import SchemaOrg from "@/components/shared/SchemaOrg";
+import SectionRenderer from "@/components/sections/SectionRenderer";
 import type { Section } from "@/components/sections/types";
 import type { Metadata } from "next";
+
+import DiningTemplate from "@/components/templates/DiningTemplate";
+import AboutTemplate from "@/components/templates/AboutTemplate";
+import ActivitiesTemplate from "@/components/templates/ActivitiesTemplate";
+import SpaTemplate from "@/components/templates/SpaTemplate";
+import ContactTemplate from "@/components/templates/ContactTemplate";
+import WeddingsTemplate from "@/components/templates/WeddingsTemplate";
+import GalleryTemplate from "@/components/templates/GalleryTemplate";
+import OffersTemplate from "@/components/templates/OffersTemplate";
+import BeachfrontRoomsTemplate from "@/components/templates/BeachfrontRoomsTemplate";
+import BentleysTemplate from "@/components/templates/BentleysTemplate";
+import KidsCampTemplate from "@/components/templates/KidsCampTemplate";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
+
+/* slug → template mapping */
+const TEMPLATES: Record<string, React.ComponentType<{ sections: any[] }>> = {
+  "dining-drinks": DiningTemplate,
+  "about": AboutTemplate,
+  "activities": ActivitiesTemplate,
+  "the-spa": SpaTemplate,
+  "contact-us": ContactTemplate,
+  "weddings-and-events": WeddingsTemplate,
+  "gallery": GalleryTemplate,
+  "special-offers": OffersTemplate,
+  "beach-front-rooms": BeachfrontRoomsTemplate,
+  "rooms-on-the-bluff": BeachfrontRoomsTemplate,
+  "pool-suites": BeachfrontRoomsTemplate,
+  "bentleys": BentleysTemplate,
+  "cee-bee-kids-camp": KidsCampTemplate,
+};
 
 export async function generateStaticParams() {
   try {
@@ -56,19 +85,25 @@ export default async function SlugPage({ params }: PageProps) {
     notFound();
   }
 
-  const sections = page.sections as unknown as Section[];
+  const sections = page.sections as any[];
   const seo = page.seo as Record<string, unknown> | null;
+
+  const Template = TEMPLATES[slug];
 
   return (
     <>
-      <SectionRenderer sections={sections} />
+      {Template ? (
+        <Template sections={sections} />
+      ) : (
+        <SectionRenderer sections={sections as unknown as Section[]} />
+      )}
       <SchemaOrg
         schemaType={(seo?.schema_type as string) || undefined}
         page={{
           title: page.title,
           slug: page.slug,
           seo: seo || undefined,
-          sections: sections,
+          sections: sections as unknown as Section[],
         }}
       />
     </>
