@@ -18,23 +18,21 @@ export default async function HomePage() {
     <>
       {/* ═══════ HERO ═══════ */}
       <section className="hero">
-        <iframe
-          className="hero-video"
-          src="https://player.vimeo.com/video/1179279496?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
-          allow="autoplay; fullscreen"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           style={{
             position: 'absolute',
-            top: '50%',
-            left: '50%',
-            width: '177.78vh',
-            minWidth: '100%',
-            height: '100vh',
-            minHeight: '100%',
-            transform: 'translate(-50%, -50%)',
-            border: 'none',
-            pointerEvents: 'none',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
           }}
-        />
+        >
+          <source src="https://player.vimeo.com/progressive_redirect/playback/1179279496/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=29bc6e9c18e52a673e89e57044d91d29eb6ac576d27afdb02a9632f479a9bbb0" type="video/mp4" />
+        </video>
         <div className="hero-bg" />
         <div className="hero-content">
           <p className="hero-eyebrow">Relais &amp; Châteaux — Antigua, West Indies</p>
