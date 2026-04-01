@@ -19,6 +19,9 @@ import RoomsOnBluffTemplate from "@/components/templates/RoomsOnBluffTemplate";
 import PoolSuitesTemplate from "@/components/templates/PoolSuitesTemplate";
 import BentleysTemplate from "@/components/templates/BentleysTemplate";
 import KidsCampTemplate from "@/components/templates/KidsCampTemplate";
+import WaterSportsTemplate from "@/components/templates/WaterSportsTemplate";
+import GroundSportsTemplate from "@/components/templates/GroundSportsTemplate";
+import ScubaDivingTemplate from "@/components/templates/ScubaDivingTemplate";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -39,6 +42,9 @@ const TEMPLATES: Record<string, React.ComponentType<{ sections: any[] }>> = {
   "pool-suites": PoolSuitesTemplate,
   "bentleys": BentleysTemplate,
   "cee-bee-kids-camp": KidsCampTemplate,
+  "water-sports": WaterSportsTemplate,
+  "ground-sports": GroundSportsTemplate,
+  "scuba-diving": ScubaDivingTemplate,
 };
 
 export async function generateStaticParams() {
