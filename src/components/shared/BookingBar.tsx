@@ -101,7 +101,8 @@ export default function BookingBar({ bookingUrl }: BookingBarProps) {
         href={`${bookingUrl}${checkIn ? `?checkin=${checkIn}` : ""}${checkOut ? `&checkout=${checkOut}` : ""}${guests ? `&guests=${guests}` : ""}`}
         className="book-bar-btn"
       >
-        Check Availability
+        <span className="book-bar-btn-full">Check Availability</span>
+        <span className="book-bar-btn-mobile">Book Your Stay</span>
       </a>
     </div>
   );
