@@ -22,6 +22,11 @@ import KidsCampTemplate from "@/components/templates/KidsCampTemplate";
 import WaterSportsTemplate from "@/components/templates/WaterSportsTemplate";
 import GroundSportsTemplate from "@/components/templates/GroundSportsTemplate";
 import ScubaDivingTemplate from "@/components/templates/ScubaDivingTemplate";
+import TennisTemplate from "@/components/templates/TennisTemplate";
+import WellnessTemplate from "@/components/templates/WellnessTemplate";
+import CaribbeanWeddingsTemplate from "@/components/templates/CaribbeanWeddingsTemplate";
+import HoneymoonTemplate from "@/components/templates/HoneymoonTemplate";
+import CorporateEventsTemplate from "@/components/templates/CorporateEventsTemplate";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -45,6 +50,11 @@ const TEMPLATES: Record<string, React.ComponentType<{ sections: any[] }>> = {
   "water-sports": WaterSportsTemplate,
   "ground-sports": GroundSportsTemplate,
   "scuba-diving": ScubaDivingTemplate,
+  "tennis": TennisTemplate,
+  "wellness": WellnessTemplate,
+  "caribbean-weddings": CaribbeanWeddingsTemplate,
+  "honeymoon": HoneymoonTemplate,
+  "corporate-events": CorporateEventsTemplate,
 };
 
 export async function generateStaticParams() {
