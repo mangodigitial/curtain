@@ -97,16 +97,11 @@ export default function CaribbeanWeddingsTemplate({
       </section>
 
       {/* ═══════ GALLERY BAND ═══════ */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
-        gridAutoRows: '300px',
-        gap: '0.4rem'
-      }}>
-        <img src={`${BLOB}wedding03.webp`} alt="Beach wedding ceremony at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-        <img src={`${BLOB}wedding05.webp`} alt="Bride and groom exchanging vows on the sand" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-        <img src={`${BLOB}wedding06.webp`} alt="Wedding reception under the Caribbean stars" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-        <img src={`${BLOB}wedding07.webp`} alt="Newlyweds celebrating at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+      <div className="gallery-band-4">
+        <img src={`${BLOB}wedding03.webp`} alt="Beach wedding ceremony at Curtain Bluff" />
+        <img src={`${BLOB}wedding05.webp`} alt="Bride and groom exchanging vows on the sand" />
+        <img src={`${BLOB}wedding06.webp`} alt="Wedding reception under the Caribbean stars" />
+        <img src={`${BLOB}wedding07.webp`} alt="Newlyweds celebrating at Curtain Bluff" />
       </div>
 
       {/* ═══════ DETAIL: A DAY IN THE LIFE ═══════ */}

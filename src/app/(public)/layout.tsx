@@ -12,7 +12,14 @@ import WebVitals from "@/components/shared/WebVitals";
 import RevealObserver from "@/components/shared/RevealObserver";
 
 const NAV_LINKS = [
-  { number: "01", label: "Rooms & Suites", href: "/rooms" },
+  {
+    number: "01", label: "Rooms & Suites", href: "/rooms",
+    children: [
+      { label: "Beach Front Rooms", href: "/beach-front-rooms" },
+      { label: "Rooms on the Bluff", href: "/rooms-on-the-bluff" },
+      { label: "Pool Suites", href: "/pool-suites" },
+    ],
+  },
   { number: "02", label: "Dining & Drinks", href: "/dining-drinks" },
   { number: "03", label: "Activities", href: "/activities" },
   { number: "04", label: "Wellness", href: "/wellness" },

@@ -246,29 +246,12 @@ export default async function HomePage() {
           <div className="section-label" style={{ justifyContent: 'center' }}>Gallery</div>
           <h2 className="section-heading">A Glimpse of <em>Our Spirit</em></h2>
         </div>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '2fr 1fr 1fr',
-          gridTemplateRows: '300px 300px',
-          gap: '0.8rem',
-          maxWidth: '1400px',
-          margin: '0 auto'
-        }}>
-          <div style={{ overflow: 'hidden', gridRow: '1 / 3' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery01.webp" alt="Aerial view of Curtain Bluff resort" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
-          <div style={{ overflow: 'hidden' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery02-1.webp" alt="Pool suites at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
-          <div style={{ overflow: 'hidden' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery03-1.webp" alt="Wedding ceremony on the beach" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
-          <div style={{ overflow: 'hidden' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery04-1.webp" alt="Fine dining at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
-          <div style={{ overflow: 'hidden' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery05.webp" alt="Pristine beach at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
+        <div className="gallery-grid-5">
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery01.webp" alt="Aerial view of Curtain Bluff resort" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery02-1.webp" alt="Pool suites at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery03-1.webp" alt="Wedding ceremony on the beach" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery04-1.webp" alt="Fine dining at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery05.webp" alt="Pristine beach at Curtain Bluff" /></div>
         </div>
       </section>
 

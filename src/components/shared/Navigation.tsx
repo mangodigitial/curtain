@@ -4,11 +4,16 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import MenuOverlay from "./MenuOverlay";
 
+interface MenuChild {
+  label: string;
+  href: string;
+}
+
 interface NavigationProps {
   siteName: string;
   siteNameItalic: string;
   bookingUrl: string;
-  menuLinks: { number: string; label: string; href: string; image?: string }[];
+  menuLinks: { number: string; label: string; href: string; image?: string; children?: MenuChild[] }[];
   contactInfo?: { phone?: string; email?: string; address?: string };
 }
 
@@ -54,7 +59,7 @@ export default function Navigation({
         {/* Desktop menu links */}
         <ul className="nav-links">
           <li className="nav-dropdown">
-            <Link href="/rooms">Rooms</Link>
+            <span className="nav-dropdown-trigger">Rooms</span>
             <div className="nav-dropdown-menu">
               <Link href="/beach-front-rooms">Beach Front Rooms</Link>
               <Link href="/rooms-on-the-bluff">Rooms on the Bluff</Link>

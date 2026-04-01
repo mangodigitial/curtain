@@ -144,29 +144,12 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
           <div className="section-label" style={{ justifyContent: 'center' }}>Gallery</div>
           <h2 className="section-heading">A Glimpse of <em>Our Spirit</em></h2>
         </div>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '2fr 1fr 1fr',
-          gridTemplateRows: '300px 300px',
-          gap: '0.8rem',
-          maxWidth: '1400px',
-          margin: '0 auto'
-        }}>
-          <div style={{ overflow: 'hidden', gridRow: '1 / 3' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-5.webp" alt="Spa terrace with ocean views at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
-          <div style={{ overflow: 'hidden' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-6.webp" alt="Spa treatment detail at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
-          <div style={{ overflow: 'hidden' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-7.webp" alt="Spa treatment room interior at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
-          <div style={{ overflow: 'hidden' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-8.webp" alt="Premium spa products used at Curtain Bluff" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
-          <div style={{ overflow: 'hidden' }}>
-            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-9.webp" alt="Relaxation area at the Curtain Bluff Spa" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
+        <div className="gallery-grid-5">
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-5.webp" alt="Spa terrace with ocean views at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-6.webp" alt="Spa treatment detail at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-7.webp" alt="Spa treatment room interior at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-8.webp" alt="Premium spa products used at Curtain Bluff" /></div>
+          <div><img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-9.webp" alt="Relaxation area at the Curtain Bluff Spa" /></div>
         </div>
       </section>
 

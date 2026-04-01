@@ -6,11 +6,17 @@ import Image from "next/image";
 
 /* ─── Props ──────────────────────────────────────────── */
 
+interface MenuChild {
+  label: string;
+  href: string;
+}
+
 interface MenuLink {
   number: string;
   label: string;
   href: string;
   image?: string;
+  children?: MenuChild[];
 }
 
 interface ContactInfo {
@@ -35,6 +41,11 @@ export default function MenuOverlay({
   contactInfo,
 }: MenuOverlayProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const handleToggle = (i: number) => {
+    setExpandedIndex(expandedIndex === i ? null : i);
+  };
 
   return (
     <div className={`menu-overlay${isOpen ? " open" : ""}`} id="menuOverlay">
@@ -43,15 +54,39 @@ export default function MenuOverlay({
         <ul className="menu-links">
           {links.map((link, i) => (
             <li key={link.href}>
-              <Link
-                href={link.href}
-                onClick={onClose}
-                onMouseEnter={() => setHoveredIndex(i)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <span className="link-num">{link.number}</span>
-                {link.label}
-              </Link>
+              {link.children ? (
+                <>
+                  <button
+                    className="menu-expand-btn"
+                    onClick={() => handleToggle(i)}
+                    onMouseEnter={() => setHoveredIndex(i)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                  >
+                    <span className="link-num">{link.number}</span>
+                    {link.label}
+                    <span className={`menu-chevron${expandedIndex === i ? " open" : ""}`}>&#8250;</span>
+                  </button>
+                  <ul className={`menu-children${expandedIndex === i ? " open" : ""}`}>
+                    {link.children.map((child) => (
+                      <li key={child.href}>
+                        <Link href={child.href} onClick={onClose}>
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <Link
+                  href={link.href}
+                  onClick={onClose}
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <span className="link-num">{link.number}</span>
+                  {link.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
