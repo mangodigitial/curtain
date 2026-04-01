@@ -130,7 +130,7 @@ export default function WellnessTemplate({
       </section>
 
       {/* ═══════ YOGA & MOVEMENT ═══════ */}
-      <section className="detail reveal">
+      <section className="detail reversed reveal">
         <div className="detail-inner">
           <h3>
             Yoga <em>&amp; Movement</em>
@@ -156,7 +156,7 @@ export default function WellnessTemplate({
       </section>
 
       {/* ═══════ WELLNESS RETREATS ═══════ */}
-      <section className="detail reveal">
+      <section className="detail dark-bg reveal">
         <div className="detail-inner">
           <h3>
             Wellness <em>Retreats</em>

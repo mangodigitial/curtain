@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import type { FilterGallerySection } from "@/components/sections/types";
 
@@ -68,12 +68,29 @@ export default function GalleryTemplate({ sections }: { sections: any[] }) {
 
 function InlineFilterGallery({ data }: { data: FilterGallerySection }) {
   const [active, setActive] = useState("All");
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
-  const categories = ["All", ...(data?.categories ?? [])];
+  /* Deduplicate: always start with "All", then add any categories that aren't "All" */
+  const categories = [
+    "All",
+    ...(data?.categories ?? []).filter((c) => c !== "All"),
+  ];
   const filtered =
     active === "All"
       ? (data?.images ?? [])
       : (data?.images ?? []).filter((img) => img?.category === active);
+
+  /* Close lightbox on Escape */
+  const closeLightbox = useCallback(() => setLightboxSrc(null), []);
+
+  useEffect(() => {
+    if (!lightboxSrc) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightboxSrc, closeLightbox]);
 
   return (
     <>
@@ -98,7 +115,12 @@ function InlineFilterGallery({ data }: { data: FilterGallerySection }) {
       {/* ── Masonry Grid ──────────────────────────────── */}
       <div className="masonry" id="masonry">
         {filtered.map((img) => (
-          <div key={img.id} className="masonry-item">
+          <div
+            key={img.id}
+            className="masonry-item"
+            onClick={() => setLightboxSrc(img.url)}
+            style={{ cursor: "pointer" }}
+          >
             <Image
               src={img.url}
               alt={img.alt || ""}
@@ -119,6 +141,22 @@ function InlineFilterGallery({ data }: { data: FilterGallerySection }) {
           </div>
         ))}
       </div>
+
+      {/* ── Lightbox ──────────────────────────────────── */}
+      {lightboxSrc && (
+        <div className="lightbox-overlay" onClick={closeLightbox}>
+          <button className="lightbox-close" onClick={closeLightbox}>
+            CLOSE &times;
+          </button>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="lightbox-img"
+            src={lightboxSrc}
+            alt=""
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </>
   );
 }

@@ -151,11 +151,11 @@ export default function RoomsOnBluffTemplate({
                 alt: "Bluff Room balcony view",
               },
               {
-                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/Bluff-1.webp",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/bluff-1.webp",
                 alt: "Bluff Room interior",
               },
               {
-                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/Bluff-5.webp",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/bluff-5.webp",
                 alt: "Bluff Room terrace",
               },
             ]}
@@ -216,19 +216,19 @@ export default function RoomsOnBluffTemplate({
           <RoomCarousel
             images={[
               {
-                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/Bluff-6-1.webp",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/bluff-6-1.webp",
                 alt: "Bluff Suite living area",
               },
               {
-                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/Bluff-2.webp",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/bluff-2.webp",
                 alt: "Bluff Suite bedroom",
               },
               {
-                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/Bluff-3.webp",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/bluff-3.webp",
                 alt: "Bluff Suite terrace",
               },
               {
-                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/Bluff-4.webp",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/bluff-4.webp",
                 alt: "Bluff Suite bathroom",
               },
             ]}

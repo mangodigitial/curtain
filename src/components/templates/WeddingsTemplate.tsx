@@ -257,8 +257,15 @@ export default function WeddingsTemplate({ sections }: { sections: any[] }) {
 ──────────────────────────────────────────────────────────────────── */
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+const EVENT_FALLBACK_LINKS: Record<number, { url: string; label: string }> = {
+  0: { url: "/caribbean-weddings", label: "Plan Your Wedding" },
+  1: { url: "/honeymoon", label: "Plan Your Honeymoon" },
+  2: { url: "/corporate-events", label: "Plan Your Event" },
+};
+
 function EventTypeSection({ data, index }: { data: any; index: number }) {
   const num = String(index + 1).padStart(2, "0");
+  const cta = data.cta || EVENT_FALLBACK_LINKS[index];
 
   return (
     <section className="event-type reveal">
@@ -294,9 +301,9 @@ function EventTypeSection({ data, index }: { data: any; index: number }) {
           )}
         </h2>
         <p className="event-desc">{data.body}</p>
-        {data.cta && (
-          <a href={data.cta.url} className="event-link">
-            {data.cta.label} <span className="arrow" />
+        {cta && (
+          <a href={cta.url} className="event-link">
+            {cta.label} <span className="arrow" />
           </a>
         )}
       </div>

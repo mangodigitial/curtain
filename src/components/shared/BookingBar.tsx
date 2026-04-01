@@ -1,6 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+
+/* ─── Helpers ────────────────────────────────────────── */
+
+/** Return a YYYY-MM-DD string for a Date (local time). */
+function toDateStr(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+/** Add `days` calendar days to a YYYY-MM-DD string. */
+function addDays(dateStr: string, days: number): string {
+  const d = new Date(dateStr + "T00:00:00");
+  d.setDate(d.getDate() + days);
+  return toDateStr(d);
+}
 
 /* ─── Props ──────────────────────────────────────────── */
 
@@ -15,6 +32,21 @@ export default function BookingBar({ bookingUrl }: BookingBarProps) {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState("2");
+
+  /* Today's date string (stable for the lifetime of the mount). */
+  const today = useMemo(() => toDateStr(new Date()), []);
+
+  /* Checkout must be at least the day after check-in. */
+  const checkOutMin = checkIn ? addDays(checkIn, 1) : today;
+
+  /* If the user picks a new check-in that pushes past the current
+     check-out, reset check-out so it never precedes check-in. */
+  const handleCheckIn = (value: string) => {
+    setCheckIn(value);
+    if (checkOut && value && checkOut <= value) {
+      setCheckOut(addDays(value, 1));
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -35,7 +67,9 @@ export default function BookingBar({ bookingUrl }: BookingBarProps) {
       <input
         type="date"
         value={checkIn}
-        onChange={(e) => setCheckIn(e.target.value)}
+        min={today}
+        placeholder="Check-in"
+        onChange={(e) => handleCheckIn(e.target.value)}
         aria-label="Check-in date"
       />
 
@@ -43,6 +77,8 @@ export default function BookingBar({ bookingUrl }: BookingBarProps) {
       <input
         type="date"
         value={checkOut}
+        min={checkOutMin}
+        placeholder="Check-out"
         onChange={(e) => setCheckOut(e.target.value)}
         aria-label="Check-out date"
       />
