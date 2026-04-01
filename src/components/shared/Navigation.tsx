@@ -51,13 +51,38 @@ export default function Navigation({
           {siteName} <em>{siteNameItalic}</em>
         </Link>
 
+        {/* Desktop menu links */}
+        <ul className="nav-links">
+          <li className="nav-dropdown">
+            <Link href="/rooms">Rooms</Link>
+            <div className="nav-dropdown-menu">
+              <Link href="/beach-front-rooms">Beach Front Rooms</Link>
+              <Link href="/rooms-on-the-bluff">Rooms on the Bluff</Link>
+              <Link href="/pool-suites">Pool Suites</Link>
+            </div>
+          </li>
+          <li><Link href="/dining-drinks">Dining</Link></li>
+          <li className="nav-dropdown">
+            <Link href="/wellness">Wellness</Link>
+            <div className="nav-dropdown-menu">
+              <Link href="/the-spa">The Spa</Link>
+              <Link href="/tennis">Tennis</Link>
+              <Link href="/activities">Activities</Link>
+            </div>
+          </li>
+          <li><Link href="/activities">Activities</Link></li>
+          <li><Link href="/gallery">Gallery</Link></li>
+          <li><Link href="/weddings-and-events">Weddings</Link></li>
+          <li><Link href="/about">About</Link></li>
+        </ul>
+
         <div className="nav-right">
           {/* CTA Button */}
           <Link href={bookingUrl} className="nav-cta">
             Book Your Stay
           </Link>
 
-          {/* Menu Button */}
+          {/* Menu Button (mobile only, hidden on desktop via CSS) */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
             className={`menu-btn${menuOpen ? " active" : ""}`}
