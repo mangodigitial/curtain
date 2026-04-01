@@ -27,19 +27,15 @@ export default function GalleryTemplate({ sections }: { sections: any[] }) {
   return (
     <>
       {/* ═══ Page Header (no hero image -- gallery IS the visual) ═══ */}
-      {hero && (
-        <div className="page-header">
-          <h1>
-            {hero.title}
-            {hero.titleItalic && (
-              <>
-                {" "}<em>{hero.titleItalic}</em>
-              </>
-            )}
-          </h1>
-          {hero.subtitle && <p>{hero.subtitle}</p>}
-        </div>
-      )}
+      <div className="page-header">
+        <h1>
+          {hero?.title ?? "Photo"}{" "}
+          <em>{hero?.titleItalic ?? "Gallery"}</em>
+        </h1>
+        {(hero?.subtitle || !hero) && (
+          <p>{hero?.subtitle ?? "Explore Curtain Bluff through our lens"}</p>
+        )}
+      </div>
 
       {/* ═══ Filter Gallery (client-side interactivity) ═══ */}
       {filterGallery && <InlineFilterGallery data={filterGallery} />}
