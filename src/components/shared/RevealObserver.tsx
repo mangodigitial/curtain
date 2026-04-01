@@ -19,20 +19,21 @@ export default function RevealObserver() {
       { threshold: 0.1, rootMargin: "0px 0px -60px 0px" },
     );
 
-    // Observe all current .reveal elements
-    document.querySelectorAll(".reveal:not(.visible)").forEach((el) => {
+    // Observe all elements that start hidden and need scroll reveal
+    const selector = ".reveal:not(.visible), .room-section:not(.visible)";
+    document.querySelectorAll(selector).forEach((el) => {
       observer.observe(el);
     });
 
-    // Watch for new .reveal elements added to the DOM
+    // Watch for new elements added to the DOM
     const mutation = new MutationObserver((mutations) => {
       for (const m of mutations) {
         for (const node of m.addedNodes) {
           if (node instanceof HTMLElement) {
-            if (node.classList.contains("reveal") && !node.classList.contains("visible")) {
+            if ((node.classList.contains("reveal") || node.classList.contains("room-section")) && !node.classList.contains("visible")) {
               observer.observe(node);
             }
-            node.querySelectorAll?.(".reveal:not(.visible)").forEach((el) => {
+            node.querySelectorAll?.(selector).forEach((el) => {
               observer.observe(el);
             });
           }
