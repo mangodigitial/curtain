@@ -15,6 +15,8 @@ import WeddingsTemplate from "@/components/templates/WeddingsTemplate";
 import GalleryTemplate from "@/components/templates/GalleryTemplate";
 import OffersTemplate from "@/components/templates/OffersTemplate";
 import BeachfrontRoomsTemplate from "@/components/templates/BeachfrontRoomsTemplate";
+import RoomsOnBluffTemplate from "@/components/templates/RoomsOnBluffTemplate";
+import PoolSuitesTemplate from "@/components/templates/PoolSuitesTemplate";
 import BentleysTemplate from "@/components/templates/BentleysTemplate";
 import KidsCampTemplate from "@/components/templates/KidsCampTemplate";
 
@@ -33,8 +35,8 @@ const TEMPLATES: Record<string, React.ComponentType<{ sections: any[] }>> = {
   "gallery": GalleryTemplate,
   "special-offers": OffersTemplate,
   "beach-front-rooms": BeachfrontRoomsTemplate,
-  "rooms-on-the-bluff": BeachfrontRoomsTemplate,
-  "pool-suites": BeachfrontRoomsTemplate,
+  "rooms-on-the-bluff": RoomsOnBluffTemplate,
+  "pool-suites": PoolSuitesTemplate,
   "bentleys": BentleysTemplate,
   "cee-bee-kids-camp": KidsCampTemplate,
 };
