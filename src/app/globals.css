@@ -611,7 +611,7 @@ nav.scrolled {
   padding: 1rem 3rem;
   box-shadow: 0 1px 0 rgba(0,0,0,0.05);
 }
-nav.scrolled .logo img { filter: none; }
+nav.scrolled .logo img { filter: none !important; }
 nav.scrolled .nav-cta { background: var(--ocean-deep); color: var(--sand); }
 nav.scrolled .nav-cta:hover { background: var(--coral); }
 nav.scrolled .menu-btn span { background: var(--ocean-deep); }
