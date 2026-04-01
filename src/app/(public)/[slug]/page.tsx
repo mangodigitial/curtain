@@ -13,7 +13,7 @@ interface PageProps {
 export async function generateStaticParams() {
   try {
     const pages = await db.page.findMany({
-      where: { status: "published", parentId: null },
+      where: { status: "published" },
       select: { slug: true },
     });
     return pages
