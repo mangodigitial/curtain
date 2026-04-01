@@ -1504,3 +1504,439 @@ footer {
   color: var(--text-light);
   font-weight: 400;
 }
+
+/* ═══════════════ ROOM NAV TABS ═══════════════ */
+.room-nav {
+  background: var(--ocean-deep);
+  position: sticky;
+  top: 0;
+  z-index: 800;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.room-nav::-webkit-scrollbar { display: none; }
+.room-nav-inner {
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.room-nav a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--sand-dark);
+  text-decoration: none;
+  padding: 1.1rem 2rem;
+  white-space: nowrap;
+  position: relative;
+  transition: color 0.3s ease;
+  letter-spacing: 0.04em;
+}
+.room-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 1rem; right: 1rem;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.room-nav a:hover, .room-nav a.active { color: var(--sand); }
+.room-nav a.active::after { transform: scaleX(1); }
+
+/* ═══════════════ ROOM SECTION ═══════════════ */
+.room-section {
+  padding: 6rem 0;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.room-section.visible { opacity: 1; transform: translateY(0); }
+.room-section:nth-child(even) { background: var(--sand-light); }
+
+.room-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .room-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 0 2rem; }
+}
+.room-section:nth-child(odd) .room-inner { direction: ltr; }
+.room-section:nth-child(even) .room-inner { direction: rtl; }
+.room-section:nth-child(even) .room-inner > * { direction: ltr; }
+
+/* ═══ Image Carousel ═══ */
+.room-carousel {
+  position: relative;
+  overflow: hidden;
+}
+.room-carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.room-carousel-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+.room-carousel-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.4rem;
+}
+.room-carousel-btn {
+  width: 40px; height: 40px;
+  background: rgba(13,47,58,0.7);
+  backdrop-filter: blur(8px);
+  border: none;
+  color: var(--sand);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+.room-carousel-btn:hover { background: var(--coral); }
+.room-carousel-counter {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  color: var(--white);
+  background: rgba(13,47,58,0.5);
+  backdrop-filter: blur(8px);
+  padding: 0.3rem 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  z-index: 1;
+}
+
+/* ═══ Room Details ═══ */
+.room-details {
+  position: sticky;
+  top: 100px;
+}
+.room-type-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.room-type-label::before {
+  content: '';
+  width: 30px; height: 1px;
+  background: var(--gold);
+}
+.room-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--ocean-deep);
+  margin-bottom: 1.2rem;
+}
+.room-name em { font-style: italic; color: var(--coral); }
+.room-desc {
+  font-size: 0.85rem;
+  line-height: 1.85;
+  color: var(--text-light);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  margin-bottom: 2rem;
+}
+
+/* ═══ Quick Stats ═══ */
+.room-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--sand-dark);
+  margin-bottom: 2rem;
+}
+.room-stat {
+  background: var(--white);
+  padding: 1.2rem;
+  text-align: center;
+}
+.room-section:nth-child(even) .room-stat { background: var(--sand-light); }
+.room-stat-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--ocean-deep);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.room-stat-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+/* ═══ Amenities ═══ */
+.room-amenities-toggle {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: var(--ocean-deep);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0;
+  margin-bottom: 0;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+.room-amenities-toggle:hover { color: var(--coral); }
+.room-amenities-toggle .chevron {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 0.5rem;
+}
+.room-amenities-toggle.open .chevron { transform: rotate(180deg); }
+
+.room-amenities-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding 0.5s ease;
+  padding-top: 0;
+}
+.room-amenities-list.open {
+  max-height: 400px;
+  padding-top: 1.2rem;
+}
+.room-amenities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
+}
+.room-amenity {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  letter-spacing: 0.02em;
+}
+.room-amenity::before {
+  content: '';
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ═══ Book CTA ═══ */
+.room-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--white);
+  background: var(--ocean-deep);
+  text-decoration: none;
+  margin-top: 2rem;
+  padding: 0.9rem 2rem;
+  transition: background 0.3s ease;
+}
+.room-cta:hover { background: var(--coral); }
+
+/* ═══════════════ OFFERS RIBBON ═══════════════ */
+.offers-ribbon {
+  padding: 5rem 3rem;
+  background: var(--sand-light);
+}
+.offers-ribbon-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.offers-ribbon-header .section-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.offers-ribbon-header .section-label::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--gold);
+}
+.offers-ribbon-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300;
+  color: var(--ocean-deep);
+}
+.offers-ribbon-header h2 em { font-style: italic; color: var(--coral); }
+
+.offers-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.offers-scroll::-webkit-scrollbar { display: none; }
+
+.offer-mini {
+  flex: 0 0 340px;
+  background: var(--white);
+  overflow: hidden;
+  transition: box-shadow 0.4s ease;
+  text-decoration: none;
+  display: block;
+}
+.offer-mini:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.offer-mini img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+}
+.offer-mini-text {
+  padding: 1.5rem;
+}
+.offer-mini h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--ocean-deep);
+  margin-bottom: 0.4rem;
+}
+.offer-mini p {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  font-weight: 300;
+  line-height: 1.6;
+}
+.offer-mini .offer-tag {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--coral);
+  font-weight: 500;
+  margin-top: 0.8rem;
+  display: inline-block;
+}
+
+/* ═══════════════ ALSO EXPLORE ═══════════════ */
+.also-explore {
+  padding: 5rem 3rem;
+  background: var(--ocean-deep);
+}
+.also-explore-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.also-explore-header .section-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.also-explore-header .section-label::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--gold-light);
+}
+.also-explore-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300;
+  color: var(--sand);
+}
+.also-explore-header h2 em { font-style: italic; color: var(--coral-soft); }
+
+.also-explore-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) { .also-explore-grid { grid-template-columns: 1fr; } }
+
+.explore-card {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+}
+.explore-card img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+.explore-card:hover img { transform: scale(1.06); }
+.explore-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,47,58,0.8) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+.explore-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.explore-card span {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+/* ═══ Page Hero Animations (beachfront rooms) ═══ */
+.page-hero-breadcrumb { opacity: 0; animation: fadeUp 1s ease 0.3s forwards; }
+.page-hero-title { opacity: 0; animation: fadeUp 1.2s ease 0.5s forwards; }
+.page-hero-sub { opacity: 0; animation: fadeUp 1s ease 0.7s forwards; }
