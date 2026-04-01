@@ -21,7 +21,7 @@ export default function GalleryMosaic({
             </div>
           )}
           {data.title && (
-            <h2 className="section-heading" style={{ textAlign: "center" }}>
+            <h2 className="section-heading">
               {renderTitle(data.title, data.titleItalic)}
             </h2>
           )}

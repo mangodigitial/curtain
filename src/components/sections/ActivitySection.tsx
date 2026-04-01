@@ -67,17 +67,17 @@ export default function ActivitySection({
 
           {/* Highlights */}
           {data.highlights.length > 0 && (
-            <ul className="act-highlights">
+            <div className="act-highlights">
               {data.highlights.map((highlight) => (
-                <li
+                <div
                   key={highlight}
                   className="act-highlight"
                 >
                   <span className="act-highlight-dot" />
                   {highlight}
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
 
           {/* CTA */}

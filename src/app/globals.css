@@ -195,11 +195,11 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ═══════════════ PAGE HERO (sub-pages) ═══════════════ */
+/* ═══════════════ SUB-HERO (sub-pages) ═══════════════ */
 
-.page-hero {
-  height: 75vh;
-  min-height: 520px;
+.sub-hero {
+  height: 60vh;
+  min-height: 420px;
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -207,14 +207,14 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-ocean-deep);
 }
 
-.page-hero-bg {
+.sub-hero-bg {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(13,47,58,0.15) 0%, rgba(13,47,58,0.05) 40%, rgba(13,47,58,0.6) 100%);
   z-index: 1;
 }
 
-.page-hero-img {
+.sub-hero-img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -223,64 +223,46 @@ h1, h2, h3, h4, h5, h6 {
   animation: heroZoom 25s ease-in-out infinite alternate;
 }
 
-.page-hero-content {
+.sub-hero-content {
   position: relative;
   z-index: 2;
-  padding: 0 3rem 4.5rem;
-  max-width: 850px;
+  padding: 0 3rem 3.5rem;
 }
 
-.page-hero-breadcrumb {
+.sub-hero-breadcrumb {
   font-size: 0.6rem;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--color-gold-light);
   font-weight: 400;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   opacity: 0;
   animation: fadeUp 1s ease 0.3s forwards;
 }
 
-.page-hero-breadcrumb a {
+.sub-hero-breadcrumb a {
   color: rgba(255,255,255,0.5);
   text-decoration: none;
-  transition: color 0.3s;
 }
 
-.page-hero-breadcrumb a:hover {
-  color: var(--color-white);
-}
-
-.page-hero-breadcrumb span {
-  margin: 0 0.5rem;
+.sub-hero-breadcrumb span {
+  margin: 0 0.4rem;
   color: rgba(255,255,255,0.3);
 }
 
-.page-hero-title {
+.sub-hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
   font-weight: 300;
   color: var(--color-white);
   line-height: 1.05;
-  margin-bottom: 1.2rem;
   opacity: 0;
   animation: fadeUp 1.2s ease 0.5s forwards;
 }
 
-.page-hero-title em {
+.sub-hero-title em {
   font-style: italic;
   color: var(--color-sand);
-}
-
-.page-hero-sub {
-  font-size: 0.88rem;
-  color: rgba(255,255,255,0.7);
-  font-weight: 300;
-  line-height: 1.7;
-  max-width: 560px;
-  letter-spacing: 0.02em;
-  opacity: 0;
-  animation: fadeUp 1s ease 0.7s forwards;
 }
 
 /* Scroll reveal utilities */
@@ -1607,6 +1589,27 @@ footer {
 .map-section-inner img {
   width: 100%;
   border: 1px solid var(--color-sand-dark);
+}
+
+/* ═══════════════ RESTAURANT GALLERY (editorial media variant) ═══════════════ */
+
+.rest-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 0.6rem;
+  height: 100%;
+}
+.rest-gallery img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.rest-gallery img:hover { transform: scale(1.04); }
+.rest-gallery .rg-hero {
+  grid-column: 1 / 3;
+  aspect-ratio: 16/10;
 }
 
 /* ═══════════════ EDITORIAL SUB-ELEMENTS ═══════════════ */

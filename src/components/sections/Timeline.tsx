@@ -14,7 +14,7 @@ function TimelineItem({
       <div className="tl-dot" />
 
       <div className="tl-content">
-        <p className="tl-year">{item.year}</p>
+        <div className="tl-year">{item.year}</div>
         <h3 className="tl-heading">
           {renderTitle(item.heading, item.headingItalic)}
         </h3>

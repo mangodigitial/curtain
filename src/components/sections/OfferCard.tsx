@@ -20,7 +20,7 @@ function DiscountBadge({ label }: { label: string }) {
 
 export default function OfferCard({ data }: { data: OfferCardSection }) {
   return (
-    <section className="offer-full">
+    <div className="offer-full">
       {/* Image */}
       <div className="offer-full-media">
         {data.discountLabel && <DiscountBadge label={data.discountLabel} />}
@@ -38,7 +38,7 @@ export default function OfferCard({ data }: { data: OfferCardSection }) {
 
       {/* Content */}
       <div className="offer-full-content">
-        {data.tag && <p className="offer-tag">{data.tag}</p>}
+        {data.tag && <div className="offer-tag">{data.tag}</div>}
 
         <h2>{renderTitle(data.title, data.titleItalic)}</h2>
 
@@ -48,9 +48,9 @@ export default function OfferCard({ data }: { data: OfferCardSection }) {
         {data.details && data.details.length > 0 && (
           <div className="offer-details">
             {data.details.map((detail, i) => (
-              <div key={i}>
-                <p className="od-label">{detail.label}</p>
-                <p className="od-val">{detail.value}</p>
+              <div key={i} className="od-item">
+                <div className="od-label">{detail.label}</div>
+                <div className="od-val">{detail.value}</div>
               </div>
             ))}
           </div>
@@ -60,7 +60,7 @@ export default function OfferCard({ data }: { data: OfferCardSection }) {
         {data.includes && data.includes.length > 0 && (
           <div className="offer-includes">
             {data.includesTitle && (
-              <p className="offer-includes-title">{data.includesTitle}</p>
+              <div className="offer-includes-title">{data.includesTitle}</div>
             )}
             <div className="offer-includes-list">
               {data.includes.map((item, i) => (
@@ -81,6 +81,6 @@ export default function OfferCard({ data }: { data: OfferCardSection }) {
         {/* Terms */}
         {data.terms && <p className="offer-terms">{data.terms}</p>}
       </div>
-    </section>
+    </div>
   );
 }

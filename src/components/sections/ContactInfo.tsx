@@ -14,14 +14,14 @@ export default function ContactInfo({
 
             {section.items.map((item) => (
               <div key={item.label} className="info-item">
-                <p className="info-label">{item.label}</p>
-                {item.url ? (
-                  <div className="info-val">
+                <div className="info-label">{item.label}</div>
+                <div className="info-val">
+                  {item.url ? (
                     <a href={item.url}>{item.value}</a>
-                  </div>
-                ) : (
-                  <p className="info-val">{item.value}</p>
-                )}
+                  ) : (
+                    item.value
+                  )}
+                </div>
               </div>
             ))}
           </div>

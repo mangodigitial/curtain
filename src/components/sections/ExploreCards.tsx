@@ -20,7 +20,7 @@ export default function ExploreCards({
       {(data.label || data.title) && (
         <div className="explore-header">
           {data.label && (
-            <p className="section-label">{data.label}</p>
+            <div className="section-label">{data.label}</div>
           )}
           {data.title && (
             <h2 className="section-heading">
@@ -41,8 +41,8 @@ export default function ExploreCards({
               height={card.image.height ?? 500}
             />
             <div className="explore-card-ov">
-              <h3>{card.title}</h3>
               {card.subtitle && <span>{card.subtitle}</span>}
+              <h3>{card.title}</h3>
             </div>
           </Link>
         ))}

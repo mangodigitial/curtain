@@ -42,6 +42,12 @@ function IntroWithImages({ data }: { data: IntroSection }) {
     <section className="intro reveal">
       {/* Left: overlapping images */}
       <div className="intro-visual">
+        {data.yearOverlay && (
+          <div className="intro-year" aria-hidden="true">
+            {data.yearOverlay}
+          </div>
+        )}
+
         <Image
           src={images.main.url}
           alt={images.main.alt}
@@ -67,16 +73,10 @@ function IntroWithImages({ data }: { data: IntroSection }) {
               : {})}
           />
         )}
-
-        {data.yearOverlay && (
-          <div className="intro-year" aria-hidden="true">
-            {data.yearOverlay}
-          </div>
-        )}
       </div>
 
       {/* Right: text column */}
-      <div>
+      <div className="intro-text">
         {data.label && (
           <div className="section-label">{data.label}</div>
         )}

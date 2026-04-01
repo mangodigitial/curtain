@@ -70,6 +70,7 @@ export interface RoomGridSection {
   label?: string;
   title?: string;
   titleItalic?: string;
+  body?: string;
   rooms: {
     name: string;
     description: string;
@@ -150,6 +151,7 @@ export interface WellnessScrollSection {
   label?: string;
   title?: string;
   titleItalic?: string;
+  body?: string;
   cards: {
     image: MediaRef;
     title: string;

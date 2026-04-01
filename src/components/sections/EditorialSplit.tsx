@@ -43,31 +43,30 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
       {/* ── Image Column ─────────────────────────────────── */}
       <div className="editorial-media">
         {gallery && gallery.length > 0 ? (
-          <div className="grid grid-cols-2 h-full">
-            {/* Main image spans both columns */}
-            <div className="relative col-span-2 min-h-[40vh]">
-              <Image
-                src={image.url}
-                alt={image.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                placeholder={image.blurhash ? "blur" : undefined}
-                blurDataURL={image.blurhash}
-              />
-            </div>
+          <div className="rest-gallery">
+            <Image
+              src={image.url}
+              alt={image.alt}
+              width={image.width ?? 900}
+              height={image.height ?? 563}
+              className="rg-hero"
+              sizes="(max-width: 960px) 100vw, 50vw"
+              {...(image.blurhash
+                ? { placeholder: "blur" as const, blurDataURL: image.blurhash }
+                : {})}
+            />
             {gallery.slice(0, 2).map((img) => (
-              <div key={img.id} className="relative min-h-[25vh]">
-                <Image
-                  src={img.url}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  placeholder={img.blurhash ? "blur" : undefined}
-                  blurDataURL={img.blurhash}
-                />
-              </div>
+              <Image
+                key={img.id}
+                src={img.url}
+                alt={img.alt}
+                width={img.width ?? 500}
+                height={img.height ?? 375}
+                sizes="(max-width: 960px) 50vw, 25vw"
+                {...(img.blurhash
+                  ? { placeholder: "blur" as const, blurDataURL: img.blurhash }
+                  : {})}
+              />
             ))}
           </div>
         ) : (
@@ -75,10 +74,10 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
             src={image.url}
             alt={image.alt}
             fill
-            className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
-            placeholder={image.blurhash ? "blur" : undefined}
-            blurDataURL={image.blurhash}
+            {...(image.blurhash
+              ? { placeholder: "blur" as const, blurDataURL: image.blurhash }
+              : {})}
           />
         )}
       </div>
@@ -166,7 +165,7 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
         {/* CTA */}
         {cta && (
           <a href={cta.url} className="btn-line">
-            {cta.label} <span className="arrow" />
+            {cta.label} <span className="arrow"></span>
           </a>
         )}
       </div>

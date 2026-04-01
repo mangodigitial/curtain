@@ -23,12 +23,13 @@ export default function WellnessScroll({
             {renderTitle(data.title, data.titleItalic)}
           </h2>
         )}
+        {data.body && <p className="section-body">{data.body}</p>}
       </div>
 
       {/* Scroll container */}
       <div className="wellness-scroll">
         {data.cards.map((card, i) => (
-          <a key={i} href={card.url} className="wellness-card">
+          <div key={i} className="wellness-card">
             <Image
               src={card.image.url}
               alt={card.image.alt}
@@ -44,7 +45,7 @@ export default function WellnessScroll({
               {card.label && <span>{card.label}</span>}
               <h4>{card.title}</h4>
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </section>
