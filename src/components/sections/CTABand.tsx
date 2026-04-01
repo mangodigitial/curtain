@@ -16,7 +16,7 @@ export default function CTABand({ data }: { data: CTABandSection }) {
   const sectionClass = variant
     ? `value-strip ${variant}`
     : "value-strip";
-  const hasSidebar = data.contactDetails && data.contactDetails.length > 0;
+  const hasSidebar = data?.contactDetails && (data?.contactDetails?.length ?? 0) > 0;
 
   return (
     <section className={sectionClass}>
@@ -28,9 +28,9 @@ export default function CTABand({ data }: { data: CTABandSection }) {
               {renderTitle(data.title, data.titleItalic, "")}
             </h2>
             {data.description && <p>{data.description}</p>}
-            {data.cta && (
-              <a href={data.cta.url} className="value-strip-cta">
-                {data.cta.label}
+            {data?.cta && (
+              <a href={data?.cta?.url} className="value-strip-cta">
+                {data?.cta?.label}
                 <span aria-hidden="true">&rarr;</span>
               </a>
             )}
@@ -38,7 +38,7 @@ export default function CTABand({ data }: { data: CTABandSection }) {
 
           {/* Contact details */}
           <div className="value-strip-contact">
-            {data.contactDetails!.map((detail, i) => (
+            {(data?.contactDetails ?? []).map((detail, i) => (
               <div key={i} className="value-strip-contact-item">
                 <p className="vsc-label">{detail.label}</p>
                 <p className="vsc-val">
@@ -58,9 +58,9 @@ export default function CTABand({ data }: { data: CTABandSection }) {
             {renderTitle(data.title, data.titleItalic, "")}
           </h2>
           {data.description && <p>{data.description}</p>}
-          {data.cta && (
-            <a href={data.cta.url} className="value-strip-cta">
-              {data.cta.label}
+          {data?.cta && (
+            <a href={data?.cta?.url} className="value-strip-cta">
+              {data?.cta?.label}
               <span aria-hidden="true">&rarr;</span>
             </a>
           )}

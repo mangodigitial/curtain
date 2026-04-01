@@ -100,7 +100,7 @@ function RenderSection({ section, index }: { section: Section; index: number }) 
 export default function SectionRenderer({ sections }: { sections: Section[] }) {
   return (
     <>
-      {sections.map((section, index) => (
+      {(sections ?? []).map((section, index) => (
         <RenderSection key={index} section={section} index={index} />
       ))}
     </>

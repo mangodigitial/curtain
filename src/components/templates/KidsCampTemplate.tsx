@@ -41,11 +41,13 @@ interface KidsCampTemplateProps {
 export default function KidsCampTemplate({
   sections,
 }: KidsCampTemplateProps) {
-  const hero = sections[0] as HeroSection | undefined;
-  const intro = sections[1] as IntroSplitSection | undefined;
-  const editorialFun = sections[2] as EditorialSplitSection | undefined;
-  const editorialEvening = sections[3] as EditorialSplitSection | undefined;
-  const testimonial = sections[4] as TestimonialSection | undefined;
+  const safeSections = sections ?? [];
+  const hero = safeSections.find(s => s?.type === 'hero') as HeroSection | undefined;
+  const intro = safeSections.find(s => s?.type === 'intro') as IntroSplitSection | undefined;
+  const editorialSplits = safeSections.filter(s => s?.type === 'editorial_split') as EditorialSplitSection[];
+  const editorialFun = editorialSplits[0] ?? undefined;
+  const editorialEvening = editorialSplits[1] ?? undefined;
+  const testimonial = safeSections.find(s => s?.type === 'testimonial') as TestimonialSection | undefined;
 
   return (
     <>
@@ -97,16 +99,16 @@ function KidsHero({ data }: { data: HeroSection }) {
       />
       <div className="sub-hero-bg" />
       <div className="sub-hero-content">
-        {data.breadcrumb && (
+        {data?.breadcrumb && (
           <div className="sub-hero-breadcrumb">
-            {data.breadcrumb.map(
+            {(data.breadcrumb ?? []).map(
               (crumb: { label: string; url: string }, i: number) => (
                 <span key={i}>
                   {i > 0 && <span>&rarr;</span>}
-                  {crumb.url ? (
-                    <a href={crumb.url}>{crumb.label}</a>
+                  {crumb?.url ? (
+                    <a href={crumb.url}>{crumb?.label}</a>
                   ) : (
-                    crumb.label
+                    crumb?.label
                   )}
                 </span>
               ),
@@ -168,24 +170,24 @@ function KidsIntroSplit({ data }: { data: IntroSplitSection }) {
             <h4 className="sidebar-heading">{data.sidebar.heading}</h4>
           )}
 
-          {data.sidebar.items?.map(
+          {(data?.sidebar?.items ?? []).map(
             (
               item: { icon?: string; label: string; value: string },
               i: number,
             ) => (
               <div key={i} className="sidebar-item">
                 <span className="sidebar-icon">
-                  {item.icon || "\u25C6"}
+                  {item?.icon || "\u25C6"}
                 </span>
-                <span className="sidebar-label">{item.label}</span>
-                <span className="sidebar-val">{item.value}</span>
+                <span className="sidebar-label">{item?.label}</span>
+                <span className="sidebar-val">{item?.value}</span>
               </div>
             ),
           )}
 
-          {data.sidebar.cta && (
-            <a href={data.sidebar.cta.url} className="sidebar-cta">
-              {data.sidebar.cta.label} &#8599;
+          {data?.sidebar?.cta && (
+            <a href={data.sidebar.cta?.url} className="sidebar-cta">
+              {data.sidebar.cta?.label} &#8599;
             </a>
           )}
         </div>
@@ -229,19 +231,19 @@ function KidsDetail({ data }: { data: EditorialSplitSection }) {
         <h3>{renderTitle(data.title, data.titleItalic, "")}</h3>
         <p>{data.body}</p>
 
-        {data.stats && data.stats.length > 0 && (
+        {data?.stats && (data.stats?.length ?? 0) > 0 && (
           <div className="detail-columns">
-            {data.stats.map((stat, i) => (
+            {(data.stats ?? []).map((stat, i) => (
               <div key={i}>
-                <p>{stat.value}</p>
+                <p>{stat?.value}</p>
               </div>
             ))}
           </div>
         )}
 
-        {data.cta && (
-          <a href={data.cta.url} className="sidebar-cta" style={{ display: "inline-block", marginTop: "1.5rem" }}>
-            {data.cta.label} &#8599;
+        {data?.cta && (
+          <a href={data.cta?.url} className="sidebar-cta" style={{ display: "inline-block", marginTop: "1.5rem" }}>
+            {data.cta?.label} &#8599;
           </a>
         )}
       </div>

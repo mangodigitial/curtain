@@ -13,17 +13,17 @@ export default function FilterGallery({
 }) {
   const [active, setActive] = useState("All");
 
-  const categories = ["All", ...data.categories];
+  const categories = ["All", ...(data?.categories ?? [])];
   const filtered =
     active === "All"
-      ? data.images
-      : data.images.filter((img) => img.category === active);
+      ? (data?.images ?? [])
+      : (data?.images ?? []).filter((img) => img?.category === active);
 
   return (
     <section>
       {/* ── Filter Bar ────────────────────────────────── */}
       <div className="filter-bar">
-        {categories.map((cat) => (
+        {(categories ?? []).map((cat) => (
           <button
             key={cat}
             onClick={() => setActive(cat)}
@@ -36,7 +36,7 @@ export default function FilterGallery({
 
       {/* ── Masonry Grid ──────────────────────────────── */}
       <div className="masonry-grid">
-        {filtered.map((img) => (
+        {(filtered ?? []).map((img) => (
           <div
             key={img.id}
             className="masonry-item"
@@ -63,9 +63,9 @@ export default function FilterGallery({
       {/* ── Count ─────────────────────────────────────── */}
       <p className="gallery-count">
         Showing{" "}
-        <strong>{filtered.length}</strong>{" "}
+        <strong>{filtered?.length ?? 0}</strong>{" "}
         of{" "}
-        <strong>{data.images.length}</strong>{" "}
+        <strong>{data?.images?.length ?? 0}</strong>{" "}
         images
       </p>
     </section>

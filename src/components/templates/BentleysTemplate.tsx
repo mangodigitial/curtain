@@ -40,10 +40,11 @@ interface BentleysTemplateProps {
 export default function BentleysTemplate({
   sections,
 }: BentleysTemplateProps) {
-  const hero = sections[0] as HeroSection | undefined;
-  const intro = sections[1] as IntroSection | undefined;
-  const editorial = sections[2] as EditorialSplitSection | undefined;
-  const ctaBand = sections[3] as CTABandSection | undefined;
+  const safeSections = sections ?? [];
+  const hero = safeSections.find(s => s?.type === 'hero') as HeroSection | undefined;
+  const intro = safeSections.find(s => s?.type === 'intro') as IntroSection | undefined;
+  const editorial = safeSections.find(s => s?.type === 'editorial_split') as EditorialSplitSection | undefined;
+  const ctaBand = safeSections.find(s => s?.type === 'cta_band') as CTABandSection | undefined;
 
   return (
     <>
@@ -94,16 +95,16 @@ function BentleyHero({ data }: { data: HeroSection }) {
         />
       )}
       <div className="bentley-hero-content">
-        {data.breadcrumb && (
+        {data?.breadcrumb && (
           <div className="bentley-hero-breadcrumb">
-            {data.breadcrumb.map(
+            {(data.breadcrumb ?? []).map(
               (crumb: { label: string; url: string }, i: number) => (
                 <span key={i}>
                   {i > 0 && <span>&rarr;</span>}
-                  {crumb.url ? (
-                    <a href={crumb.url}>{crumb.label}</a>
+                  {crumb?.url ? (
+                    <a href={crumb.url}>{crumb?.label}</a>
                   ) : (
-                    crumb.label
+                    crumb?.label
                   )}
                 </span>
               ),
@@ -209,17 +210,17 @@ function BentleyContent({ data }: { data: EditorialSplitSection }) {
         <div className="booking-card">
           {data.subtitle && <h3>{data.subtitle}</h3>}
 
-          {data.stats && data.stats.length > 0 && (
+          {data?.stats && (data.stats?.length ?? 0) > 0 && (
             <>
-              {data.stats.map((stat, i) => (
+              {(data.stats ?? []).map((stat, i) => (
                 <div key={i} className="booking-row">
-                  <span className="booking-label">{stat.label}</span>
+                  <span className="booking-label">{stat?.label}</span>
                   <span
                     className={`booking-val${
                       i === 0 ? " price" : ""
                     }`}
                   >
-                    {stat.value}
+                    {stat?.value}
                   </span>
                 </div>
               ))}
@@ -230,15 +231,15 @@ function BentleyContent({ data }: { data: EditorialSplitSection }) {
             <p className="booking-note">{data.dressCode.description}</p>
           )}
 
-          {data.menuLinks && data.menuLinks.length > 0 && (
+          {data?.menuLinks && (data.menuLinks?.length ?? 0) > 0 && (
             <div className="booking-ctas">
-              {data.menuLinks.map((link, i) => (
+              {(data.menuLinks ?? []).map((link, i) => (
                 <a
                   key={i}
-                  href={link.url}
+                  href={link?.url}
                   className={`b-btn ${i === 0 ? "primary" : "secondary"}`}
                 >
-                  {link.label}
+                  {link?.label}
                 </a>
               ))}
             </div>

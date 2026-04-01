@@ -29,7 +29,7 @@ export default function GalleryMosaic({
       )}
 
       <div className="gallery-grid">
-        {data.images.map((image) => (
+        {(data?.images ?? []).map((image) => (
           <div key={image.id} className="gi">
             <Image
               src={image.url}

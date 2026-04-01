@@ -18,7 +18,7 @@ export default function DetailColumns({
 
         {/* Columns */}
         <div className="detail-columns-grid">
-          {data.columns.map((column, i) => (
+          {(data?.columns ?? []).map((column, i) => (
             <div
               key={i}
               className="detail-col"

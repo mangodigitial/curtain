@@ -32,16 +32,16 @@ function PageHero({ data }: { data: any }) {
       />
       <div className="page-hero-bg" />
       <div className="page-hero-content">
-        {data.breadcrumb && (
+        {data?.breadcrumb && (
           <div className="page-hero-breadcrumb">
-            {data.breadcrumb.map(
+            {(data.breadcrumb ?? []).map(
               (crumb: { label: string; url?: string }, i: number) => (
                 <span key={i}>
                   {i > 0 && <span> &rarr; </span>}
-                  {crumb.url ? (
-                    <a href={crumb.url}>{crumb.label}</a>
+                  {crumb?.url ? (
+                    <a href={crumb.url}>{crumb?.label}</a>
                   ) : (
-                    crumb.label
+                    crumb?.label
                   )}
                 </span>
               )
@@ -100,8 +100,8 @@ function ActivityBlock({ data, index }: { data: any; index: number }) {
             <span className="act-media-badge">{data.badge}</span>
           )}
 
-          {data.images?.small
-            ?.slice(0, 2)
+          {(data?.images?.small ?? [])
+            .slice(0, 2)
             .map((img: any, i: number) => (
               <Image
                 key={img.id ?? i}
@@ -140,9 +140,9 @@ function ActivityBlock({ data, index }: { data: any; index: number }) {
 
           <p className="act-desc">{data.description}</p>
 
-          {data.highlights && data.highlights.length > 0 && (
+          {data?.highlights && (data.highlights?.length ?? 0) > 0 && (
             <div className="act-highlights">
-              {data.highlights.map((highlight: string, i: number) => (
+              {(data.highlights ?? []).map((highlight: string, i: number) => (
                 <div key={i} className="act-highlight">
                   <span className="act-highlight-dot" />
                   {highlight}
@@ -151,9 +151,9 @@ function ActivityBlock({ data, index }: { data: any; index: number }) {
             </div>
           )}
 
-          {data.cta && (
-            <a href={data.cta.url} className="act-link">
-              {data.cta.label}
+          {data?.cta && (
+            <a href={data.cta?.url} className="act-link">
+              {data.cta?.label}
               <span className="arrow" />
             </a>
           )}
@@ -247,10 +247,11 @@ export default function ActivitiesTemplate({
 }: {
   sections: any[];
 }) {
-  const hero = sections[0];
-  const activities = sections.slice(1, 5);
-  const includedUpgrade = sections[5];
-  const testimonial = sections[6];
+  const safeSections = sections ?? [];
+  const hero = safeSections.find((s: any) => s?.type === 'hero');
+  const activities = safeSections.filter((s: any) => s?.type === 'activity_section');
+  const includedUpgrade = safeSections.find((s: any) => s?.type === 'included_upgrade');
+  const testimonial = safeSections.find((s: any) => s?.type === 'testimonial');
 
   return (
     <>
@@ -258,7 +259,7 @@ export default function ActivitiesTemplate({
       {hero && <PageHero data={hero} />}
 
       {/* Activity Sections */}
-      {activities.map((activity, i) => (
+      {(activities ?? []).map((activity, i) => (
         <ActivityBlock key={i} data={activity} index={i} />
       ))}
 

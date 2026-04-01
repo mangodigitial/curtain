@@ -19,15 +19,12 @@ import Image from "next/image";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function WeddingsTemplate({ sections }: { sections: any[] }) {
-  const hero = sections[0];
-  const intro = sections[1];
-  const beachWeddings = sections[2];
-  const romantic = sections[3];
-  const corporate = sections[4];
-  const testimonial = sections[5];
-  const ctaBand = sections[6];
-
-  const eventTypes = [beachWeddings, romantic, corporate].filter(Boolean);
+  const safeSections = sections ?? [];
+  const hero = safeSections.find((s: any) => s?.type === 'hero');
+  const intro = safeSections.find((s: any) => s?.type === 'intro');
+  const eventTypes = safeSections.filter((s: any) => s?.type === 'editorial_split');
+  const testimonial = safeSections.find((s: any) => s?.type === 'testimonial');
+  const ctaBand = safeSections.find((s: any) => s?.type === 'cta_band');
 
   return (
     <>
@@ -49,14 +46,14 @@ export default function WeddingsTemplate({ sections }: { sections: any[] }) {
           <div className="hero-content">
             {hero.breadcrumb && (
               <div className="hero-breadcrumb">
-                {hero.breadcrumb.map(
+                {(hero.breadcrumb ?? []).map(
                   (crumb: { label: string; url?: string }, i: number) => (
                     <span key={i}>
                       {i > 0 && <span> &rarr; </span>}
-                      {crumb.url ? (
-                        <a href={crumb.url}>{crumb.label}</a>
+                      {crumb?.url ? (
+                        <a href={crumb.url}>{crumb?.label}</a>
                       ) : (
-                        crumb.label
+                        crumb?.label
                       )}
                     </span>
                   )
@@ -100,7 +97,7 @@ export default function WeddingsTemplate({ sections }: { sections: any[] }) {
       )}
 
       {/* ═══ Event Types (editorial_split sections) ═══ */}
-      {eventTypes.map((event, i) => (
+      {(eventTypes ?? []).map((event, i) => (
         <EventTypeSection key={i} data={event} index={i} />
       ))}
 
@@ -140,12 +137,12 @@ export default function WeddingsTemplate({ sections }: { sections: any[] }) {
                 </a>
               )}
             </div>
-            {ctaBand.contactDetails && ctaBand.contactDetails.length > 0 && (
+            {ctaBand?.contactDetails && (ctaBand.contactDetails?.length ?? 0) > 0 && (
               <div className="contact-details">
-                {ctaBand.contactDetails.map(
+                {(ctaBand.contactDetails ?? []).map(
                   (detail: { label: string; value: string; url?: string }, i: number) => (
                     <div key={i} className="cd-item">
-                      <div className="cd-label">{detail.label}</div>
+                      <div className="cd-label">{detail?.label}</div>
                       <div className="cd-val">
                         {detail.url ? (
                           <a href={detail.url}>{detail.value}</a>
@@ -191,15 +188,15 @@ function EventTypeSection({ data, index }: { data: any; index: number }) {
   return (
     <section className="event-type reveal">
       <div className="event-media">
-        {data.image && (
+        {data?.image && (
           <Image
-            src={data.image.url}
-            alt={data.image.alt || ""}
-            width={data.image.width ?? 900}
-            height={data.image.height ?? 600}
+            src={data.image?.url ?? ""}
+            alt={data.image?.alt || ""}
+            width={data.image?.width ?? 900}
+            height={data.image?.height ?? 600}
             sizes="(max-width: 900px) 100vw, 50vw"
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", minHeight: "450px" }}
-            {...(data.image.blurhash
+            {...(data.image?.blurhash
               ? { placeholder: "blur" as const, blurDataURL: data.image.blurhash }
               : {})}
           />

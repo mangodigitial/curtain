@@ -25,13 +25,13 @@ export default function OfferCard({ data }: { data: OfferCardSection }) {
       <div className="offer-full-media">
         {data.discountLabel && <DiscountBadge label={data.discountLabel} />}
         <Image
-          src={data.image.url}
-          alt={data.image.alt}
-          width={data.image.width ?? 800}
-          height={data.image.height ?? 600}
+          src={data?.image?.url}
+          alt={data?.image?.alt}
+          width={data?.image?.width ?? 800}
+          height={data?.image?.height ?? 600}
           sizes="(min-width: 1024px) 45vw, 100vw"
-          {...(data.image.blurhash
-            ? { placeholder: "blur", blurDataURL: data.image.blurhash }
+          {...(data?.image?.blurhash
+            ? { placeholder: "blur", blurDataURL: data?.image?.blurhash }
             : {})}
         />
       </div>
@@ -45,9 +45,9 @@ export default function OfferCard({ data }: { data: OfferCardSection }) {
         <p className="offer-desc">{data.description}</p>
 
         {/* Details grid */}
-        {data.details && data.details.length > 0 && (
+        {data?.details && (data?.details?.length ?? 0) > 0 && (
           <div className="offer-details">
-            {data.details.map((detail, i) => (
+            {(data?.details ?? []).map((detail, i) => (
               <div key={i} className="od-item">
                 <div className="od-label">{detail.label}</div>
                 <div className="od-val">{detail.value}</div>
@@ -57,13 +57,13 @@ export default function OfferCard({ data }: { data: OfferCardSection }) {
         )}
 
         {/* Includes box */}
-        {data.includes && data.includes.length > 0 && (
+        {data?.includes && (data?.includes?.length ?? 0) > 0 && (
           <div className="offer-includes">
-            {data.includesTitle && (
-              <div className="offer-includes-title">{data.includesTitle}</div>
+            {data?.includesTitle && (
+              <div className="offer-includes-title">{data?.includesTitle}</div>
             )}
             <div className="offer-includes-list">
-              {data.includes.map((item, i) => (
+              {(data?.includes ?? []).map((item, i) => (
                 <span key={i}>{item}</span>
               ))}
             </div>

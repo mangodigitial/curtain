@@ -26,14 +26,14 @@ function RoomCard({ room }: { room: RoomGridSection["rooms"][number] }) {
   return (
     <div className="room-card">
       <Image
-        src={room.image.url}
-        alt={room.image.alt}
-        width={room.image.width ?? 700}
-        height={room.image.height ?? 933}
+        src={room?.image?.url}
+        alt={room?.image?.alt}
+        width={room?.image?.width ?? 700}
+        height={room?.image?.height ?? 933}
         className="room-card-img"
         sizes="(max-width: 900px) 100vw, 33vw"
-        {...(room.image.blurhash
-          ? { placeholder: "blur" as const, blurDataURL: room.image.blurhash }
+        {...(room?.image?.blurhash
+          ? { placeholder: "blur" as const, blurDataURL: room?.image?.blurhash }
           : {})}
       />
       <div className="room-card-overlay">
@@ -64,7 +64,7 @@ export default function RoomGrid({ data }: { data: RoomGridSection }) {
         </div>
       )}
       <div className="rooms-grid">
-        {data.rooms.map((room) => (
+        {(data?.rooms ?? []).map((room) => (
           <RoomCard key={room.name} room={room} />
         ))}
       </div>

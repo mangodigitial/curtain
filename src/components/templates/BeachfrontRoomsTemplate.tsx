@@ -43,10 +43,11 @@ interface BeachfrontRoomsTemplateProps {
 export default function BeachfrontRoomsTemplate({
   sections,
 }: BeachfrontRoomsTemplateProps) {
-  const hero = sections[0] as HeroSection | undefined;
-  const intro = sections[1] as IntroSection | undefined;
-  const roomSections = sections.slice(2, 5) as RoomDetailSection[];
-  const ctaBand = sections[5] as CTABandSection | undefined;
+  const safeSections = sections ?? [];
+  const hero = safeSections.find(s => s?.type === 'hero') as HeroSection | undefined;
+  const intro = safeSections.find(s => s?.type === 'intro') as IntroSection | undefined;
+  const roomSections = safeSections.filter(s => s?.type === 'room_detail') as RoomDetailSection[];
+  const ctaBand = safeSections.find(s => s?.type === 'cta_band') as CTABandSection | undefined;
 
   return (
     <>
@@ -54,15 +55,15 @@ export default function BeachfrontRoomsTemplate({
       {hero && <PageHero data={hero} />}
 
       {/* ═══ ROOM NAV TABS ═══ */}
-      {intro && roomSections.length > 0 && (
+      {intro && (roomSections?.length ?? 0) > 0 && (
         <RoomNav rooms={roomSections} />
       )}
 
       {/* ═══ ROOM SECTIONS ═══ */}
-      {roomSections.map((room, i) => (
+      {(roomSections ?? []).map((room, i) => (
         <section
-          key={room.id ?? i}
-          id={room.id}
+          key={room?.id ?? i}
+          id={room?.id}
           className="room-section reveal"
         >
           <div className="room-inner">
@@ -97,26 +98,26 @@ function PageHero({ data }: { data: HeroSection }) {
   return (
     <section className="page-hero">
       <Image
-        src={data.image?.url || ""}
-        alt={data.image?.alt || "Beach Front Rooms"}
+        src={data?.image?.url || ""}
+        alt={data?.image?.alt || "Beach Front Rooms"}
         fill
         priority
         className="page-hero-img"
         sizes="100vw"
-        {...blurProps(data.image?.blurhash)}
+        {...blurProps(data?.image?.blurhash)}
       />
       <div className="page-hero-bg" />
       <div className="page-hero-content">
-        {data.breadcrumb && (
+        {data?.breadcrumb && (
           <div className="page-hero-breadcrumb">
-            {data.breadcrumb.map(
+            {(data.breadcrumb ?? []).map(
               (crumb: { label: string; url: string }, i: number) => (
                 <span key={i}>
                   {i > 0 && <span>&rarr;</span>}
-                  {crumb.url ? (
-                    <a href={crumb.url}>{crumb.label}</a>
+                  {crumb?.url ? (
+                    <a href={crumb.url}>{crumb?.label}</a>
                   ) : (
-                    crumb.label
+                    crumb?.label
                   )}
                 </span>
               ),
@@ -124,9 +125,9 @@ function PageHero({ data }: { data: HeroSection }) {
           </div>
         )}
         <h1 className="page-hero-title">
-          {renderTitle(data.title, data.titleItalic, "")}
+          {renderTitle(data?.title, data?.titleItalic, "")}
         </h1>
-        {data.subtitle && <p className="page-hero-sub">{data.subtitle}</p>}
+        {data?.subtitle && <p className="page-hero-sub">{data.subtitle}</p>}
       </div>
     </section>
   );
@@ -148,14 +149,14 @@ function RoomNav({ rooms }: { rooms: RoomDetailSection[] }) {
   return (
     <div className="room-nav" id="roomNav">
       <div className="room-nav-inner">
-        {rooms.map((room, i) => (
+        {(rooms ?? []).map((room, i) => (
           <a
-            key={room.id ?? i}
-            href={`#${room.id}`}
+            key={room?.id ?? i}
+            href={`#${room?.id ?? ""}`}
             className={i === 0 ? "active" : undefined}
           >
-            {room.name}
-            {room.nameItalic ? ` ${room.nameItalic}` : ""}
+            {room?.name}
+            {room?.nameItalic ? ` ${room.nameItalic}` : ""}
           </a>
         ))}
       </div>
@@ -182,9 +183,9 @@ function RoomNav({ rooms }: { rooms: RoomDetailSection[] }) {
 
 function CtaBandSection({ data }: { data: CTABandSection }) {
   const bgClass =
-    data.background === "dark"
+    data?.background === "dark"
       ? "also-explore"
-      : data.background === "blush"
+      : data?.background === "blush"
         ? "offers-ribbon"
         : "offers-ribbon";
 
@@ -192,20 +193,20 @@ function CtaBandSection({ data }: { data: CTABandSection }) {
     <section className={bgClass}>
       <div
         className={
-          data.background === "dark"
+          data?.background === "dark"
             ? "also-explore-header"
             : "offers-ribbon-header"
         }
       >
-        {data.description && (
+        {data?.description && (
           <div className="section-label">{data.description}</div>
         )}
-        <h2>{renderTitle(data.title, data.titleItalic, "")}</h2>
+        <h2>{renderTitle(data?.title, data?.titleItalic, "")}</h2>
       </div>
-      {data.cta && (
+      {data?.cta && (
         <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
-          <a href={data.cta.url} className="room-cta">
-            {data.cta.label}
+          <a href={data.cta?.url} className="room-cta">
+            {data.cta?.label}
           </a>
         </div>
       )}

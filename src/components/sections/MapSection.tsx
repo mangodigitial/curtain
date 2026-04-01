@@ -26,10 +26,10 @@ export default function MapSectionComponent({
 
         {/* Map image */}
         <Image
-          src={data.image.url}
-          alt={data.image.alt}
-          width={data.image.width ?? 700}
-          height={data.image.height ?? 500}
+          src={data?.image?.url}
+          alt={data?.image?.alt}
+          width={data?.image?.width ?? 700}
+          height={data?.image?.height ?? 500}
         />
       </div>
     </section>

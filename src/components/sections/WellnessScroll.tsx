@@ -28,16 +28,16 @@ export default function WellnessScroll({
 
       {/* Scroll container */}
       <div className="wellness-scroll">
-        {data.cards.map((card, i) => (
+        {(data?.cards ?? []).map((card, i) => (
           <div key={i} className="wellness-card">
             <Image
-              src={card.image.url}
-              alt={card.image.alt}
-              width={card.image.width ?? 320}
-              height={card.image.height ?? 427}
+              src={card?.image?.url}
+              alt={card?.image?.alt}
+              width={card?.image?.width ?? 320}
+              height={card?.image?.height ?? 427}
               sizes="320px"
-              {...(card.image.blurhash
-                ? { placeholder: "blur", blurDataURL: card.image.blurhash }
+              {...(card?.image?.blurhash
+                ? { placeholder: "blur", blurDataURL: card?.image?.blurhash }
                 : {})}
             />
 

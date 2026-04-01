@@ -15,14 +15,14 @@ export default function ActivitySection({
         <div className="act-media">
           {/* Main image spanning both columns */}
           <Image
-            src={data.images.main.url}
-            alt={data.images.main.alt}
-            width={data.images.main.width ?? 960}
-            height={data.images.main.height ?? 600}
+            src={data?.images?.main?.url}
+            alt={data?.images?.main?.alt}
+            width={data?.images?.main?.width ?? 960}
+            height={data?.images?.main?.height ?? 600}
             className="act-img-main"
             sizes="(max-width: 1024px) 100vw, 55vw"
-            {...(data.images.main.blurhash
-              ? { placeholder: "blur" as const, blurDataURL: data.images.main.blurhash }
+            {...(data?.images?.main?.blurhash
+              ? { placeholder: "blur" as const, blurDataURL: data?.images?.main?.blurhash }
               : {})}
           />
 
@@ -33,7 +33,7 @@ export default function ActivitySection({
           )}
 
           {/* Two smaller images */}
-          {data.images.small.slice(0, 2).map((img) => (
+          {(data?.images?.small ?? []).slice(0, 2).map((img) => (
             <Image
               key={img.id}
               src={img.url}
@@ -66,9 +66,9 @@ export default function ActivitySection({
           </p>
 
           {/* Highlights */}
-          {data.highlights.length > 0 && (
+          {(data?.highlights?.length ?? 0) > 0 && (
             <div className="act-highlights">
-              {data.highlights.map((highlight) => (
+              {(data?.highlights ?? []).map((highlight) => (
                 <div
                   key={highlight}
                   className="act-highlight"
@@ -81,12 +81,12 @@ export default function ActivitySection({
           )}
 
           {/* CTA */}
-          {data.cta && (
+          {data?.cta && (
             <a
-              href={data.cta.url}
+              href={data?.cta?.url}
               className="act-link"
             >
-              {data.cta.label}
+              {data?.cta?.label}
               <span className="arrow" />
             </a>
           )}

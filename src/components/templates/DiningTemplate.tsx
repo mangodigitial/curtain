@@ -18,12 +18,14 @@ import Image from "next/image";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function DiningTemplate({ sections }: { sections: any[] }) {
-  const hero = sections[0];
-  const strip = sections[1];
-  const seaGrape = sections[2];
-  const tamarind = sections[3];
-  const wine = sections[4];
-  const testimonial = sections[5];
+  const safeSections = sections ?? [];
+  const hero = safeSections.find((s: any) => s?.type === 'hero');
+  const strip = safeSections.find((s: any) => s?.type === 'inclusive_strip');
+  const editorialSplits = safeSections.filter((s: any) => s?.type === 'editorial_split');
+  const seaGrape = editorialSplits[0] ?? null;
+  const tamarind = editorialSplits[1] ?? null;
+  const wine = editorialSplits[2] ?? null;
+  const testimonial = safeSections.find((s: any) => s?.type === 'testimonial');
 
   return (
     <>
@@ -45,14 +47,14 @@ export default function DiningTemplate({ sections }: { sections: any[] }) {
           <div className="page-hero-content">
             {hero.breadcrumb && (
               <div className="page-hero-breadcrumb">
-                {hero.breadcrumb.map(
+                {(hero.breadcrumb ?? []).map(
                   (crumb: { label: string; url: string }, i: number) => (
                     <span key={i}>
                       {i > 0 && <span>&rarr;</span>}
-                      {crumb.url ? (
-                        <a href={crumb.url}>{crumb.label}</a>
+                      {crumb?.url ? (
+                        <a href={crumb.url}>{crumb?.label}</a>
                       ) : (
-                        crumb.label
+                        crumb?.label
                       )}
                     </span>
                   )
@@ -76,9 +78,9 @@ export default function DiningTemplate({ sections }: { sections: any[] }) {
       )}
 
       {/* ═══════ ALL-INCLUSIVE STRIP ═══════ */}
-      {strip && strip.items && (
+      {strip && strip?.items && (
         <div className="inclusive-strip">
-          {strip.items.map(
+          {(strip.items ?? []).map(
             (
               item: { icon: string; title: string; subtitle: string },
               i: number
@@ -165,21 +167,21 @@ function RestaurantSection({ data, id }: { data: any; id?: string }) {
       <div className="restaurant-inner">
         {/* ── Gallery Mosaic ──────────────────────────────── */}
         <div className="rest-gallery">
-          {data.image && (
+          {data?.image && (
             <Image
-              src={data.image.url}
-              alt={data.image.alt || ""}
-              width={data.image.width ?? 900}
-              height={data.image.height ?? 563}
+              src={data.image?.url ?? ""}
+              alt={data.image?.alt || ""}
+              width={data.image?.width ?? 900}
+              height={data.image?.height ?? 563}
               className="rg-hero"
               sizes="(max-width: 960px) 100vw, 50vw"
-              {...(data.image.blurhash
+              {...(data.image?.blurhash
                 ? { placeholder: "blur" as const, blurDataURL: data.image.blurhash }
                 : {})}
             />
           )}
-          {data.gallery &&
-            data.gallery.slice(0, 2).map(
+          {data?.gallery &&
+            (data.gallery ?? []).slice(0, 2).map(
               (
                 img: {
                   id?: string;
@@ -235,9 +237,9 @@ function RestaurantSection({ data, id }: { data: any; id?: string }) {
           )}
 
           {/* Meal Times */}
-          {data.meals && data.meals.length > 0 && (
+          {data?.meals && (data.meals?.length ?? 0) > 0 && (
             <div className="rest-meals">
-              {data.meals.map(
+              {(data.meals ?? []).map(
                 (meal: { name: string; time: string }, i: number) => (
                   <div key={i} className="rest-meal">
                     <div className="rest-meal-name">{meal.name}</div>
@@ -249,20 +251,20 @@ function RestaurantSection({ data, id }: { data: any; id?: string }) {
           )}
 
           {/* Dress Code */}
-          {data.dressCode && (
+          {data?.dressCode && (
             <div className="rest-dress">
-              <div className="rest-dress-label">{data.dressCode.label}</div>
-              <p>{data.dressCode.description}</p>
+              <div className="rest-dress-label">{data.dressCode?.label}</div>
+              <p>{data.dressCode?.description}</p>
             </div>
           )}
 
           {/* Menu Links */}
-          {data.menuLinks && data.menuLinks.length > 0 && (
+          {data?.menuLinks && (data.menuLinks?.length ?? 0) > 0 && (
             <div className="rest-menus">
-              {data.menuLinks.map(
+              {(data.menuLinks ?? []).map(
                 (link: { label: string; url: string }, i: number) => (
-                  <a key={i} href={link.url} className="rest-menu-link">
-                    {link.label}
+                  <a key={i} href={link?.url} className="rest-menu-link">
+                    {link?.label}
                   </a>
                 )
               )}
@@ -313,15 +315,15 @@ function WineCellarSection({ data }: { data: any }) {
       <div className="wine-hero">
         {/* ── Wine Media ─────────────────────────────────── */}
         <div className="wine-media">
-          {data.image && (
+          {data?.image && (
             <Image
-              src={data.image.url}
-              alt={data.image.alt || "Wine Cellar"}
-              width={data.image.width ?? 900}
-              height={data.image.height ?? 600}
+              src={data.image?.url ?? ""}
+              alt={data.image?.alt || "Wine Cellar"}
+              width={data.image?.width ?? 900}
+              height={data.image?.height ?? 600}
               sizes="(max-width: 960px) 100vw, 50vw"
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", minHeight: "450px", filter: "brightness(0.85)" }}
-              {...(data.image.blurhash
+              {...(data.image?.blurhash
                 ? { placeholder: "blur" as const, blurDataURL: data.image.blurhash }
                 : {})}
             />
@@ -349,9 +351,9 @@ function WineCellarSection({ data }: { data: any }) {
           )}
 
           {/* Wine Stats */}
-          {data.stats && data.stats.length > 0 && (
+          {data?.stats && (data.stats?.length ?? 0) > 0 && (
             <div className="wine-stats">
-              {data.stats.map(
+              {(data.stats ?? []).map(
                 (stat: { value: string; label: string }, i: number) => (
                   <div key={i}>
                     <div className="wine-stat-val">{stat.value}</div>
@@ -363,12 +365,12 @@ function WineCellarSection({ data }: { data: any }) {
           )}
 
           {/* Wine List Links */}
-          {data.menuLinks && data.menuLinks.length > 0 && (
+          {data?.menuLinks && (data.menuLinks?.length ?? 0) > 0 && (
             <div className="wine-lists">
-              {data.menuLinks.map(
+              {(data.menuLinks ?? []).map(
                 (link: { label: string; url: string }, i: number) => (
-                  <a key={i} href={link.url} className="wine-list-link">
-                    {link.label}
+                  <a key={i} href={link?.url} className="wine-list-link">
+                    {link?.label}
                   </a>
                 )
               )}
@@ -378,14 +380,14 @@ function WineCellarSection({ data }: { data: any }) {
       </div>
 
       {/* ── Sommelier Band ───────────────────────────────── */}
-      {data.sommelierBand && (
+      {data?.sommelierBand && (
         <div className="sommelier-band">
-          {data.sommelierBand.label && (
+          {data.sommelierBand?.label && (
             <div className="sommelier-band-label">
               {data.sommelierBand.label}
             </div>
           )}
-          {data.sommelierBand.text && (
+          {data.sommelierBand?.text && (
             <p
               dangerouslySetInnerHTML={{ __html: data.sommelierBand.text }}
             />

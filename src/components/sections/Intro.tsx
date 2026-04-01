@@ -22,9 +22,9 @@ function IntroSimple({ data }: { data: IntroSection }) {
           {data.body}
         </p>
 
-        {data.cta && (
-          <a href={data.cta.url} className="btn-line">
-            {data.cta.label} <span className="arrow" />
+        {data?.cta && (
+          <a href={data?.cta?.url} className="btn-line">
+            {data?.cta?.label} <span className="arrow" />
           </a>
         )}
       </div>
@@ -49,27 +49,27 @@ function IntroWithImages({ data }: { data: IntroSection }) {
         )}
 
         <Image
-          src={images.main.url}
-          alt={images.main.alt}
-          width={images.main.width ?? 800}
-          height={images.main.height ?? 1067}
+          src={images?.main?.url}
+          alt={images?.main?.alt}
+          width={images?.main?.width ?? 800}
+          height={images?.main?.height ?? 1067}
           className="intro-img-main"
           sizes="(max-width: 900px) 85vw, 42vw"
-          {...(images.main.blurhash
-            ? { placeholder: "blur" as const, blurDataURL: images.main.blurhash }
+          {...(images?.main?.blurhash
+            ? { placeholder: "blur" as const, blurDataURL: images?.main?.blurhash }
             : {})}
         />
 
-        {images.float && (
+        {images?.float && (
           <Image
-            src={images.float.url}
-            alt={images.float.alt}
-            width={images.float.width ?? 600}
-            height={images.float.height ?? 450}
+            src={images?.float?.url}
+            alt={images?.float?.alt}
+            width={images?.float?.width ?? 600}
+            height={images?.float?.height ?? 450}
             className="intro-img-float"
             sizes="(max-width: 900px) 55vw, 24vw"
-            {...(images.float.blurhash
-              ? { placeholder: "blur" as const, blurDataURL: images.float.blurhash }
+            {...(images?.float?.blurhash
+              ? { placeholder: "blur" as const, blurDataURL: images?.float?.blurhash }
               : {})}
           />
         )}
@@ -87,9 +87,9 @@ function IntroWithImages({ data }: { data: IntroSection }) {
 
         <p className="section-body">{data.body}</p>
 
-        {data.cta && (
-          <a href={data.cta.url} className="btn-line">
-            {data.cta.label} <span className="arrow" />
+        {data?.cta && (
+          <a href={data?.cta?.url} className="btn-line">
+            {data?.cta?.label} <span className="arrow" />
           </a>
         )}
       </div>

@@ -16,12 +16,13 @@ import { renderTitle } from "@/components/sections/render-title";
    ═══════════════════════════════════════════════════════════ */
 
 export default function AboutTemplate({ sections }: { sections: any[] }) {
-  const hero = sections[0];
-  const intro = sections[1];
-  const statsBand = sections[2];
-  const timeline = sections[3];
-  const mapSection = sections[4];
-  const editorialSplit = sections[5];
+  const safeSections = sections ?? [];
+  const hero = safeSections.find((s: any) => s?.type === 'hero');
+  const intro = safeSections.find((s: any) => s?.type === 'intro');
+  const statsBand = safeSections.find((s: any) => s?.type === 'stats_band');
+  const timeline = safeSections.find((s: any) => s?.type === 'timeline');
+  const mapSection = safeSections.find((s: any) => s?.type === 'map_section');
+  const editorialSplit = safeSections.find((s: any) => s?.type === 'editorial_split');
 
   return (
     <>
@@ -41,13 +42,13 @@ export default function AboutTemplate({ sections }: { sections: any[] }) {
           />
           <div className="sub-hero-bg"></div>
           <div className="sub-hero-content">
-            {hero.showBreadcrumb && hero.breadcrumb && (
+            {hero?.showBreadcrumb && hero?.breadcrumb && (
               <div className="sub-hero-breadcrumb">
-                {hero.breadcrumb.map(
+                {(hero.breadcrumb ?? []).map(
                   (item: { label: string; url: string }, i: number) => (
                     <span key={i}>
                       {i > 0 && <span>&rarr;</span>}
-                      <a href={item.url}>{item.label}</a>
+                      <a href={item?.url}>{item?.label}</a>
                     </span>
                   ),
                 )}
@@ -78,13 +79,13 @@ export default function AboutTemplate({ sections }: { sections: any[] }) {
       )}
 
       {/* ═══ Stats Band ═══ */}
-      {statsBand && statsBand.stats && (
+      {statsBand && statsBand?.stats && (
         <div className="stats-band reveal">
-          {statsBand.stats.map(
+          {(statsBand.stats ?? []).map(
             (stat: { value: string; label: string }, i: number) => (
               <div key={i} className="stat-cell">
-                <div className="stat-val">{stat.value}</div>
-                <div className="stat-lbl">{stat.label}</div>
+                <div className="stat-val">{stat?.value}</div>
+                <div className="stat-lbl">{stat?.label}</div>
               </div>
             ),
           )}
@@ -92,9 +93,9 @@ export default function AboutTemplate({ sections }: { sections: any[] }) {
       )}
 
       {/* ═══ Timeline ═══ */}
-      {timeline && timeline.items && (
+      {timeline && timeline?.items && (
         <section className="timeline">
-          {timeline.items.map(
+          {(timeline.items ?? []).map(
             (
               item: {
                 year: string;
@@ -120,15 +121,15 @@ export default function AboutTemplate({ sections }: { sections: any[] }) {
                   </h3>
                   <p className="tl-text">{item.text}</p>
                 </div>
-                {item.image && (
+                {item?.image && (
                   <div className="tl-media">
                     <Image
-                      src={item.image.url}
-                      alt={item.image.alt}
-                      width={item.image.width ?? 700}
-                      height={item.image.height ?? 525}
+                      src={item.image?.url ?? ""}
+                      alt={item.image?.alt ?? ""}
+                      width={item.image?.width ?? 700}
+                      height={item.image?.height ?? 525}
                       sizes="(min-width: 800px) 50vw, 100vw"
-                      {...(item.image.blurhash
+                      {...(item.image?.blurhash
                         ? {
                             placeholder: "blur" as const,
                             blurDataURL: item.image.blurhash,
@@ -156,15 +157,15 @@ export default function AboutTemplate({ sections }: { sections: any[] }) {
               </h2>
               <p>{mapSection.body}</p>
             </div>
-            {mapSection.image && (
+            {mapSection?.image && (
               <Image
                 className="map-img"
-                src={mapSection.image.url}
-                alt={mapSection.image.alt}
-                width={mapSection.image.width ?? 800}
-                height={mapSection.image.height ?? 500}
+                src={mapSection.image?.url ?? ""}
+                alt={mapSection.image?.alt ?? ""}
+                width={mapSection.image?.width ?? 800}
+                height={mapSection.image?.height ?? 500}
                 sizes="(min-width: 800px) 60vw, 100vw"
-                {...(mapSection.image.blurhash
+                {...(mapSection.image?.blurhash
                   ? {
                       placeholder: "blur" as const,
                       blurDataURL: mapSection.image.blurhash,
@@ -180,14 +181,14 @@ export default function AboutTemplate({ sections }: { sections: any[] }) {
       {editorialSplit && (
         <section className="antigua-band reveal">
           <div className="antigua-media">
-            {editorialSplit.image && (
+            {editorialSplit?.image && (
               <Image
-                src={editorialSplit.image.url}
-                alt={editorialSplit.image.alt}
-                width={editorialSplit.image.width ?? 900}
-                height={editorialSplit.image.height ?? 600}
+                src={editorialSplit.image?.url ?? ""}
+                alt={editorialSplit.image?.alt ?? ""}
+                width={editorialSplit.image?.width ?? 900}
+                height={editorialSplit.image?.height ?? 600}
                 sizes="(min-width: 800px) 50vw, 100vw"
-                {...(editorialSplit.image.blurhash
+                {...(editorialSplit.image?.blurhash
                   ? {
                       placeholder: "blur" as const,
                       blurDataURL: editorialSplit.image.blurhash,

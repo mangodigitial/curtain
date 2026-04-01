@@ -23,10 +23,10 @@ export default function IntroSplit({ data }: { data: IntroSplitSection }) {
 
         {/* Sidebar */}
         <aside className="sidebar-card">
-          <h3>{sidebar.heading}</h3>
+          <h3>{sidebar?.heading}</h3>
 
           <div>
-            {sidebar.items.map((item, i) => (
+            {(sidebar?.items ?? []).map((item, i) => (
               <div key={i} className="sidebar-item">
                 {item.icon && (
                   <span className="sidebar-item-icon">{item.icon}</span>
@@ -37,9 +37,9 @@ export default function IntroSplit({ data }: { data: IntroSplitSection }) {
             ))}
           </div>
 
-          {sidebar.cta && (
-            <a href={sidebar.cta.url} className="sidebar-cta">
-              {sidebar.cta.label}
+          {sidebar?.cta && (
+            <a href={sidebar?.cta?.url} className="sidebar-cta">
+              {sidebar?.cta?.label}
             </a>
           )}
         </aside>

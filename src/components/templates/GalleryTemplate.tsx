@@ -16,8 +16,9 @@ import type { FilterGallerySection } from "@/components/sections/types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function GalleryTemplate({ sections }: { sections: any[] }) {
-  const hero = sections[0];
-  const filterGallery = sections[1] as FilterGallerySection | undefined;
+  const safeSections = sections ?? [];
+  const hero = safeSections.find((s: any) => s?.type === 'hero');
+  const filterGallery = safeSections.find((s: any) => s?.type === 'filter_gallery') as FilterGallerySection | undefined;
 
   return (
     <>

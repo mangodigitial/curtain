@@ -10,7 +10,7 @@ export default function GalleryBand({
 }) {
   return (
     <section className="gallery-band">
-      {data.images.map((image) => (
+      {(data?.images ?? []).map((image) => (
         <div key={image.id} className="gb-item">
           <Image
             src={image.url}

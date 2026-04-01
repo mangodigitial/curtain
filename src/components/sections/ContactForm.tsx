@@ -39,7 +39,7 @@ export default function ContactForm({
 
       <form onSubmit={handleSubmit}>
         <div className="form-row">
-          {data.fields.map((field) => (
+          {(data?.fields ?? []).map((field) => (
             <div
               key={field.name}
               className={`form-group${field.halfWidth ? "" : " full"}`}

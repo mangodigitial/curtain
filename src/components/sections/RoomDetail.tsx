@@ -9,7 +9,7 @@ import { renderTitle } from "./render-title";
 
 function Carousel({ images }: { images: RoomDetailSection["images"] }) {
   const [current, setCurrent] = useState(0);
-  const total = images.length;
+  const total = images?.length ?? 0;
 
   function prev() {
     setCurrent((c) => (c === 0 ? total - 1 : c - 1));
@@ -28,7 +28,7 @@ function Carousel({ images }: { images: RoomDetailSection["images"] }) {
           transform: `translateX(-${current * 100}%)`,
         }}
       >
-        {images.map((img) => (
+        {(images ?? []).map((img) => (
           <div key={img.id}>
             <Image
               src={img.url}
@@ -134,7 +134,7 @@ function Amenities({ items }: { items: string[] }) {
       {open && (
         <div className="room-amenities-list">
           <ul className="room-amenities-grid">
-            {items.map((item) => (
+            {(items ?? []).map((item) => (
               <li
                 key={item}
                 className="room-amenity"
@@ -176,9 +176,9 @@ export default function RoomDetail({ data }: { data: RoomDetailSection }) {
         </p>
 
         {/* Stats grid */}
-        {data.stats.length > 0 && (
+        {(data?.stats?.length ?? 0) > 0 && (
           <div className="room-stats">
-            {data.stats.map((stat) => (
+            {(data?.stats ?? []).map((stat) => (
               <div key={stat.label} className="room-stat">
                 <span className="room-stat-val">
                   {stat.value}
@@ -192,7 +192,7 @@ export default function RoomDetail({ data }: { data: RoomDetailSection }) {
         )}
 
         {/* Amenities */}
-        {data.amenities.length > 0 && <Amenities items={data.amenities} />}
+        {(data?.amenities?.length ?? 0) > 0 && <Amenities items={data?.amenities} />}
 
         {/* Book CTA */}
         {data.ctaUrl && (

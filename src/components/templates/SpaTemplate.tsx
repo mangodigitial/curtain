@@ -47,12 +47,13 @@ interface SpaTemplateProps {
    ═══════════════════════════════════════════════════════════ */
 
 export default function SpaTemplate({ sections }: SpaTemplateProps) {
-  const hero = sections[0] as HeroSection | undefined;
-  const intro = sections[1] as IntroSection | undefined;
-  const editorial = sections[2] as EditorialSplitSection | undefined;
-  const treatments = sections[3] as TreatmentListSection | undefined;
-  const steps = sections[4] as ExperienceStepsSection | undefined;
-  const testimonial = sections[5] as TestimonialSection | undefined;
+  const safeSections = sections ?? [];
+  const hero = safeSections.find(s => s?.type === 'hero') as HeroSection | undefined;
+  const intro = safeSections.find(s => s?.type === 'intro') as IntroSection | undefined;
+  const editorial = safeSections.find(s => s?.type === 'editorial_split') as EditorialSplitSection | undefined;
+  const treatments = safeSections.find(s => s?.type === 'treatment_list') as TreatmentListSection | undefined;
+  const steps = safeSections.find(s => s?.type === 'experience_steps') as ExperienceStepsSection | undefined;
+  const testimonial = safeSections.find(s => s?.type === 'testimonial') as TestimonialSection | undefined;
 
   return (
     <>
@@ -109,12 +110,12 @@ function SpaHero({ data }: { data: HeroSection }) {
       />
       <div className="sub-hero-bg"></div>
       <div className="sub-hero-content">
-        {data.showBreadcrumb && data.breadcrumb && (
+        {data?.showBreadcrumb && data?.breadcrumb && (
           <div className="sub-hero-breadcrumb">
-            {data.breadcrumb.map((item, i) => (
+            {(data.breadcrumb ?? []).map((item, i) => (
               <span key={i}>
                 {i > 0 && <span>&rarr;</span>}
-                <a href={item.url}>{item.label}</a>
+                <a href={item?.url}>{item?.label}</a>
               </span>
             ))}
           </div>
@@ -249,12 +250,12 @@ function SpaEditorial({ data }: { data: EditorialSplitSection }) {
           <p className="editorial-subtitle">{data.subtitle}</p>
         )}
         <p className="section-body">{data.body}</p>
-        {data.stats && data.stats.length > 0 && (
+        {data?.stats && (data.stats?.length ?? 0) > 0 && (
           <div className="editorial-stats">
-            {data.stats.map((stat) => (
-              <div key={stat.label}>
-                <div className="editorial-stat-val">{stat.value}</div>
-                <div className="editorial-stat-label">{stat.label}</div>
+            {(data.stats ?? []).map((stat) => (
+              <div key={stat?.label}>
+                <div className="editorial-stat-val">{stat?.value}</div>
+                <div className="editorial-stat-label">{stat?.label}</div>
               </div>
             ))}
           </div>
@@ -308,23 +309,23 @@ function SpaTreatments({ data }: { data: TreatmentListSection }) {
 
         <div>
           <div className="treatment-list">
-            {data.treatments.map((treatment, i) => (
+            {(data?.treatments ?? []).map((treatment, i) => (
               <div key={i} className="treatment-item">
-                <span className="treatment-name">{treatment.name}</span>
-                <span className="treatment-desc">{treatment.description}</span>
+                <span className="treatment-name">{treatment?.name}</span>
+                <span className="treatment-desc">{treatment?.description}</span>
               </div>
             ))}
           </div>
 
-          {data.ctas && data.ctas.length > 0 && (
+          {data?.ctas && (data.ctas?.length ?? 0) > 0 && (
             <div className="treatments-ctas">
-              {data.ctas.map((cta, i) => (
+              {(data.ctas ?? []).map((cta, i) => (
                 <a
                   key={i}
-                  href={cta.url}
+                  href={cta?.url}
                   className={`spa-btn${i === 0 ? " primary" : ""}`}
                 >
-                  {cta.label}
+                  {cta?.label}
                 </a>
               ))}
             </div>
@@ -354,11 +355,11 @@ function SpaExperienceSteps({ data }: { data: ExperienceStepsSection }) {
   return (
     <section className="experience-strip reveal">
       <div className="experience-inner">
-        {data.steps.map((step, i) => (
+        {(data?.steps ?? []).map((step, i) => (
           <div key={i} className="exp-step">
-            <div className="exp-step-num">{step.number}</div>
-            <h4>{step.title}</h4>
-            <p>{step.description}</p>
+            <div className="exp-step-num">{step?.number}</div>
+            <h4>{step?.title}</h4>
+            <p>{step?.description}</p>
           </div>
         ))}
       </div>

@@ -24,14 +24,14 @@ function HeroFull({ data }: { data: HeroSection }) {
   return (
     <section className="hero">
       <Image
-        src={data.image.url}
-        alt={data.image.alt}
+        src={data?.image?.url}
+        alt={data?.image?.alt}
         fill
         priority
         className="hero-img"
         sizes="100vw"
-        {...(data.image.blurhash
-          ? { placeholder: "blur", blurDataURL: data.image.blurhash }
+        {...(data?.image?.blurhash
+          ? { placeholder: "blur", blurDataURL: data?.image?.blurhash }
           : {})}
       />
       <div className="hero-bg"></div>
@@ -75,21 +75,21 @@ function HeroShort({ data }: { data: HeroSection }) {
   return (
     <section className="sub-hero">
       <Image
-        src={data.image.url}
-        alt={data.image.alt}
+        src={data?.image?.url}
+        alt={data?.image?.alt}
         fill
         priority
         className="sub-hero-img"
         sizes="100vw"
-        {...(data.image.blurhash
-          ? { placeholder: "blur", blurDataURL: data.image.blurhash }
+        {...(data?.image?.blurhash
+          ? { placeholder: "blur", blurDataURL: data?.image?.blurhash }
           : {})}
       />
       <div className="sub-hero-bg"></div>
       <div className="sub-hero-content">
         {data.showBreadcrumb && data.breadcrumb && (
           <div className="sub-hero-breadcrumb">
-            {data.breadcrumb.map((item, i) => (
+            {(data?.breadcrumb ?? []).map((item, i) => (
               <span key={i}>
                 {i > 0 && <span>&rarr;</span>}
                 <a href={item.url}>{item.label}</a>

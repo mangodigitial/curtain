@@ -21,7 +21,7 @@ export default function Accordion({ data }: { data: AccordionSection }) {
       )}
 
       <div>
-        {data.items.map((item, i) => {
+        {(data?.items ?? []).map((item, i) => {
           const isOpen = openIndex === i;
 
           return (

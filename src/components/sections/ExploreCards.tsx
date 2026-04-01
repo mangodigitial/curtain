@@ -32,13 +32,13 @@ export default function ExploreCards({
 
       {/* Grid */}
       <div className={gridClass}>
-        {data.cards.map((card, i) => (
-          <Link key={i} href={card.url} className="explore-card">
+        {(data?.cards ?? []).map((card, i) => (
+          <Link key={i} href={card?.url} className="explore-card">
             <Image
-              src={card.image.url}
-              alt={card.image.alt}
-              width={card.image.width ?? 800}
-              height={card.image.height ?? 500}
+              src={card?.image?.url}
+              alt={card?.image?.alt}
+              width={card?.image?.width ?? 800}
+              height={card?.image?.height ?? 500}
             />
             <div className="explore-card-ov">
               {card.subtitle && <span>{card.subtitle}</span>}

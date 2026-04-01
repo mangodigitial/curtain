@@ -21,16 +21,16 @@ function TimelineItem({
         <p className="tl-text">{item.text}</p>
       </div>
 
-      {item.image && (
+      {item?.image && (
         <div className="tl-media">
           <Image
-            src={item.image.url}
-            alt={item.image.alt}
-            width={item.image.width ?? 800}
-            height={item.image.height ?? 600}
+            src={item?.image?.url}
+            alt={item?.image?.alt}
+            width={item?.image?.width ?? 800}
+            height={item?.image?.height ?? 600}
             sizes="(min-width: 1024px) 50vw, 100vw"
-            {...(item.image.blurhash
-              ? { placeholder: "blur", blurDataURL: item.image.blurhash }
+            {...(item?.image?.blurhash
+              ? { placeholder: "blur", blurDataURL: item?.image?.blurhash }
               : {})}
           />
         </div>
@@ -48,7 +48,7 @@ export default function Timeline({
 }) {
   return (
     <section className="timeline">
-      {data.items.map((item, i) => (
+      {(data?.items ?? []).map((item, i) => (
         <TimelineItem key={i} item={item} />
       ))}
     </section>

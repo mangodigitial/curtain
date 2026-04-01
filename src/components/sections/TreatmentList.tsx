@@ -15,22 +15,22 @@ export default function TreatmentList({
         </div>
 
         <div className="treatment-list">
-          {data.treatments.map((treatment, i) => (
+          {(data?.treatments ?? []).map((treatment, i) => (
             <div key={i} className="treatment-item">
               <span className="treatment-name">{treatment.name}</span>
               <span className="treatment-desc">{treatment.description}</span>
             </div>
           ))}
 
-          {data.ctas && data.ctas.length > 0 && (
+          {data?.ctas && (data?.ctas?.length ?? 0) > 0 && (
             <div style={{ marginTop: "2rem", display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-              {data.ctas.map((cta, i) => (
+              {(data?.ctas ?? []).map((cta, i) => (
                 <a
                   key={i}
-                  href={cta.url}
+                  href={cta?.url}
                   className={`spa-btn${i === 0 ? " primary" : ""}`}
                 >
-                  {cta.label}
+                  {cta?.label}
                 </a>
               ))}
             </div>

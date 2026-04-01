@@ -54,10 +54,10 @@ export default function Video({ data }: { data: VideoSection }) {
             </video>
 
             {/* Poster fallback for SSR / no-JS */}
-            {data.poster && (
+            {data?.poster && (
               <Image
-                src={data.poster.url}
-                alt={data.poster.alt}
+                src={data?.poster?.url}
+                alt={data?.poster?.alt}
                 fill
                 className="pointer-events-none object-cover"
                 aria-hidden="true"

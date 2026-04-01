@@ -30,9 +30,10 @@ interface ContactTemplateProps {
    ═══════════════════════════════════════════════════════════ */
 
 export default function ContactTemplate({ sections }: ContactTemplateProps) {
-  const hero = sections[0] as HeroSection | undefined;
-  const formData = sections[1] as ContactFormSection | undefined;
-  const infoData = sections[2] as ContactInfoSection | undefined;
+  const safeSections = sections ?? [];
+  const hero = safeSections.find(s => s?.type === 'hero') as HeroSection | undefined;
+  const formData = safeSections.find(s => s?.type === 'contact_form') as ContactFormSection | undefined;
+  const infoData = safeSections.find(s => s?.type === 'contact_info') as ContactInfoSection | undefined;
 
   return (
     <>
@@ -65,16 +66,16 @@ function ContactHero({ data }: { data: HeroSection }) {
     <section className="contact-hero">
       <Image
         className="contact-hero-img"
-        src={data.image.url}
-        alt={data.image.alt}
+        src={data?.image?.url ?? ""}
+        alt={data?.image?.alt ?? ""}
         fill
         priority
         sizes="100vw"
-        {...blurProps(data.image.blurhash)}
+        {...blurProps(data?.image?.blurhash)}
       />
       <div className="contact-hero-content">
-        <h1>{renderTitle(data.title, data.titleItalic, "")}</h1>
-        {data.subtitle && <p>{data.subtitle}</p>}
+        <h1>{renderTitle(data?.title, data?.titleItalic, "")}</h1>
+        {data?.subtitle && <p>{data.subtitle}</p>}
       </div>
     </section>
   );

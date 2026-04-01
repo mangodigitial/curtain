@@ -8,7 +8,7 @@ export default function InclusiveStrip({
   return (
     <section className="inclusive-strip">
       <div className="inclusive-strip-inner">
-        {data.items.map((item, i) => (
+        {(data?.items ?? []).map((item, i) => (
           <div key={i} className="inclusive-item">
             <span className="inclusive-icon">{item.icon}</span>
             <span className="inclusive-text">

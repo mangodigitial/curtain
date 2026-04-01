@@ -7,12 +7,12 @@ export default function ContactInfo({
 }) {
   return (
     <div className="info-panel">
-      {data.sections.map((section, sIdx) => (
+      {(data?.sections ?? []).map((section, sIdx) => (
         <div key={section.title}>
           <div className="info-section">
             <h3>{section.title}</h3>
 
-            {section.items.map((item) => (
+            {(section?.items ?? []).map((item) => (
               <div key={item.label} className="info-item">
                 <div className="info-label">{item.label}</div>
                 <div className="info-val">
@@ -26,18 +26,18 @@ export default function ContactInfo({
             ))}
           </div>
 
-          {sIdx < data.sections.length - 1 && (
+          {sIdx < (data?.sections?.length ?? 0) - 1 && (
             <div className="info-divider" />
           )}
         </div>
       ))}
 
-      {data.pressContacts && data.pressContacts.length > 0 && (
+      {data?.pressContacts && (data?.pressContacts?.length ?? 0) > 0 && (
         <>
           <div className="info-divider" />
 
           <div className="press-grid">
-            {data.pressContacts.map((contact) => (
+            {(data?.pressContacts ?? []).map((contact) => (
               <div key={contact.email} className="press-card">
                 <h4>{contact.title}</h4>
                 <p>{contact.role}</p>

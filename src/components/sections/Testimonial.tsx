@@ -14,10 +14,10 @@ export default function Testimonial({
         <blockquote className="testimonial-quote">{data.quote}</blockquote>
         <cite className="testimonial-author">&mdash; {data.author}</cite>
 
-        {data.cta && (
+        {data?.cta && (
           <div className="mt-6">
-            <a href={data.cta.url} className="btn-line">
-              {data.cta.label} <span className="arrow"></span>
+            <a href={data?.cta?.url} className="btn-line">
+              {data?.cta?.label} <span className="arrow"></span>
             </a>
           </div>
         )}

@@ -25,7 +25,7 @@ export default function IncludedUpgrade({
           )}
 
           <ul className="incl-list">
-            {data.includedItems.map((item) => (
+            {(data?.includedItems ?? []).map((item) => (
               <li key={item} className="incl-item">
                 <span className="check">✓</span>
                 {item}
@@ -51,7 +51,7 @@ export default function IncludedUpgrade({
           )}
 
           <ul className="upgrade-list">
-            {data.upgradeItems.map((item) => (
+            {(data?.upgradeItems ?? []).map((item) => (
               <li key={item} className="upgrade-item">
                 <span className="plus">+</span>
                 {item}
@@ -59,9 +59,9 @@ export default function IncludedUpgrade({
             ))}
           </ul>
 
-          {data.cta && (
-            <a href={data.cta.url} className="upgrade-cta">
-              {data.cta.label}
+          {data?.cta && (
+            <a href={data?.cta?.url} className="upgrade-cta">
+              {data?.cta?.label}
             </a>
           )}
         </div>

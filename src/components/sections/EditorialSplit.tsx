@@ -42,20 +42,20 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
     <section className={sectionClasses} style={sectionStyle}>
       {/* ── Image Column ─────────────────────────────────── */}
       <div className="editorial-media">
-        {gallery && gallery.length > 0 ? (
+        {gallery && (gallery?.length ?? 0) > 0 ? (
           <div className="rest-gallery">
             <Image
-              src={image.url}
-              alt={image.alt}
-              width={image.width ?? 900}
-              height={image.height ?? 563}
+              src={image?.url}
+              alt={image?.alt}
+              width={image?.width ?? 900}
+              height={image?.height ?? 563}
               className="rg-hero"
               sizes="(max-width: 960px) 100vw, 50vw"
-              {...(image.blurhash
-                ? { placeholder: "blur" as const, blurDataURL: image.blurhash }
+              {...(image?.blurhash
+                ? { placeholder: "blur" as const, blurDataURL: image?.blurhash }
                 : {})}
             />
-            {gallery.slice(0, 2).map((img) => (
+            {(gallery ?? []).slice(0, 2).map((img) => (
               <Image
                 key={img.id}
                 src={img.url}
@@ -71,12 +71,12 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
           </div>
         ) : (
           <Image
-            src={image.url}
-            alt={image.alt}
+            src={image?.url}
+            alt={image?.alt}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
-            {...(image.blurhash
-              ? { placeholder: "blur" as const, blurDataURL: image.blurhash }
+            {...(image?.blurhash
+              ? { placeholder: "blur" as const, blurDataURL: image?.blurhash }
               : {})}
           />
         )}
@@ -116,9 +116,9 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
         <p className="section-body">{body}</p>
 
         {/* Meals */}
-        {meals && meals.length > 0 && (
+        {meals && (meals?.length ?? 0) > 0 && (
           <div className="rest-meals">
-            {meals.map((meal) => (
+            {(meals ?? []).map((meal) => (
               <div key={meal.name} className="rest-meal">
                 <p className="rest-meal-name">{meal.name}</p>
                 <p className="rest-meal-time">{meal.time}</p>
@@ -130,15 +130,15 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
         {/* Dress code */}
         {dressCode && (
           <div className="rest-dress">
-            <p className="rest-dress-label">{dressCode.label}</p>
-            <p>{dressCode.description}</p>
+            <p className="rest-dress-label">{dressCode?.label}</p>
+            <p>{dressCode?.description}</p>
           </div>
         )}
 
         {/* Menu links */}
-        {menuLinks && menuLinks.length > 0 && (
+        {menuLinks && (menuLinks?.length ?? 0) > 0 && (
           <div className="rest-menus">
-            {menuLinks.map((link) => (
+            {(menuLinks ?? []).map((link) => (
               <a
                 key={link.url}
                 href={link.url}
@@ -151,9 +151,9 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
         )}
 
         {/* Stats */}
-        {stats && stats.length > 0 && (
+        {stats && (stats?.length ?? 0) > 0 && (
           <div className="editorial-stats">
-            {stats.map((stat) => (
+            {(stats ?? []).map((stat) => (
               <div key={stat.label}>
                 <div className="editorial-stat-val">{stat.value}</div>
                 <div className="editorial-stat-label">{stat.label}</div>
@@ -164,8 +164,8 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
 
         {/* CTA */}
         {cta && (
-          <a href={cta.url} className="btn-line">
-            {cta.label} <span className="arrow"></span>
+          <a href={cta?.url} className="btn-line">
+            {cta?.label} <span className="arrow"></span>
           </a>
         )}
       </div>
