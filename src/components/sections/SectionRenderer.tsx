@@ -63,7 +63,7 @@ function RenderSection({ section, index }: { section: Section; index: number }) 
     case "included_upgrade":
       return <IncludedUpgrade data={section} />;
     case "activity_section":
-      return <ActivitySection data={section} index={index} />;
+      return <ActivitySection data={section} />;
     case "filter_gallery":
       return <FilterGallery data={section} />;
     case "contact_form":

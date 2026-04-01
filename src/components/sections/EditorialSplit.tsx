@@ -87,10 +87,7 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
       <div className="editorial-text">
         {/* Number overlay */}
         {number && (
-          <span
-            className="pointer-events-none absolute right-0 top-[-2.5rem] font-heading text-[8rem] font-light text-sand-dark/35"
-            aria-hidden="true"
-          >
+          <span className="editorial-number" aria-hidden="true">
             {number}
           </span>
         )}
@@ -113,9 +110,7 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
 
         {/* Subtitle */}
         {subtitle && (
-          <p className="mb-6 font-heading text-lg font-light italic text-text-light">
-            {subtitle}
-          </p>
+          <p className="editorial-subtitle">{subtitle}</p>
         )}
 
         {/* Body */}
@@ -123,18 +118,11 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
 
         {/* Meals */}
         {meals && meals.length > 0 && (
-          <div className="mb-8 flex flex-wrap gap-6" style={{ marginTop: "2rem" }}>
+          <div className="rest-meals">
             {meals.map((meal) => (
-              <div
-                key={meal.name}
-                className="border border-sand-dark p-3 text-center"
-              >
-                <p className="text-[0.55rem] uppercase tracking-[0.2em] text-text-light">
-                  {meal.name}
-                </p>
-                <p className="font-heading text-base text-ocean-deep">
-                  {meal.time}
-                </p>
+              <div key={meal.name} className="rest-meal">
+                <p className="rest-meal-name">{meal.name}</p>
+                <p className="rest-meal-time">{meal.time}</p>
               </div>
             ))}
           </div>
@@ -142,24 +130,20 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
 
         {/* Dress code */}
         {dressCode && (
-          <div className="mb-8 border-l-2 border-gold bg-ocean-deep/[0.04] p-4" style={{ marginTop: "1rem" }}>
-            <p className="text-[0.55rem] font-medium uppercase tracking-[0.25em] text-gold">
-              {dressCode.label}
-            </p>
-            <p className="text-[0.78rem] text-text-light">
-              {dressCode.description}
-            </p>
+          <div className="rest-dress">
+            <p className="rest-dress-label">{dressCode.label}</p>
+            <p>{dressCode.description}</p>
           </div>
         )}
 
         {/* Menu links */}
         {menuLinks && menuLinks.length > 0 && (
-          <div className="flex flex-wrap gap-4" style={{ marginTop: "1rem" }}>
+          <div className="rest-menus">
             {menuLinks.map((link) => (
               <a
                 key={link.url}
                 href={link.url}
-                className="border border-ocean-deep px-5 py-2.5 text-[0.6rem] font-medium uppercase tracking-[0.25em] text-ocean-deep transition-colors hover:bg-ocean-deep hover:text-sand"
+                className="rest-menu-link"
               >
                 {link.label}
               </a>
@@ -169,15 +153,11 @@ export default function EditorialSplit({ data }: { data: EditorialSplitSection }
 
         {/* Stats */}
         {stats && stats.length > 0 && (
-          <div style={{ display: "flex", gap: "2rem", marginTop: "2rem", flexWrap: "wrap" }}>
+          <div className="editorial-stats">
             {stats.map((stat) => (
               <div key={stat.label}>
-                <div className="font-heading text-[2rem] font-light text-coral">
-                  {stat.value}
-                </div>
-                <div className="text-[0.6rem] uppercase tracking-[0.2em] text-text-light">
-                  {stat.label}
-                </div>
+                <div className="editorial-stat-val">{stat.value}</div>
+                <div className="editorial-stat-label">{stat.label}</div>
               </div>
             ))}
           </div>

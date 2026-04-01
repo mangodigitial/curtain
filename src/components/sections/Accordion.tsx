@@ -13,9 +13,9 @@ export default function Accordion({ data }: { data: AccordionSection }) {
   }
 
   return (
-    <section className="mx-auto max-w-[800px] px-12 py-16">
+    <section className="faq">
       {data.title && (
-        <h2 className="mb-8 font-heading text-[clamp(1.6rem,2.5vw,2.2rem)] font-light text-ocean-deep">
+        <h2 className="faq-title">
           {data.title}
         </h2>
       )}
@@ -25,16 +25,14 @@ export default function Accordion({ data }: { data: AccordionSection }) {
           const isOpen = openIndex === i;
 
           return (
-            <div key={i} className="border-b border-sand-dark">
+            <div key={i} className="faq-item">
               <button
                 type="button"
                 onClick={() => toggle(i)}
-                className="flex w-full items-center justify-between py-5 text-left"
+                className="faq-question"
                 aria-expanded={isOpen}
               >
-                <span className="font-heading text-[1.1rem] font-normal text-ocean-deep">
-                  {item.question}
-                </span>
+                <span>{item.question}</span>
 
                 {/* Chevron */}
                 <svg
@@ -42,9 +40,7 @@ export default function Accordion({ data }: { data: AccordionSection }) {
                   height="14"
                   viewBox="0 0 14 14"
                   fill="none"
-                  className={`flex-shrink-0 text-ocean-deep transition-transform duration-300 ${
-                    isOpen ? "rotate-180" : ""
-                  }`}
+                  className={"faq-chevron" + (isOpen ? " open" : "")}
                   aria-hidden="true"
                 >
                   <path
@@ -58,14 +54,8 @@ export default function Accordion({ data }: { data: AccordionSection }) {
               </button>
 
               {/* Answer */}
-              <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  isOpen ? "max-h-[500px] pb-5" : "max-h-0"
-                }`}
-              >
-                <p className="text-[0.85rem] font-light leading-relaxed text-text-light">
-                  {item.answer}
-                </p>
+              <div className={"faq-answer" + (isOpen ? " open" : "")}>
+                <p>{item.answer}</p>
               </div>
             </div>
           );
