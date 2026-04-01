@@ -11,8 +11,8 @@ export default function ActivitiesTemplate({
       <section className="page-hero">
         <img
           className="page-hero-img"
-          src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1800&q=80"
-          alt="Scuba diving at Curtain Bluff"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/pt-water-sports-bg.webp"
+          alt="Water sports on the beach at Curtain Bluff resort"
         />
         <div className="page-hero-bg" />
         <div className="page-hero-content">
@@ -36,18 +36,18 @@ export default function ActivitiesTemplate({
           <div className="act-media">
             <img
               className="act-img-main"
-              src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=900&q=80"
-              alt="Waterskiing"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-7.webp"
+              alt="Waterskiing on Morris Bay at Curtain Bluff"
             />
             <img
               className="act-img-sm"
-              src="https://images.unsplash.com/photo-1502680390548-bdbac40f7154?w=500&q=80"
-              alt="Kayaking"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-8.webp"
+              alt="Kayaking along the coast at Curtain Bluff"
             />
             <img
               className="act-img-sm"
-              src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=500&q=80"
-              alt="Paddleboarding"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-9.webp"
+              alt="Paddleboarding in calm waters at Curtain Bluff"
             />
           </div>
           <div className="act-content">
@@ -100,18 +100,18 @@ export default function ActivitiesTemplate({
           <div className="act-media">
             <img
               className="act-img-main"
-              src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=900&q=80"
-              alt="Tennis courts"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/25-tennis-at-curtain-bluff.webp"
+              alt="Championship tennis courts at Curtain Bluff"
             />
             <img
               className="act-img-sm"
-              src="https://images.unsplash.com/photo-1526888935184-a82d2a4b7e67?w=500&q=80"
-              alt="Pickleball"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/curtain-bluff-tennis-class.webp"
+              alt="Tennis class in progress at Curtain Bluff"
             />
             <img
               className="act-img-sm"
-              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80"
-              alt="Fitness centre"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/pt-tennis-bg.webp"
+              alt="Tennis at Curtain Bluff with ocean views"
             />
           </div>
           <div className="act-content">
@@ -164,18 +164,18 @@ export default function ActivitiesTemplate({
           <div className="act-media">
             <img
               className="act-img-main"
-              src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=900&q=80"
-              alt="Scuba diving reef"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-8.webp"
+              alt="Scuba diving at Cade's Reef near Curtain Bluff"
             />
             <img
               className="act-img-sm"
-              src="https://images.unsplash.com/photo-1682687982501-1e58ab814714?w=500&q=80"
-              alt="Underwater coral"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-10.webp"
+              alt="Underwater coral and marine life at Cade's Reef"
             />
             <img
               className="act-img-sm"
-              src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&q=80"
-              alt="Dive boat"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-5.webp"
+              alt="Dive boat departing from Curtain Bluff beach"
             />
           </div>
           <div className="act-content">
@@ -220,18 +220,18 @@ export default function ActivitiesTemplate({
           <div className="act-media">
             <img
               className="act-img-main"
-              src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=900&q=80"
-              alt="Beach family fun"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-3.webp"
+              alt="Families enjoying the beach at Curtain Bluff Kids Camp"
             />
             <img
               className="act-img-sm"
-              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&q=80"
-              alt="Kids beach"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-4.webp"
+              alt="Children playing on the calm-water beach at Curtain Bluff"
             />
             <img
               className="act-img-sm"
-              src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=500&q=80"
-              alt="Playground activities"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-5.webp"
+              alt="Kids camp playground activities at Curtain Bluff"
             />
           </div>
           <div className="act-content">

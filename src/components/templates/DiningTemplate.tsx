@@ -5,7 +5,7 @@ export default function DiningTemplate({ sections }: { sections: any[] }) {
     <>
       {/* ═══════ PAGE HERO ═══════ */}
       <section className="page-hero">
-        <img className="page-hero-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80" alt="Dining at Curtain Bluff" />
+        <img className="page-hero-img" src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/restaurant-header-curtain-bluff-scaled.webp" alt="Dining at Curtain Bluff" />
         <div className="page-hero-bg" />
         <div className="page-hero-content">
           <div className="page-hero-breadcrumb">
@@ -40,9 +40,9 @@ export default function DiningTemplate({ sections }: { sections: any[] }) {
       <section className="restaurant reveal" id="seagrape">
         <div className="restaurant-inner">
           <div className="rest-gallery">
-            <img className="rg-hero" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=900&q=80" alt="Sea Grape exterior" />
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80" alt="Sea Grape food" />
-            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&q=80" alt="Sea Grape dish" />
+            <img className="rg-hero" src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/seagrape-dining-room-curtain-bluff.webp" alt="Sea Grape exterior" />
+            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/seagrape-dining-room-curtain-bluff-2.webp" alt="Sea Grape food" />
+            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/curtain-bluff-seagrape-restaurant-beach-service.webp" alt="Sea Grape dish" />
           </div>
           <div className="rest-content">
             <div className="rest-number">01</div>
@@ -80,9 +80,9 @@ export default function DiningTemplate({ sections }: { sections: any[] }) {
       <section className="restaurant reveal" id="tamarind">
         <div className="restaurant-inner">
           <div className="rest-gallery">
-            <img className="rg-hero" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80" alt="Tamarind Restaurant" />
-            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500&q=80" alt="Tamarind breakfast" />
-            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=500&q=80" alt="Tamarind dessert" />
+            <img className="rg-hero" src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/tamarind-restaurant-curtain-bluff.webp" alt="Tamarind Restaurant" />
+            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/18-oa-dinner.webp" alt="Tamarind breakfast" />
+            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/19-cb60th-day3final-1.webp" alt="Tamarind dessert" />
           </div>
           <div className="rest-content">
             <div className="rest-number">02</div>
@@ -120,7 +120,7 @@ export default function DiningTemplate({ sections }: { sections: any[] }) {
       <section className="wine-section reveal" id="wine">
         <div className="wine-hero">
           <div className="wine-media">
-            <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=900&q=80" alt="Wine Cellar" />
+            <img src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/wine.webp" alt="Wine Cellar" />
           </div>
           <div className="wine-content">
             <div className="section-label">The Cellar</div>

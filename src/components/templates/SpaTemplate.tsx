@@ -19,8 +19,8 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
       <section className="sub-hero">
         <img
           className="sub-hero-img"
-          src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1800&q=80"
-          alt="The Spa at Curtain Bluff"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-at-curtain-bluff.webp"
+          alt="The Spa at Curtain Bluff overlooking the Caribbean Sea"
         />
         <div className="sub-hero-bg" />
         <div className="sub-hero-content">
@@ -70,8 +70,8 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
       <section className="spa-intro reveal">
         <div className="spa-intro-media">
           <img
-            src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=900&q=80"
-            alt="Spa treatment room"
+            src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-1.webp"
+            alt="Treatment room at the Curtain Bluff Spa"
           />
         </div>
         <div className="spa-intro-content">
@@ -142,28 +142,28 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
       <div className="spa-gallery reveal">
         <img
           className="sg-wide"
-          src="https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=900&q=80"
-          alt="Spa terrace"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-5.webp"
+          alt="Spa terrace with ocean views at Curtain Bluff"
         />
         <img
-          src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=500&q=80"
-          alt="Treatment detail"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-6.webp"
+          alt="Spa treatment detail at Curtain Bluff"
         />
         <img
-          src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=500&q=80"
-          alt="Treatment room"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-7.webp"
+          alt="Spa treatment room interior at Curtain Bluff"
         />
         <img
-          src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=500&q=80"
-          alt="Spa products"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-8.webp"
+          alt="Premium spa products used at Curtain Bluff"
         />
         <img
-          src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500&q=80"
-          alt="Relaxation area"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-9.webp"
+          alt="Relaxation area at the Curtain Bluff Spa"
         />
         <img
-          src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=500&q=80"
-          alt="Massage"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-10-1.webp"
+          alt="Massage therapy at the Curtain Bluff Spa"
         />
       </div>
 
@@ -278,8 +278,8 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
         <div className="explore-grid">
           <a href="#" className="explore-card">
             <img
-              src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&q=80"
-              alt="Tennis"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/morris-bay-terrace-with-spa-curtain-bluff.webp"
+              alt="Morris Bay terrace with spa views at Curtain Bluff"
             />
             <div className="explore-card-ov">
               <span>Championship Courts</span>
@@ -288,8 +288,8 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
           </a>
           <a href="#" className="explore-card">
             <img
-              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80"
-              alt="Classes"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-3.webp"
+              alt="Yoga and wellness classes at Curtain Bluff"
             />
             <div className="explore-card-ov">
               <span>Yoga, Pilates &amp; More</span>
@@ -298,8 +298,8 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
           </a>
           <a href="#" className="explore-card">
             <img
-              src="https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=600&q=80"
-              alt="Wellness"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-5.webp"
+              alt="Wellness experience at the Curtain Bluff Spa"
             />
             <div className="explore-card-ov">
               <span>Restore Balance</span>

@@ -20,7 +20,7 @@ export default async function HomePage() {
       <section className="hero">
         <img
           className="hero-img"
-          src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=1800&q=80"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/slider-6-51.webp"
           alt="Curtain Bluff aerial view"
         />
         <div className="hero-bg" />
@@ -46,13 +46,13 @@ export default async function HomePage() {
           <div className="intro-year">1962</div>
           <img
             className="intro-img-main"
-            src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&q=80"
-            alt="Resort view"
+            src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/aa_8102-edit.webp"
+            alt="Curtain Bluff resort"
           />
           <img
             className="intro-img-float"
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80"
-            alt="Beach"
+            src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/curtain-bluff-seagrape-restaurant-beach-service.webp"
+            alt="Beach at Curtain Bluff"
           />
         </div>
         <div className="intro-text">
@@ -90,7 +90,7 @@ export default async function HomePage() {
           <div className="room-card">
             <img
               className="room-card-img"
-              src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=80"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/ground-floor-junior-sweet-beach-front-bedroom-curtain-bluff.webp"
               alt="Beach Front Room"
             />
             <div className="room-card-overlay">
@@ -104,8 +104,8 @@ export default async function HomePage() {
           <div className="room-card">
             <img
               className="room-card-img"
-              src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=700&q=80"
-              alt="On the Bluff"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/bluff-room-balcony-jpg.webp"
+              alt="Rooms on the Bluff"
             />
             <div className="room-card-overlay">
               <h3 className="room-card-name">On the Bluff</h3>
@@ -118,7 +118,7 @@ export default async function HomePage() {
           <div className="room-card">
             <img
               className="room-card-img"
-              src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&q=80"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/3-curtain-bluff-pool-min-scaled.webp"
               alt="Pool Suites"
             />
             <div className="room-card-overlay">
@@ -136,8 +136,8 @@ export default async function HomePage() {
       <section className="editorial reveal" id="dining">
         <div className="editorial-media">
           <img
-            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80"
-            alt="Fine Dining"
+            src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/tamarind-restaurant-curtain-bluff.webp"
+            alt="Dining at Curtain Bluff"
           />
         </div>
         <div className="editorial-text">
@@ -174,8 +174,8 @@ export default async function HomePage() {
       <section className="editorial reversed dark-bg reveal">
         <div className="editorial-media">
           <img
-            src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=900&q=80"
-            alt="Family Fun"
+            src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-1.webp"
+            alt="Family activities"
           />
         </div>
         <div className="editorial-text">
@@ -210,15 +210,15 @@ export default async function HomePage() {
         </div>
         <div className="wellness-scroll">
           {[
-            { img: 'photo-1544161515-4ab6ce6db874', label: '01 — Rejuvenate', title: 'The Spa' },
-            { img: 'photo-1554068865-24cecd4e34b8', label: '02 — Compete', title: 'Tennis' },
-            { img: 'photo-1506126613408-eca07ce68773', label: '03 — Breathe', title: 'Yoga & Classes' },
-            { img: 'photo-1530549387789-4c1017266635', label: '04 — Explore', title: 'Water Sports' },
-            { img: 'photo-1544551763-46a013bb70d5', label: '05 — Discover', title: 'Scuba Diving' },
+            { img: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-at-curtain-bluff.webp', label: '01 — Rejuvenate', title: 'The Spa' },
+            { img: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/25-tennis-at-curtain-bluff.webp', label: '02 — Compete', title: 'Tennis' },
+            { img: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-1.webp', label: '03 — Breathe', title: 'Yoga & Classes' },
+            { img: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-7.webp', label: '04 — Explore', title: 'Water Sports' },
+            { img: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-8.webp', label: '05 — Discover', title: 'Scuba Diving' },
           ].map((card, i) => (
             <div className="wellness-card" key={i}>
               <img
-                src={`https://images.unsplash.com/${card.img}?w=600&q=80`}
+                src={card.img}
                 alt={card.title}
               />
               <div className="wellness-card-info">
@@ -240,15 +240,15 @@ export default async function HomePage() {
         </div>
         <div className="gallery-grid">
           {[
-            'photo-1590523741831-ab7e8b8f9c7f?w=900',
-            'photo-1571896349842-33c89424de2d?w=500',
-            'photo-1519741497674-611481863552?w=500',
-            'photo-1414235077428-338989a2e8c0?w=500',
-            'photo-1507525428034-b723cf961d3e?w=900',
-            'photo-1544161515-4ab6ce6db874?w=500',
+            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery01.webp',
+            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery02-1.webp',
+            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery03-1.webp',
+            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery04-1.webp',
+            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery05.webp',
+            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery06.webp',
           ].map((img, i) => (
             <div className="gi" key={i}>
-              <img src={`https://images.unsplash.com/${img}&q=80`} alt="" />
+              <img src={img} alt="" />
             </div>
           ))}
         </div>
@@ -265,7 +265,7 @@ export default async function HomePage() {
         <div className="offers-grid">
           <div className="offer-card">
             <img
-              src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=500&q=80"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/30-off-offer-1.webp"
               alt="Offer"
             />
             <div className="offer-card-text">
@@ -282,7 +282,7 @@ export default async function HomePage() {
           </div>
           <div className="offer-card">
             <img
-              src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=500&q=80"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/slider-6-31.webp"
               alt="Offer"
             />
             <div className="offer-card-text">
@@ -304,7 +304,7 @@ export default async function HomePage() {
       <section className="editorial reveal">
         <div className="editorial-media">
           <img
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80"
+            src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/9-er-portraits-1.webp"
             alt="Wedding"
           />
         </div>

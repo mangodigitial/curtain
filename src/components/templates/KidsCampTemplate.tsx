@@ -11,8 +11,8 @@ export default function KidsCampTemplate({
       <section className="sub-hero">
         <img
           className="sub-hero-img"
-          src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1800&q=80"
-          alt="Cee Bee Kids Camp"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-3.webp"
+          alt="Children at Cee Bee Kids Camp at Curtain Bluff"
         />
         <div className="sub-hero-bg" />
         <div className="sub-hero-content">
@@ -93,20 +93,20 @@ export default function KidsCampTemplate({
       {/* ═══════ GALLERY BAND ═══════ */}
       <div className="gallery-band reveal">
         <img
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&q=80"
-          alt="Beach fun"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-3.webp"
+          alt="Kids enjoying beach fun at Curtain Bluff"
         />
         <img
-          src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=500&q=80"
-          alt="Kids activities"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-4.webp"
+          alt="Supervised kids activities at Curtain Bluff"
         />
         <img
-          src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=500&q=80"
-          alt="Playground"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-7.webp"
+          alt="Kids playing water sports at Curtain Bluff"
         />
         <img
-          src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=500&q=80"
-          alt="Water activities"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-8.webp"
+          alt="Children enjoying water activities at Curtain Bluff"
         />
       </div>
 
@@ -179,8 +179,8 @@ export default function KidsCampTemplate({
         <div className="explore-grid">
           <a href="#" className="explore-card">
             <img
-              src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&q=80"
-              alt="Water Sports"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-7.webp"
+              alt="Water sports at Curtain Bluff"
             />
             <div className="explore-card-ov">
               <span>On the Water</span>
@@ -189,8 +189,8 @@ export default function KidsCampTemplate({
           </a>
           <a href="#" className="explore-card">
             <img
-              src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&q=80"
-              alt="Ground Sports"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/25-tennis-at-curtain-bluff.webp"
+              alt="Championship tennis courts at Curtain Bluff"
             />
             <div className="explore-card-ov">
               <span>On the Court</span>
@@ -199,8 +199,8 @@ export default function KidsCampTemplate({
           </a>
           <a href="#" className="explore-card">
             <img
-              src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80"
-              alt="Scuba"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-8.webp"
+              alt="Scuba diving near Curtain Bluff"
             />
             <div className="explore-card-ov">
               <span>Beneath the Surface</span>

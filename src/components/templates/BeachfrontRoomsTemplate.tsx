@@ -109,7 +109,7 @@ export default function BeachfrontRoomsTemplate({
       <section className="page-hero">
         <img
           className="page-hero-img"
-          src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1800&q=80"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/beach-front-header-scaled.webp"
           alt="Beach Front Rooms"
         />
         <div className="page-hero-bg" />
@@ -149,15 +149,15 @@ export default function BeachfrontRoomsTemplate({
           <RoomCarousel
             images={[
               {
-                src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/ground-floor-junior-sweet-beach-front-bedroom-curtain-bluff.webp",
                 alt: "Junior Suite bedroom",
               },
               {
-                src: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/ground-floor-junior-sweet-beach-front-living-room-curtain-bluff.webp",
                 alt: "Junior Suite living",
               },
               {
-                src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/ground-floor-junior-sweet-bathroom-curtain-bluff.webp",
                 alt: "Junior Suite bathroom",
               },
             ]}
@@ -220,15 +220,15 @@ export default function BeachfrontRoomsTemplate({
           <RoomCarousel
             images={[
               {
-                src: "https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/junior-suite-ocean-viewupper-level-balcony.webp",
                 alt: "Upper Junior terrace",
               },
               {
-                src: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/curtain-bluff_junior_2_upper.webp",
                 alt: "Upper Junior interior",
               },
               {
-                src: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/curtain-bluff_junior.webp",
                 alt: "Upper Junior balcony",
               },
             ]}
@@ -291,15 +291,15 @@ export default function BeachfrontRoomsTemplate({
           <RoomCarousel
             images={[
               {
-                src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/deluxe-beachfront-room-lower-level-outside-view.webp",
                 alt: "Deluxe exterior",
               },
               {
-                src: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/deluxe-beachfront-room-lower-level-inside-view.webp",
                 alt: "Deluxe interior",
               },
               {
-                src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/deluxe-beachfront-room-lower-level-bathroom.webp",
                 alt: "Deluxe bathroom",
               },
             ]}
@@ -360,15 +360,15 @@ export default function BeachfrontRoomsTemplate({
           <RoomCarousel
             images={[
               {
-                src: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/deluxe-ocean-view-room-upper-level-balcony.webp",
                 alt: "Upper Deluxe view",
               },
               {
-                src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/deluxe-ocean-view-room-upper-level-inside-view.webp",
                 alt: "Upper Deluxe interior",
               },
               {
-                src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=80",
+                src: "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/deluxe-ocean-view-room-upper-level-outside-view.webp",
                 alt: "Upper Deluxe bathroom",
               },
             ]}
@@ -434,7 +434,7 @@ export default function BeachfrontRoomsTemplate({
         <div className="offers-scroll">
           <a href="#" className="offer-mini">
             <img
-              src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/30-off-offer-1.webp"
               alt="Romance"
             />
             <div className="offer-mini-text">
@@ -448,7 +448,7 @@ export default function BeachfrontRoomsTemplate({
           </a>
           <a href="#" className="offer-mini">
             <img
-              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-at-curtain-bluff.webp"
               alt="Wellness"
             />
             <div className="offer-mini-text">
@@ -462,7 +462,7 @@ export default function BeachfrontRoomsTemplate({
           </a>
           <a href="#" className="offer-mini">
             <img
-              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/slider-6-31.webp"
               alt="25% offer"
             />
             <div className="offer-mini-text">
@@ -487,7 +487,7 @@ export default function BeachfrontRoomsTemplate({
         <div className="also-explore-grid">
           <a href="#" className="explore-card">
             <img
-              src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=700&q=80"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/bluff-room-balcony-jpg.webp"
               alt="Rooms on the Bluff"
             />
             <div className="explore-card-overlay">
@@ -497,7 +497,7 @@ export default function BeachfrontRoomsTemplate({
           </a>
           <a href="#" className="explore-card">
             <img
-              src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&q=80"
+              src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/3-curtain-bluff-pool-min-scaled.webp"
               alt="Pool Suites"
             />
             <div className="explore-card-overlay">

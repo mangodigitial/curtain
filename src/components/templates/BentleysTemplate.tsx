@@ -22,8 +22,8 @@ export default function BentleysTemplate({
       <section className="bentley-hero">
         <img
           className="bentley-hero-img"
-          src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=1200&q=80"
-          alt="Bentley silhouette"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/both-bentleys-1-picsart-aiimageenhancer.webp"
+          alt="Curtain Bluff's two Bentleys awaiting guests at the resort entrance"
         />
         <div className="bentley-hero-content">
           <div className="bentley-hero-breadcrumb">
@@ -45,12 +45,12 @@ export default function BentleysTemplate({
       {/* ═══ SHOWCASE IMAGES ═══ */}
       <div className="bentley-showcase reveal">
         <img
-          src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=900&q=80"
-          alt="Bentley exterior"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/both-bentleys-1-picsart-aiimageenhancer.webp"
+          alt="Exterior view of Curtain Bluff's Bentley fleet"
         />
         <img
-          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=80"
-          alt="Bentley interior"
+          src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/both-bentleys-1-picsart-aiimageenhancer.webp"
+          alt="Handcrafted leather interior of the Curtain Bluff Bentley"
         />
       </div>
 
