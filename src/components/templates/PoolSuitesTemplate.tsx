@@ -117,7 +117,7 @@ export default function PoolSuitesTemplate({
         <div className="page-hero-content">
           <div className="page-hero-breadcrumb">
             <Link href="/">Home</Link> <span>&rarr;</span>{" "}
-            <Link href="#">Rooms</Link> <span>&rarr;</span> Pool Suites
+            <Link href="/rooms">Rooms</Link> <span>&rarr;</span> Pool Suites
           </div>
           <h1 className="page-hero-title">
             Pool
@@ -223,7 +223,7 @@ export default function PoolSuitesTemplate({
                 "1,944 Sq. Ft.",
               ]}
             />
-            <a href="#" className="room-cta">
+            <a href="https://curtainbluff.com/reservations" className="room-cta">
               Book This Suite
             </a>
           </div>
@@ -299,7 +299,7 @@ export default function PoolSuitesTemplate({
                 "891 Sq. Ft.",
               ]}
             />
-            <a href="#" className="room-cta">
+            <a href="https://curtainbluff.com/reservations" className="room-cta">
               Book This Suite
             </a>
           </div>
@@ -382,7 +382,7 @@ export default function PoolSuitesTemplate({
                 "1,500 Sq. Ft.",
               ]}
             />
-            <a href="#" className="room-cta">
+            <a href="https://curtainbluff.com/reservations" className="room-cta">
               Book This Suite
             </a>
           </div>
@@ -398,7 +398,7 @@ export default function PoolSuitesTemplate({
           </h2>
         </div>
         <div className="offers-scroll">
-          <a href="#" className="offer-mini">
+          <a href="/special-offers" className="offer-mini">
             <img
               src={`${BLOB}/30-off-offer-1.webp`}
               alt="Romance"
@@ -412,7 +412,7 @@ export default function PoolSuitesTemplate({
               <span className="offer-tag">Year-long offer &rarr;</span>
             </div>
           </a>
-          <a href="#" className="offer-mini">
+          <a href="/special-offers" className="offer-mini">
             <img
               src={`${BLOB}/spa-at-curtain-bluff.webp`}
               alt="Wellness"
@@ -426,7 +426,7 @@ export default function PoolSuitesTemplate({
               <span className="offer-tag">Year-long offer &rarr;</span>
             </div>
           </a>
-          <a href="#" className="offer-mini">
+          <a href="/special-offers" className="offer-mini">
             <img
               src={`${BLOB}/slider-6-31.webp`}
               alt="25% offer"

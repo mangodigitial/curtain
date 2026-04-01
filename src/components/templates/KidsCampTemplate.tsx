@@ -177,7 +177,7 @@ export default function KidsCampTemplate({
           </h2>
         </div>
         <div className="explore-grid">
-          <a href="#" className="explore-card">
+          <Link href="/water-sports" className="explore-card">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-7.webp"
               alt="Water sports at Curtain Bluff"
@@ -186,8 +186,8 @@ export default function KidsCampTemplate({
               <span>On the Water</span>
               <h3>Water Sports</h3>
             </div>
-          </a>
-          <a href="#" className="explore-card">
+          </Link>
+          <Link href="/ground-sports" className="explore-card">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/25-tennis-at-curtain-bluff.webp"
               alt="Championship tennis courts at Curtain Bluff"
@@ -196,8 +196,8 @@ export default function KidsCampTemplate({
               <span>On the Court</span>
               <h3>Ground Sports</h3>
             </div>
-          </a>
-          <a href="#" className="explore-card">
+          </Link>
+          <Link href="/scuba-diving" className="explore-card">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/activities-8.webp"
               alt="Scuba diving near Curtain Bluff"
@@ -206,7 +206,7 @@ export default function KidsCampTemplate({
               <span>Beneath the Surface</span>
               <h3>Scuba Diving</h3>
             </div>
-          </a>
+          </Link>
         </div>
       </section>
     </>

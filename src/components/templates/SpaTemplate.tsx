@@ -26,7 +26,7 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
         <div className="sub-hero-content">
           <div className="sub-hero-breadcrumb">
             <Link href="/">Home</Link> <span>&rarr;</span>{" "}
-            <Link href="#">Wellness</Link> <span>&rarr;</span> The Spa
+            <Link href="/wellness">Wellness</Link> <span>&rarr;</span> The Spa
           </div>
           <h1 className="sub-hero-title">
             The <em>Spa</em>
@@ -276,7 +276,7 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
           </h2>
         </div>
         <div className="explore-grid">
-          <a href="#" className="explore-card">
+          <Link href="/tennis" className="explore-card">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/morris-bay-terrace-with-spa-curtain-bluff.webp"
               alt="Morris Bay terrace with spa views at Curtain Bluff"
@@ -285,8 +285,8 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
               <span>Championship Courts</span>
               <h3>Tennis</h3>
             </div>
-          </a>
-          <a href="#" className="explore-card">
+          </Link>
+          <Link href="/wellness" className="explore-card">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-3.webp"
               alt="Yoga and wellness classes at Curtain Bluff"
@@ -295,8 +295,8 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
               <span>Yoga, Pilates &amp; More</span>
               <h3>Classes</h3>
             </div>
-          </a>
-          <a href="#" className="explore-card">
+          </Link>
+          <Link href="/activities" className="explore-card">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-5.webp"
               alt="Wellness experience at the Curtain Bluff Spa"
@@ -305,7 +305,7 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
               <span>Restore Balance</span>
               <h3>Wellness</h3>
             </div>
-          </a>
+          </Link>
         </div>
       </section>
     </>

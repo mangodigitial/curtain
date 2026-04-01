@@ -212,7 +212,7 @@ export default function GroundSportsTemplate({
           </h2>
         </div>
         <div className="explore-grid">
-          <Link href="/activities/water-sports" className="explore-card">
+          <Link href="/water-sports" className="explore-card">
             <img
               src={`${BLOB}/activities-7.webp`}
               alt="Water sports at Curtain Bluff"
@@ -222,7 +222,7 @@ export default function GroundSportsTemplate({
               <h3>Water Sports</h3>
             </div>
           </Link>
-          <Link href="/activities/scuba-diving" className="explore-card">
+          <Link href="/scuba-diving" className="explore-card">
             <img
               src={`${BLOB}/activities-8.webp`}
               alt="Scuba diving near Curtain Bluff"
@@ -232,7 +232,7 @@ export default function GroundSportsTemplate({
               <h3>Scuba Diving</h3>
             </div>
           </Link>
-          <Link href="/activities/cee-bee-kids-camp" className="explore-card">
+          <Link href="/cee-bee-kids-camp" className="explore-card">
             <img
               src={`${BLOB}/activities-3.webp`}
               alt="Children at Cee Bee Kids Camp at Curtain Bluff"

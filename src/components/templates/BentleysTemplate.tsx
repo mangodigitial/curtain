@@ -108,7 +108,7 @@ export default function BentleysTemplate({
               >
                 Reserve by Email
               </a>
-              <a href="#" className="b-btn secondary">
+              <a href="https://curtainbluff.com/reservations" className="b-btn secondary">
                 Pre-Arrival Form
               </a>
             </div>

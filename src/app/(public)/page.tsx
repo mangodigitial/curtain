@@ -240,15 +240,15 @@ export default async function HomePage() {
         </div>
         <div className="gallery-grid">
           {[
-            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery01.webp',
-            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery02-1.webp',
-            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery03-1.webp',
-            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery04-1.webp',
-            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery05.webp',
-            'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery06.webp',
+            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery01.webp', alt: 'Aerial view of Curtain Bluff resort' },
+            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery02-1.webp', alt: 'Pool suites at Curtain Bluff' },
+            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery03-1.webp', alt: 'Wedding ceremony on the beach' },
+            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery04-1.webp', alt: 'Fine dining at Curtain Bluff' },
+            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery05.webp', alt: 'Pristine beach at Curtain Bluff' },
+            { src: 'https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/gallery06.webp', alt: 'Spa treatment room' },
           ].map((img, i) => (
             <div className="gi" key={i}>
-              <img src={img} alt="" />
+              <img src={img.src} alt={img.alt} />
             </div>
           ))}
         </div>
@@ -326,7 +326,7 @@ export default async function HomePage() {
       {/* ═══════ CHARITY ═══════ */}
       <section className="charity reveal">
         <div className="charity-inner">
-          <div className="section-label">The Old Road Fund</div>
+          <div className="section-label" style={{ justifyContent: 'center' }}>The Old Road Fund</div>
           <h2 className="section-heading">
             Philanthropic <em>Roots</em>
           </h2>

@@ -87,9 +87,9 @@ export default function ActivitiesTemplate({
                 Water aerobics
               </div>
             </div>
-            <a href="#" className="act-link">
+            <Link href="/water-sports" className="act-link">
               Learn More <span className="arrow" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -151,9 +151,9 @@ export default function ActivitiesTemplate({
                 Half basketball court
               </div>
             </div>
-            <a href="#" className="act-link">
+            <Link href="/ground-sports" className="act-link">
               Learn More <span className="arrow" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -207,9 +207,9 @@ export default function ActivitiesTemplate({
                 Full equipment provided
               </div>
             </div>
-            <a href="#" className="act-link">
+            <Link href="/scuba-diving" className="act-link">
               Learn More <span className="arrow" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -263,9 +263,9 @@ export default function ActivitiesTemplate({
                 Playground &amp; games
               </div>
             </div>
-            <a href="#" className="act-link">
+            <Link href="/cee-bee-kids-camp" className="act-link">
               Learn More <span className="arrow" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

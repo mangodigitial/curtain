@@ -115,7 +115,7 @@ export default function RoomsOnBluffTemplate({
         <div className="page-hero-content">
           <div className="page-hero-breadcrumb">
             <Link href="/">Home</Link> <span>&rarr;</span>{" "}
-            <Link href="#">Rooms</Link> <span>&rarr;</span> On the Bluff
+            <Link href="/rooms">Rooms</Link> <span>&rarr;</span> On the Bluff
           </div>
           <h1 className="page-hero-title">
             Rooms on
@@ -203,7 +203,7 @@ export default function RoomsOnBluffTemplate({
                 "816 Sq. Ft.",
               ]}
             />
-            <a href="#" className="room-cta">
+            <a href="https://curtainbluff.com/reservations" className="room-cta">
               Book This Room
             </a>
           </div>
@@ -280,7 +280,7 @@ export default function RoomsOnBluffTemplate({
                 "One bedroom 1,759 Sq. Ft. / Two bedroom 2,756 Sq. Ft.",
               ]}
             />
-            <a href="#" className="room-cta">
+            <a href="https://curtainbluff.com/reservations" className="room-cta">
               Book This Suite
             </a>
           </div>
@@ -353,7 +353,7 @@ export default function RoomsOnBluffTemplate({
                 "1,200 Sq. Ft.",
               ]}
             />
-            <a href="#" className="room-cta">
+            <a href="https://curtainbluff.com/reservations" className="room-cta">
               Book This Suite
             </a>
           </div>
@@ -369,7 +369,7 @@ export default function RoomsOnBluffTemplate({
           </h2>
         </div>
         <div className="offers-scroll">
-          <a href="#" className="offer-mini">
+          <a href="/special-offers" className="offer-mini">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/30-off-offer-1.webp"
               alt="25% offer"
@@ -382,7 +382,7 @@ export default function RoomsOnBluffTemplate({
               <span className="offer-tag">Year-long offer &rarr;</span>
             </div>
           </a>
-          <a href="#" className="offer-mini">
+          <a href="/special-offers" className="offer-mini">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-at-curtain-bluff.webp"
               alt="30% offer"

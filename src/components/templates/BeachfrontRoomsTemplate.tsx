@@ -116,7 +116,7 @@ export default function BeachfrontRoomsTemplate({
         <div className="page-hero-content">
           <div className="page-hero-breadcrumb">
             <Link href="/">Home</Link> <span>&rarr;</span>{" "}
-            <Link href="#">Rooms</Link> <span>&rarr;</span> Beach Front
+            <Link href="/rooms">Rooms</Link> <span>&rarr;</span> Beach Front
           </div>
           <h1 className="page-hero-title">
             Beach Front
@@ -207,7 +207,7 @@ export default function BeachfrontRoomsTemplate({
                 "861 Sq. Ft.",
               ]}
             />
-            <a href="#" className="room-cta">
+            <a href="https://curtainbluff.com/reservations" className="room-cta">
               Book This Suite
             </a>
           </div>
@@ -278,7 +278,7 @@ export default function BeachfrontRoomsTemplate({
                 "Bidet",
               ]}
             />
-            <a href="#" className="room-cta">
+            <a href="https://curtainbluff.com/reservations" className="room-cta">
               Book This Suite
             </a>
           </div>
@@ -347,7 +347,7 @@ export default function BeachfrontRoomsTemplate({
                 "360 Sq. Ft.",
               ]}
             />
-            <a href="#" className="room-cta">
+            <a href="https://curtainbluff.com/reservations" className="room-cta">
               Book This Room
             </a>
           </div>
@@ -416,7 +416,7 @@ export default function BeachfrontRoomsTemplate({
                 "360 Sq. Ft.",
               ]}
             />
-            <a href="#" className="room-cta">
+            <a href="https://curtainbluff.com/reservations" className="room-cta">
               Book This Room
             </a>
           </div>
@@ -432,7 +432,7 @@ export default function BeachfrontRoomsTemplate({
           </h2>
         </div>
         <div className="offers-scroll">
-          <a href="#" className="offer-mini">
+          <a href="/special-offers" className="offer-mini">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/30-off-offer-1.webp"
               alt="Romance"
@@ -446,7 +446,7 @@ export default function BeachfrontRoomsTemplate({
               <span className="offer-tag">Year-long offer &rarr;</span>
             </div>
           </a>
-          <a href="#" className="offer-mini">
+          <a href="/special-offers" className="offer-mini">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/spa-at-curtain-bluff.webp"
               alt="Wellness"
@@ -460,7 +460,7 @@ export default function BeachfrontRoomsTemplate({
               <span className="offer-tag">Year-long offer &rarr;</span>
             </div>
           </a>
-          <a href="#" className="offer-mini">
+          <a href="/special-offers" className="offer-mini">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/slider-6-31.webp"
               alt="25% offer"
@@ -485,7 +485,7 @@ export default function BeachfrontRoomsTemplate({
           </h2>
         </div>
         <div className="also-explore-grid">
-          <a href="#" className="explore-card">
+          <Link href="/rooms-on-the-bluff" className="explore-card">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/bluff-room-balcony-jpg.webp"
               alt="Rooms on the Bluff"
@@ -494,8 +494,8 @@ export default function BeachfrontRoomsTemplate({
               <span>Elevated Views</span>
               <h3>Rooms on the Bluff</h3>
             </div>
-          </a>
-          <a href="#" className="explore-card">
+          </Link>
+          <Link href="/pool-suites" className="explore-card">
             <img
               src="https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/3-curtain-bluff-pool-min-scaled.webp"
               alt="Pool Suites"
@@ -504,7 +504,7 @@ export default function BeachfrontRoomsTemplate({
               <span>Ultimate Luxury</span>
               <h3>Pool Suites</h3>
             </div>
-          </a>
+          </Link>
         </div>
       </section>
     </>

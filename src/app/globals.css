@@ -459,7 +459,7 @@ html {
   padding: 0 3rem;
   margin-bottom: 3rem;
 }
-.wellness-header .section-label { color: var(--gold-light); }
+.wellness-header .section-label { justify-content: center; color: var(--gold-light); }
 .wellness-header .section-label::before { background: var(--gold-light); }
 .wellness-header .section-heading { color: var(--sand); }
 .wellness-header .section-heading em { color: var(--coral-soft); }
