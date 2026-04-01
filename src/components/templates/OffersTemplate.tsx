@@ -9,15 +9,20 @@ import Image from "next/image";
 
    Section mapping:
      sections[0] = hero
-     sections[1] = offer_card
-     sections[2] = offer_card
+     sections[1..N] = offer_card
+     sections[last] = value_strip  (optional)
    ═══════════════════════════════════════════════════════════════════ */
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function OffersTemplate({ sections }: { sections: any[] }) {
   const safeSections = sections ?? [];
-  const hero = safeSections.find((s: any) => s?.type === 'hero');
-  const offerCards = safeSections.filter((s: any) => s?.type === "offer_card");
+  const hero = safeSections.find((s: any) => s?.type === "hero");
+  const offerCards = safeSections.filter(
+    (s: any) => s?.type === "offer_card"
+  );
+  const valueStrip = safeSections.find(
+    (s: any) => s?.type === "value_strip"
+  );
 
   return (
     <>
@@ -35,7 +40,7 @@ export default function OffersTemplate({ sections }: { sections: any[] }) {
               ? { placeholder: "blur" as const, blurDataURL: hero.image.blurhash }
               : {})}
           />
-          <div className="sub-hero-bg"></div>
+          <div className="sub-hero-bg" />
           <div className="sub-hero-content">
             {hero.breadcrumb && (
               <div className="sub-hero-breadcrumb">
@@ -71,10 +76,37 @@ export default function OffersTemplate({ sections }: { sections: any[] }) {
       {/* ═══ Offers List ═══ */}
       {(offerCards?.length ?? 0) > 0 && (
         <div className="offers-list">
-          {(offerCards ?? []).map((offer, i) => (
+          {(offerCards ?? []).map((offer: any, i: number) => (
             <OfferFullCard key={i} data={offer} />
           ))}
         </div>
+      )}
+
+      {/* ═══ Value Strip ═══ */}
+      {valueStrip && (
+        <section className="value-strip reveal">
+          <h2>
+            {valueStrip.title}
+            {valueStrip.titleItalic && (
+              <>
+                {" "}<em>{valueStrip.titleItalic}</em>
+              </>
+            )}
+          </h2>
+          {valueStrip.description && <p>{valueStrip.description}</p>}
+          {valueStrip.items && (valueStrip.items.length ?? 0) > 0 && (
+            <div className="value-items">
+              {(valueStrip.items ?? []).map(
+                (item: { value: string; label: string }, i: number) => (
+                  <div key={i} className="value-item">
+                    <div className="value-item-val">{item.value}</div>
+                    <div className="value-item-label">{item.label}</div>
+                  </div>
+                )
+              )}
+            </div>
+          )}
+        </section>
       )}
     </>
   );
@@ -127,7 +159,13 @@ function OfferFullCard({ data }: { data: any }) {
             width={data.image?.width ?? 800}
             height={data.image?.height ?? 600}
             sizes="(max-width: 900px) 100vw, 45vw"
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", minHeight: "400px" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+              minHeight: "400px",
+            }}
             {...(data.image?.blurhash
               ? { placeholder: "blur" as const, blurDataURL: data.image.blurhash }
               : {})}

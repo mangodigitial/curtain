@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import type { Section } from "@/components/sections/types";
 import type {

@@ -13,24 +13,30 @@ import Image from "next/image";
      sections[2] = editorial_split  (Beach Weddings)
      sections[3] = editorial_split  (Romantic Honeymoons)
      sections[4] = editorial_split  (Corporate Events)
-     sections[5] = testimonial
-     sections[6] = cta_band
+     sections[5] = gallery_mosaic   (Wedding Gallery grid)
+     sections[6] = testimonial
+     sections[7] = cta_band
    ═══════════════════════════════════════════════════════════════════ */
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function WeddingsTemplate({ sections }: { sections: any[] }) {
   const safeSections = sections ?? [];
-  const hero = safeSections.find((s: any) => s?.type === 'hero');
-  const intro = safeSections.find((s: any) => s?.type === 'intro');
-  const eventTypes = safeSections.filter((s: any) => s?.type === 'editorial_split');
-  const testimonial = safeSections.find((s: any) => s?.type === 'testimonial');
-  const ctaBand = safeSections.find((s: any) => s?.type === 'cta_band');
+  const hero = safeSections.find((s: any) => s?.type === "hero");
+  const intro = safeSections.find((s: any) => s?.type === "intro");
+  const eventTypes = safeSections.filter(
+    (s: any) => s?.type === "editorial_split"
+  );
+  const weddingGallery = safeSections.find(
+    (s: any) => s?.type === "gallery_mosaic"
+  );
+  const testimonial = safeSections.find((s: any) => s?.type === "testimonial");
+  const ctaBand = safeSections.find((s: any) => s?.type === "cta_band");
 
   return (
     <>
       {/* ═══ Hero ═══ */}
       {hero && (
-        <section className="hero">
+        <section className="hero wedding-hero">
           <Image
             src={hero.image?.url || ""}
             alt={hero.image?.alt || "Wedding at Curtain Bluff"}
@@ -42,7 +48,7 @@ export default function WeddingsTemplate({ sections }: { sections: any[] }) {
               ? { placeholder: "blur" as const, blurDataURL: hero.image.blurhash }
               : {})}
           />
-          <div className="hero-bg"></div>
+          <div className="hero-bg" />
           <div className="hero-content">
             {hero.breadcrumb && (
               <div className="hero-breadcrumb">
@@ -60,7 +66,7 @@ export default function WeddingsTemplate({ sections }: { sections: any[] }) {
                 )}
               </div>
             )}
-            <div className="hero-divider"></div>
+            <div className="hero-divider" />
             <h1 className="hero-title">
               {hero.title}
               {hero.titleItalic && (
@@ -69,18 +75,19 @@ export default function WeddingsTemplate({ sections }: { sections: any[] }) {
                 </>
               )}
             </h1>
-            {hero.subtitle && (
-              <p className="hero-sub">{hero.subtitle}</p>
-            )}
+            {hero.subtitle && <p className="hero-sub">{hero.subtitle}</p>}
           </div>
         </section>
       )}
 
       {/* ═══ Intro ═══ */}
       {intro && (
-        <section className="intro reveal">
+        <section className="wedding-intro reveal">
           {intro.label && (
-            <div className="section-label" style={{ justifyContent: "center" }}>
+            <div
+              className="section-label"
+              style={{ justifyContent: "center" }}
+            >
               {intro.label}
             </div>
           )}
@@ -97,20 +104,82 @@ export default function WeddingsTemplate({ sections }: { sections: any[] }) {
       )}
 
       {/* ═══ Event Types (editorial_split sections) ═══ */}
-      {(eventTypes ?? []).map((event, i) => (
+      {(eventTypes ?? []).map((event: any, i: number) => (
         <EventTypeSection key={i} data={event} index={i} />
       ))}
 
+      {/* ═══ Wedding Gallery ═══ */}
+      {weddingGallery && (
+        <section className="wedding-gallery reveal">
+          <div className="wedding-gallery-header">
+            {weddingGallery.label && (
+              <div
+                className="section-label"
+                style={{ justifyContent: "center" }}
+              >
+                {weddingGallery.label}
+              </div>
+            )}
+            <h2>
+              {weddingGallery.title}
+              {weddingGallery.titleItalic && (
+                <>
+                  {" "}<em>{weddingGallery.titleItalic}</em>
+                </>
+              )}
+            </h2>
+            {weddingGallery.hashtag && (
+              <p className="hashtag">{weddingGallery.hashtag}</p>
+            )}
+          </div>
+          <div className="wg-grid">
+            {(weddingGallery.images ?? []).map(
+              (
+                img: {
+                  url: string;
+                  alt: string;
+                  width?: number;
+                  height?: number;
+                  blurhash?: string;
+                  wide?: boolean;
+                },
+                i: number
+              ) => (
+                <Image
+                  key={i}
+                  src={img.url}
+                  alt={img.alt || ""}
+                  width={img.width ?? 400}
+                  height={img.height ?? 400}
+                  className={img.wide ? "wg-wide" : ""}
+                  sizes={
+                    img.wide
+                      ? "(max-width: 480px) 100vw, (max-width: 700px) 66vw, 50vw"
+                      : "(max-width: 480px) 50vw, 25vw"
+                  }
+                  {...(img.blurhash
+                    ? {
+                        placeholder: "blur" as const,
+                        blurDataURL: img.blurhash,
+                      }
+                    : {})}
+                />
+              )
+            )}
+          </div>
+        </section>
+      )}
+
       {/* ═══ Testimonial ═══ */}
       {testimonial && (
-        <section className="testimonial reveal">
+        <section className="testimonial wedding-testimonial reveal">
           <div className="testimonial-inner">
             <div className="testimonial-mark">&ldquo;</div>
             <p className="testimonial-text">{testimonial.quote}</p>
             <p className="testimonial-author">{testimonial.author}</p>
             {testimonial.cta && (
               <a href={testimonial.cta.url} className="testimonial-cta">
-                {testimonial.cta.label} &nearr;
+                {testimonial.cta.label} &#x2197;
               </a>
             )}
           </div>
@@ -137,24 +206,30 @@ export default function WeddingsTemplate({ sections }: { sections: any[] }) {
                 </a>
               )}
             </div>
-            {ctaBand?.contactDetails && (ctaBand.contactDetails?.length ?? 0) > 0 && (
-              <div className="contact-details">
-                {(ctaBand.contactDetails ?? []).map(
-                  (detail: { label: string; value: string; url?: string }, i: number) => (
-                    <div key={i} className="cd-item">
-                      <div className="cd-label">{detail?.label}</div>
-                      <div className="cd-val">
-                        {detail.url ? (
-                          <a href={detail.url}>{detail.value}</a>
-                        ) : (
-                          <span dangerouslySetInnerHTML={{ __html: detail.value }} />
-                        )}
+            {ctaBand?.contactDetails &&
+              (ctaBand.contactDetails?.length ?? 0) > 0 && (
+                <div className="contact-details">
+                  {(ctaBand.contactDetails ?? []).map(
+                    (
+                      detail: { label: string; value: string; url?: string },
+                      i: number
+                    ) => (
+                      <div key={i} className="cd-item">
+                        <div className="cd-label">{detail?.label}</div>
+                        <div className="cd-val">
+                          {detail.url ? (
+                            <a href={detail.url}>{detail.value}</a>
+                          ) : (
+                            <span
+                              dangerouslySetInnerHTML={{ __html: detail.value }}
+                            />
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  )
-                )}
-              </div>
-            )}
+                    )
+                  )}
+                </div>
+              )}
           </div>
         </section>
       )}
@@ -195,7 +270,13 @@ function EventTypeSection({ data, index }: { data: any; index: number }) {
             width={data.image?.width ?? 900}
             height={data.image?.height ?? 600}
             sizes="(max-width: 900px) 100vw, 50vw"
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", minHeight: "450px" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+              minHeight: "450px",
+            }}
             {...(data.image?.blurhash
               ? { placeholder: "blur" as const, blurDataURL: data.image.blurhash }
               : {})}
@@ -215,7 +296,7 @@ function EventTypeSection({ data, index }: { data: any; index: number }) {
         <p className="event-desc">{data.body}</p>
         {data.cta && (
           <a href={data.cta.url} className="event-link">
-            {data.cta.label} <span className="arrow"></span>
+            {data.cta.label} <span className="arrow" />
           </a>
         )}
       </div>

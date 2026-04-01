@@ -1,394 +1,284 @@
-import Image from "next/image";
-import type { Section } from "@/components/sections/types";
-import type {
-  HeroSection,
-  IntroSection,
-  EditorialSplitSection,
-  TreatmentListSection,
-  ExperienceStepsSection,
-  TestimonialSection,
-} from "@/components/sections/types";
-import { renderTitle } from "@/components/sections/render-title";
+import Link from "next/link";
 
-/* ─── Helpers ─────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   SpaTemplate — page-level template for The Spa page.
 
-function img(section: any, key = "image") {
-  const i = key.includes(".")
-    ? key.split(".").reduce((o: any, k: string) => o?.[k], section)
-    : section?.[key];
-  return {
-    src: i?.url || "",
-    alt: i?.alt || "",
-    w: i?.width ?? 800,
-    h: i?.height ?? 600,
-    blur: i?.blurhash,
-  };
-}
-
-function blurProps(blur?: string) {
-  return blur ? { placeholder: "blur" as const, blurDataURL: blur } : {};
-}
-
-/* ─── Props ───────────────────────────────────────────────── */
+   Reproduces the exact HTML structure from:
+     curtain-bluff-templates/curtain-bluff-spa.html
+   (body content between nav and footer)
+   ═══════════════════════════════════════════════════════════════════ */
 
 interface SpaTemplateProps {
-  sections: Section[];
+  sections: any[];
 }
 
-/* ═══════════════════════════════════════════════════════════
-   SpaTemplate
-   ─────────────────────────────────────────────────────────
-   sections[0] = hero           (sub-hero)
-   sections[1] = intro          (spa-intro split)
-   sections[2] = editorial_split
-   sections[3] = treatment_list
-   sections[4] = experience_steps
-   sections[5] = testimonial
-   ═══════════════════════════════════════════════════════════ */
-
 export default function SpaTemplate({ sections }: SpaTemplateProps) {
-  const safeSections = sections ?? [];
-  const hero = safeSections.find(s => s?.type === 'hero') as HeroSection | undefined;
-  const intro = safeSections.find(s => s?.type === 'intro') as IntroSection | undefined;
-  const editorial = safeSections.find(s => s?.type === 'editorial_split') as EditorialSplitSection | undefined;
-  const treatments = safeSections.find(s => s?.type === 'treatment_list') as TreatmentListSection | undefined;
-  const steps = safeSections.find(s => s?.type === 'experience_steps') as ExperienceStepsSection | undefined;
-  const testimonial = safeSections.find(s => s?.type === 'testimonial') as TestimonialSection | undefined;
-
   return (
     <>
       {/* ═══ HERO ═══ */}
-      {hero && <SpaHero data={hero} />}
-
-      {/* ═══ INTRO ═══ */}
-      {intro && <SpaIntro data={intro} />}
-
-      {/* ═══ EDITORIAL SPLIT ═══ */}
-      {editorial && <SpaEditorial data={editorial} />}
-
-      {/* ═══ TREATMENT LIST ═══ */}
-      {treatments && <SpaTreatments data={treatments} />}
-
-      {/* ═══ EXPERIENCE STEPS ═══ */}
-      {steps && <SpaExperienceSteps data={steps} />}
-
-      {/* ═══ TESTIMONIAL ═══ */}
-      {testimonial && <SpaTestimonial data={testimonial} />}
-    </>
-  );
-}
-
-/* ─── Hero ────────────────────────────────────────────────
-   Template: curtain-bluff-spa.html
-
-   <section class="sub-hero">
-     <img class="sub-hero-img" src="..." alt="...">
-     <div class="sub-hero-bg"></div>
-     <div class="sub-hero-content">
-       <div class="sub-hero-breadcrumb">
-         <a href="#">Home</a> <span>→</span> ... The Spa
-       </div>
-       <h1 class="sub-hero-title">The <em>Spa</em></h1>
-       <p class="sub-hero-tagline">...</p>
-     </div>
-   </section>
-──────────────────────────────────────────────────────────── */
-
-function SpaHero({ data }: { data: HeroSection }) {
-  const heroImg = img(data);
-
-  return (
-    <section className="sub-hero">
-      <Image
-        className="sub-hero-img"
-        src={heroImg.src}
-        alt={heroImg.alt}
-        fill
-        priority
-        sizes="100vw"
-        {...blurProps(heroImg.blur)}
-      />
-      <div className="sub-hero-bg"></div>
-      <div className="sub-hero-content">
-        {data?.showBreadcrumb && data?.breadcrumb && (
+      <section className="sub-hero">
+        <img
+          className="sub-hero-img"
+          src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1800&q=80"
+          alt="The Spa at Curtain Bluff"
+        />
+        <div className="sub-hero-bg" />
+        <div className="sub-hero-content">
           <div className="sub-hero-breadcrumb">
-            {(data.breadcrumb ?? []).map((item, i) => (
-              <span key={i}>
-                {i > 0 && <span>&rarr;</span>}
-                <a href={item?.url}>{item?.label}</a>
-              </span>
-            ))}
+            <Link href="/">Home</Link> <span>&rarr;</span>{" "}
+            <Link href="#">Wellness</Link> <span>&rarr;</span> The Spa
           </div>
-        )}
-        <h1 className="sub-hero-title">
-          {renderTitle(data.title, data.titleItalic, "")}
-        </h1>
-        {data.subtitle && (
-          <p className="sub-hero-tagline">{data.subtitle}</p>
-        )}
-      </div>
-    </section>
-  );
-}
+          <h1 className="sub-hero-title">
+            The <em>Spa</em>
+          </h1>
+          <p className="sub-hero-tagline">
+            Close your eyes, inhale deeply, and sink into tranquility
+          </p>
+        </div>
+      </section>
 
-/* ─── Intro ──────────────────────────────────────────────
-   Template: curtain-bluff-spa.html
-
-   <section class="spa-intro reveal">
-     <div class="spa-intro-media">
-       <img src="..." alt="...">
-     </div>
-     <div class="spa-intro-content">
-       <div class="section-label">The Sanctuary</div>
-       <h2>Where the sea <em>heals</em></h2>
-       <p>...</p>
-       <div class="spa-stats">
-         <div>
-           <div class="spa-stat-val">5,000</div>
-           <div class="spa-stat-label">Square Feet</div>
-         </div>
-         ...
-       </div>
-     </div>
-   </section>
-──────────────────────────────────────────────────────────── */
-
-function SpaIntro({ data }: { data: IntroSection }) {
-  const mainImg = data.images?.main ? img(data, "images.main") : null;
-
-  return (
-    <section className="spa-intro reveal">
-      {mainImg && (
+      {/* ═══ INTRO EDITORIAL ═══ */}
+      <section className="spa-intro reveal">
         <div className="spa-intro-media">
-          <Image
-            src={mainImg.src}
-            alt={mainImg.alt}
-            width={mainImg.w}
-            height={mainImg.h}
-            sizes="(max-width: 900px) 100vw, 50vw"
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", minHeight: 400 }}
-            {...blurProps(mainImg.blur)}
+          <img
+            src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=900&q=80"
+            alt="Spa treatment room"
           />
         </div>
-      )}
-      <div className="spa-intro-content">
-        {data.label && <div className="section-label">{data.label}</div>}
-        <h2>{renderTitle(data.title, data.titleItalic, "")}</h2>
-        <p className="section-body">{data.body}</p>
-        {data.cta && (
-          <a href={data.cta.url} className="btn-line">
-            {data.cta.label} <span className="arrow"></span>
-          </a>
-        )}
-      </div>
-    </section>
-  );
-}
+        <div className="spa-intro-content">
+          <div className="section-label">The Sanctuary</div>
+          <h2>
+            Where the sea <em>heals</em>
+          </h2>
+          <p>
+            Relaxing and intimate, our 5,000-square-foot spa sits apart from the
+            rest of the resort, just feet from the sea. Its four treatment rooms
+            boast spectacular views over the water to distant Montserrat, Cades
+            Reef, St. Kitts, Nevis and Redonda.
+          </p>
+          <p>
+            Before your treatment, unwind on the terrace sipping tea brewed from
+            fresh herbs picked from the spa&apos;s own garden. Afterwards, allow
+            your mind to wander and your body to decompress in our luxurious
+            cliffside soaking tub with over-indulgent refreshments.
+          </p>
+          <div className="spa-stats">
+            <div>
+              <div className="spa-stat-val">5,000</div>
+              <div className="spa-stat-label">Square Feet</div>
+            </div>
+            <div>
+              <div className="spa-stat-val">4</div>
+              <div className="spa-stat-label">Treatment Rooms</div>
+            </div>
+            <div>
+              <div className="spa-stat-val">5</div>
+              <div className="spa-stat-label">Island Views</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-/* ─── Editorial Split ────────────────────────────────────
-   Re-uses the standard editorial layout from the template.
+      {/* ═══ THE EXPERIENCE ═══ */}
+      <section className="experience-strip reveal">
+        <div className="experience-inner">
+          <div className="exp-step">
+            <div className="exp-step-num">01</div>
+            <h4>Arrive &amp; Unwind</h4>
+            <p>
+              Sip herbal tea on the terrace, brewed from the spa&apos;s own
+              garden. Let the sound of waves set your pace.
+            </p>
+          </div>
+          <div className="exp-step">
+            <div className="exp-step-num">02</div>
+            <h4>Your Treatment</h4>
+            <p>
+              Expert therapists deliver bespoke treatments in rooms overlooking
+              the Caribbean towards five islands.
+            </p>
+          </div>
+          <div className="exp-step">
+            <div className="exp-step-num">03</div>
+            <h4>Restore &amp; Linger</h4>
+            <p>
+              Decompress in the cliffside soaking tub with refreshments and let
+              the views bring you back slowly.
+            </p>
+          </div>
+        </div>
+      </section>
 
-   <section class="editorial [reversed] [dark-bg] reveal">
-     <div class="editorial-media">
-       <img ...>
-     </div>
-     <div class="editorial-text">
-       <div class="section-label">...</div>
-       <h2 class="section-heading">... <em>...</em></h2>
-       <p class="section-body">...</p>
-       <div class="editorial-stats">...</div>
-       <a class="btn-line">...</a>
-     </div>
-   </section>
-──────────────────────────────────────────────────────────── */
-
-function SpaEditorial({ data }: { data: EditorialSplitSection }) {
-  const editImg = img(data);
-
-  const sectionClasses = [
-    "editorial",
-    data.layout === "image-right" ? "reversed" : "",
-    data.background === "dark" ? "dark-bg" : "",
-    "reveal",
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  const sectionStyle =
-    data.background === "sand"
-      ? { background: "var(--sand-light)" }
-      : undefined;
-
-  return (
-    <section className={sectionClasses} style={sectionStyle}>
-      <div className="editorial-media">
-        <Image
-          src={editImg.src}
-          alt={editImg.alt}
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          {...blurProps(editImg.blur)}
+      {/* ═══ GALLERY ═══ */}
+      <div className="spa-gallery reveal">
+        <img
+          className="sg-wide"
+          src="https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=900&q=80"
+          alt="Spa terrace"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=500&q=80"
+          alt="Treatment detail"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=500&q=80"
+          alt="Treatment room"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=500&q=80"
+          alt="Spa products"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500&q=80"
+          alt="Relaxation area"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=500&q=80"
+          alt="Massage"
         />
       </div>
-      <div className="editorial-text">
-        {data.number && (
-          <span className="editorial-number" aria-hidden="true">
-            {data.number}
-          </span>
-        )}
-        {data.label && <div className="section-label">{data.label}</div>}
-        <h2 className="section-heading">
-          {data.title}
-          {data.titleItalic && (
-            <>
-              {" "}
-              <em>{data.titleItalic}</em>
-            </>
-          )}
-        </h2>
-        {data.subtitle && (
-          <p className="editorial-subtitle">{data.subtitle}</p>
-        )}
-        <p className="section-body">{data.body}</p>
-        {data?.stats && (data.stats?.length ?? 0) > 0 && (
-          <div className="editorial-stats">
-            {(data.stats ?? []).map((stat) => (
-              <div key={stat?.label}>
-                <div className="editorial-stat-val">{stat?.value}</div>
-                <div className="editorial-stat-label">{stat?.label}</div>
-              </div>
-            ))}
+
+      {/* ═══ TREATMENTS ═══ */}
+      <section className="treatments reveal">
+        <div className="treatments-inner">
+          <div className="treatments-heading">
+            <div className="section-label">Menu</div>
+            <h2>
+              Spa <em>Treatments</em>
+            </h2>
+            <p>
+              Every treatment is tailored to your needs by our expert therapists,
+              using locally inspired techniques and premium products.
+            </p>
           </div>
-        )}
-        {data.cta && (
-          <a href={data.cta.url} className="btn-line">
-            {data.cta.label} <span className="arrow"></span>
-          </a>
-        )}
-      </div>
-    </section>
-  );
-}
-
-/* ─── Treatment List ─────────────────────────────────────
-   Template: curtain-bluff-spa.html
-
-   <section class="treatments reveal">
-     <div class="treatments-inner">
-       <div class="treatments-heading">
-         <div class="section-label">Menu</div>
-         <h2>Spa <em>Treatments</em></h2>
-         <p>...</p>
-       </div>
-       <div>
-         <div class="treatment-list">
-           <div class="treatment-item">
-             <span class="treatment-name">...</span>
-             <span class="treatment-desc">...</span>
-           </div>
-           ...
-         </div>
-         <div class="treatments-ctas">
-           <a class="spa-btn primary">...</a>
-           <a class="spa-btn">...</a>
-         </div>
-       </div>
-     </div>
-   </section>
-──────────────────────────────────────────────────────────── */
-
-function SpaTreatments({ data }: { data: TreatmentListSection }) {
-  return (
-    <section className="treatments reveal">
-      <div className="treatments-inner">
-        <div className="treatments-heading">
-          {data.label && <div className="section-label">{data.label}</div>}
-          <h2>{renderTitle(data.title, data.titleItalic)}</h2>
-          {data.description && <p>{data.description}</p>}
-        </div>
-
-        <div>
-          <div className="treatment-list">
-            {(data?.treatments ?? []).map((treatment, i) => (
-              <div key={i} className="treatment-item">
-                <span className="treatment-name">{treatment?.name}</span>
-                <span className="treatment-desc">{treatment?.description}</span>
+          <div>
+            <div className="treatment-list">
+              <div className="treatment-item">
+                <span className="treatment-name">Swedish Massage</span>
+                <span className="treatment-desc">Full body relaxation</span>
               </div>
-            ))}
-          </div>
-
-          {data?.ctas && (data.ctas?.length ?? 0) > 0 && (
-            <div className="treatments-ctas">
-              {(data.ctas ?? []).map((cta, i) => (
-                <a
-                  key={i}
-                  href={cta?.url}
-                  className={`spa-btn${i === 0 ? " primary" : ""}`}
-                >
-                  {cta?.label}
-                </a>
-              ))}
+              <div className="treatment-item">
+                <span className="treatment-name">Deep Tissue Massage</span>
+                <span className="treatment-desc">Targeted tension relief</span>
+              </div>
+              <div className="treatment-item">
+                <span className="treatment-name">Shiatsu Massage</span>
+                <span className="treatment-desc">Pressure point therapy</span>
+              </div>
+              <div className="treatment-item">
+                <span className="treatment-name">Couples Massage</span>
+                <span className="treatment-desc">Side-by-side serenity</span>
+              </div>
+              <div className="treatment-item">
+                <span className="treatment-name">Specialty Massages</span>
+                <span className="treatment-desc">
+                  Hot stone, prenatal &amp; more
+                </span>
+              </div>
+              <div className="treatment-item">
+                <span className="treatment-name">Body Polishes</span>
+                <span className="treatment-desc">
+                  Exfoliation &amp; renewal
+                </span>
+              </div>
+              <div className="treatment-item">
+                <span className="treatment-name">
+                  Herbal Aromatherapy Wraps
+                </span>
+                <span className="treatment-desc">Detox &amp; nourish</span>
+              </div>
+              <div className="treatment-item">
+                <span className="treatment-name">Facials</span>
+                <span className="treatment-desc">
+                  Cleanse, hydrate &amp; glow
+                </span>
+              </div>
+              <div className="treatment-item">
+                <span className="treatment-name">Manicures &amp; Pedicures</span>
+                <span className="treatment-desc">
+                  Classic &amp; luxury options
+                </span>
+              </div>
+              <div className="treatment-item">
+                <span className="treatment-name">Waxing Services</span>
+                <span className="treatment-desc">Full menu available</span>
+              </div>
+              <div className="treatment-item">
+                <span className="treatment-name">Wellness &amp; Fitness</span>
+                <span className="treatment-desc">Guided programmes</span>
+              </div>
             </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─── Experience Steps ───────────────────────────────────
-   Template: curtain-bluff-spa.html
-
-   <section class="experience-strip reveal">
-     <div class="experience-inner">
-       <div class="exp-step">
-         <div class="exp-step-num">01</div>
-         <h4>Arrive &amp; Unwind</h4>
-         <p>...</p>
-       </div>
-       ...
-     </div>
-   </section>
-──────────────────────────────────────────────────────────── */
-
-function SpaExperienceSteps({ data }: { data: ExperienceStepsSection }) {
-  return (
-    <section className="experience-strip reveal">
-      <div className="experience-inner">
-        {(data?.steps ?? []).map((step, i) => (
-          <div key={i} className="exp-step">
-            <div className="exp-step-num">{step?.number}</div>
-            <h4>{step?.title}</h4>
-            <p>{step?.description}</p>
+            <div className="treatments-ctas">
+              <a href="#" className="spa-btn primary">
+                Reserve a Treatment
+              </a>
+              <a href="#" className="spa-btn">
+                View Price List &nearr;
+              </a>
+              <a href="#" className="spa-btn">
+                Download Brochure &nearr;
+              </a>
+            </div>
           </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ─── Testimonial / Quote ────────────────────────────────
-   Template: curtain-bluff-spa.html
-
-   <section class="quote-section reveal">
-     <div class="quote-inner">
-       <div class="quote-mark">"</div>
-       <p class="quote-text">...</p>
-       <p class="quote-author">...</p>
-     </div>
-   </section>
-──────────────────────────────────────────────────────────── */
-
-function SpaTestimonial({ data }: { data: TestimonialSection }) {
-  return (
-    <section className="quote-section reveal">
-      <div className="quote-inner">
-        <div className="quote-mark" aria-hidden="true">
-          &ldquo;
         </div>
-        <p className="quote-text">{data.quote}</p>
-        <p className="quote-author">{data.author}</p>
-      </div>
-    </section>
+      </section>
+
+      {/* ═══ QUOTE ═══ */}
+      <section className="quote-section reveal">
+        <div className="quote-inner">
+          <div className="quote-mark">&ldquo;</div>
+          <p className="quote-text">
+            Softly lapping waves, outstanding treatments, real serenity. Time
+            stops here in this extraordinary spa and you feel as if you are the
+            most important person in the world.
+          </p>
+          <p className="quote-author">Patty Hoff &mdash; Ohio</p>
+        </div>
+      </section>
+
+      {/* ═══ EXPLORE OTHER WELLNESS ═══ */}
+      <section className="explore-other reveal">
+        <div className="explore-other-header">
+          <div className="section-label" style={{ justifyContent: "center" }}>
+            More Wellness
+          </div>
+          <h2>
+            Also <em>explore</em>
+          </h2>
+        </div>
+        <div className="explore-grid">
+          <a href="#" className="explore-card">
+            <img
+              src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&q=80"
+              alt="Tennis"
+            />
+            <div className="explore-card-ov">
+              <span>Championship Courts</span>
+              <h3>Tennis</h3>
+            </div>
+          </a>
+          <a href="#" className="explore-card">
+            <img
+              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80"
+              alt="Classes"
+            />
+            <div className="explore-card-ov">
+              <span>Yoga, Pilates &amp; More</span>
+              <h3>Classes</h3>
+            </div>
+          </a>
+          <a href="#" className="explore-card">
+            <img
+              src="https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=600&q=80"
+              alt="Wellness"
+            />
+            <div className="explore-card-ov">
+              <span>Restore Balance</span>
+              <h3>Wellness</h3>
+            </div>
+          </a>
+        </div>
+      </section>
+    </>
   );
 }
