@@ -30,7 +30,7 @@ export default function Footer({
         {/* Brand Column */}
         <div className="footer-brand">
           <Link href="/" className="logo">
-            {siteName} <em>{siteNameItalic}</em>
+            <img src="/logo.svg" alt={`${siteName} ${siteNameItalic}`} />
           </Link>
           <p>{description}</p>
         </div>

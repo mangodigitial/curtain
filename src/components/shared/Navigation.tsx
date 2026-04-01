@@ -48,7 +48,7 @@ export default function Navigation({
       <nav id="nav" className={navClasses}>
         {/* Logo */}
         <Link href="/" className="logo">
-          {siteName} <em>{siteNameItalic}</em>
+          <img src="/logo.svg" alt={`${siteName} ${siteNameItalic}`} />
         </Link>
 
         {/* Desktop menu links */}
