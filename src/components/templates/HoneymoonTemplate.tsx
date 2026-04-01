@@ -113,20 +113,16 @@ export default function HoneymoonTemplate({
         />
         <img
           src={`${BLOB}9-er-portraits-1.webp`}
-          alt="Couple enjoying Curtain Bluff"
+          alt="Couple enjoying the gardens at Curtain Bluff"
         />
         <img
-          src={`${BLOB}72-oa-cocktailhour.webp`}
-          alt="Sunset cocktails at Curtain Bluff"
-        />
-        <img
-          src={`${BLOB}17-er-dinnerdancing.webp`}
-          alt="Romantic dinner at Curtain Bluff"
+          src={`${BLOB}28-oa-coupleportraits.webp`}
+          alt="Honeymoon couple on the beach at Curtain Bluff"
         />
       </div>
 
-      {/* ═══════ DETAIL SECTION ═══════ */}
-      <section className="detail reveal">
+      {/* ═══════ DETAIL: ROMANCE ═══════ */}
+      <section className="detail reversed reveal">
         <div className="detail-inner">
           <h3>
             Unforgettable <em>moments</em>
@@ -147,6 +143,31 @@ export default function HoneymoonTemplate({
                 like water sports, kayaking, and yoga before retiring to your
                 room for a nightcap from the minibar at no additional cost.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════ DETAIL: INCLUDED ═══════ */}
+      <section className="detail reveal">
+        <div className="detail-inner">
+          <h3>
+            Honeymoon <em>inclusions</em>
+          </h3>
+          <div className="detail-columns">
+            <div>
+              <ul style={{ paddingLeft: "1.2em" }}>
+                <li>Private dinner for two on the beach with a butler</li>
+                <li>Couple&apos;s spa treatments at our oceanside spa</li>
+                <li>All-inclusive gourmet dining and top-shelf beverages</li>
+              </ul>
+            </div>
+            <div>
+              <ul style={{ paddingLeft: "1.2em" }}>
+                <li>Complimentary water sports, kayaking &amp; yoga</li>
+                <li>Secluded gardens with day beds and swings</li>
+                <li>In-room minibar replenished at no extra cost</li>
+              </ul>
             </div>
           </div>
         </div>

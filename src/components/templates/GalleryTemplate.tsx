@@ -68,7 +68,7 @@ export default function GalleryTemplate({ sections }: { sections: any[] }) {
 
 function InlineFilterGallery({ data }: { data: FilterGallerySection }) {
   const [active, setActive] = useState("All");
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   /* Deduplicate: always start with "All", then add any categories that aren't "All" */
   const categories = [
@@ -80,17 +80,33 @@ function InlineFilterGallery({ data }: { data: FilterGallerySection }) {
       ? (data?.images ?? [])
       : (data?.images ?? []).filter((img) => img?.category === active);
 
-  /* Close lightbox on Escape */
-  const closeLightbox = useCallback(() => setLightboxSrc(null), []);
+  /* Close lightbox */
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
+  /* Navigate prev/next with wrap-around */
+  const goPrev = useCallback(() => {
+    setLightboxIndex((i) =>
+      i === null ? null : (i - 1 + filtered.length) % filtered.length
+    );
+  }, [filtered.length]);
+
+  const goNext = useCallback(() => {
+    setLightboxIndex((i) =>
+      i === null ? null : (i + 1) % filtered.length
+    );
+  }, [filtered.length]);
+
+  /* Keyboard: Escape to close, Arrow keys to navigate */
   useEffect(() => {
-    if (!lightboxSrc) return;
+    if (lightboxIndex === null) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [lightboxSrc, closeLightbox]);
+  }, [lightboxIndex, closeLightbox, goPrev, goNext]);
 
   return (
     <>
@@ -114,11 +130,11 @@ function InlineFilterGallery({ data }: { data: FilterGallerySection }) {
 
       {/* ── Masonry Grid ──────────────────────────────── */}
       <div className="masonry" id="masonry">
-        {filtered.map((img) => (
+        {filtered.map((img, idx) => (
           <div
             key={img.id}
             className="masonry-item"
-            onClick={() => setLightboxSrc(img.url)}
+            onClick={() => setLightboxIndex(idx)}
             style={{ cursor: "pointer" }}
           >
             <Image
@@ -143,18 +159,32 @@ function InlineFilterGallery({ data }: { data: FilterGallerySection }) {
       </div>
 
       {/* ── Lightbox ──────────────────────────────────── */}
-      {lightboxSrc && (
+      {lightboxIndex !== null && filtered[lightboxIndex] && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
           <button className="lightbox-close" onClick={closeLightbox}>
             CLOSE &times;
           </button>
+          <button
+            className="lightbox-nav lightbox-prev"
+            onClick={(e) => { e.stopPropagation(); goPrev(); }}
+            aria-label="Previous image"
+          >
+            &#8249;
+          </button>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="lightbox-img"
-            src={lightboxSrc}
-            alt=""
+            src={filtered[lightboxIndex].url}
+            alt={filtered[lightboxIndex].alt || ""}
             onClick={(e) => e.stopPropagation()}
           />
+          <button
+            className="lightbox-nav lightbox-next"
+            onClick={(e) => { e.stopPropagation(); goNext(); }}
+            aria-label="Next image"
+          >
+            &#8250;
+          </button>
         </div>
       )}
     </>

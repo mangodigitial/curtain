@@ -99,6 +99,10 @@ export default function WellnessTemplate({
           src={`${BLOB}/morris-bay-terrace-with-spa-curtain-bluff.webp`}
           alt="Morris Bay terrace overlooking the sea at Curtain Bluff"
         />
+        <img
+          src={`${BLOB}/spa-3.webp`}
+          alt="Spa treatment and relaxation at Curtain Bluff"
+        />
       </div>
 
       {/* ═══════ FITNESS CENTRE ═══════ */}

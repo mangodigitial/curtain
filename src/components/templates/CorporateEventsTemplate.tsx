@@ -105,17 +105,64 @@ export default function CorporateEventsTemplate({
         />
         <img
           src={`${BLOB}72-oa-cocktailhour.webp`}
-          alt="Cocktail hour at Curtain Bluff event"
+          alt="Cocktail hour at Curtain Bluff corporate event"
         />
         <img
           src={`${BLOB}17-er-dinnerdancing.webp`}
-          alt="Dinner reception at Curtain Bluff"
-        />
-        <img
-          src={`${BLOB}28-oa-coupleportraits.webp`}
-          alt="Curtain Bluff grounds"
+          alt="Corporate dinner event at Curtain Bluff"
         />
       </div>
+
+      {/* ═══════ DETAIL: FACILITIES & SERVICES ═══════ */}
+      <section className="detail reversed reveal">
+        <div className="detail-inner">
+          <h3>
+            Facilities &amp; <em>Services</em>
+          </h3>
+          <p>
+            When you welcome your group to Curtain Bluff, you&apos;ll enjoy
+            facilities and services that include:
+          </p>
+          <div className="detail-columns">
+            <div>
+              <ul style={{ paddingLeft: "1.2em" }}>
+                <li>
+                  Sound proof event room featuring individual controls for air
+                  conditioning, sound, music and telephones
+                </li>
+                <li>
+                  High-speed wired and wireless internet access in every meeting
+                  room and property wide
+                </li>
+                <li>Multiple, easily accessible electric outlets</li>
+                <li>Budget planning assistance to manage costs</li>
+                <li>
+                  Expert, on-site event and IT staff to bring your ideas to life
+                  and troubleshoot any technical issues
+                </li>
+              </ul>
+            </div>
+            <div>
+              <ul style={{ paddingLeft: "1.2em" }}>
+                <li>Welcome cocktail party at the Bluff House</li>
+                <li>Private dinner at the Sea Grape beach restaurant</li>
+                <li>Complimentary room drop</li>
+                <li>
+                  High-tech equipment including cameras, multi-image
+                  presentations, data projectors, digital audio and more
+                  (available for a premium)
+                </li>
+                <li>Meeting planning (available for a premium)</li>
+              </ul>
+            </div>
+          </div>
+          <p style={{ marginTop: "1.5rem" }}>
+            Special discounted rates are extended to groups of 10 or more rooms
+            booked for a minimum of three nights. Other discounts may be
+            available depending on season and group size.
+          </p>
+        </div>
+      </section>
 
       {/* ═══════ DETAIL: WHY CURTAIN BLUFF ═══════ */}
       <section className="detail reveal">
@@ -164,7 +211,7 @@ export default function CorporateEventsTemplate({
       </section>
 
       {/* ═══════ DETAIL: EXTRAS ═══════ */}
-      <section className="detail reveal">
+      <section className="detail reversed reveal">
         <div className="detail-inner">
           <h3>
             Additional <em>indulgences</em>

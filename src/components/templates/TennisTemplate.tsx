@@ -94,6 +94,10 @@ export default function TennisTemplate({
           src={`${BLOB}/curtain-bluff-tennis-class.webp`}
           alt="Tennis coaching clinic at Curtain Bluff"
         />
+        <img
+          src={`${BLOB}/activities-5.webp`}
+          alt="Tennis and activities at Curtain Bluff"
+        />
       </div>
 
       {/* ═══════ THE COURTS ═══════ */}
@@ -125,7 +129,7 @@ export default function TennisTemplate({
       </section>
 
       {/* ═══════ LESSONS & CLINICS ═══════ */}
-      <section className="detail reveal">
+      <section className="detail reversed reveal">
         <div className="detail-inner">
           <h3>
             Lessons <em>&amp; Clinics</em>

@@ -149,7 +149,7 @@ export default function WaterSportsTemplate({
       </section>
 
       {/* ═══════ EDITORIAL: KAYAKING & PADDLEBOARDING ═══════ */}
-      <section className="detail reveal">
+      <section className="detail reversed reveal">
         <div className="detail-inner">
           <h3>
             Kayaking &amp; <em>Paddleboarding</em>
@@ -206,7 +206,7 @@ export default function WaterSportsTemplate({
       </section>
 
       {/* ═══════ EDITORIAL: SNORKELLING ═══════ */}
-      <section className="detail reveal">
+      <section className="detail reversed reveal">
         <div className="detail-inner">
           <h3>
             <em>Snorkelling</em>

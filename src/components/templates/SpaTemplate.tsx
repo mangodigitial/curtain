@@ -242,10 +242,10 @@ export default function SpaTemplate({ sections }: SpaTemplateProps) {
                 Reserve a Treatment
               </a>
               <a href="#" className="spa-btn">
-                View Price List &nearr;
+                View Price List →
               </a>
               <a href="#" className="spa-btn">
-                Download Brochure &nearr;
+                Download Brochure →
               </a>
             </div>
           </div>
