@@ -100,16 +100,20 @@ export default function CorporateEventsTemplate({
       {/* ═══════ GALLERY BAND ═══════ */}
       <div className="gallery-band reveal">
         <img
-          src={`${BLOB}pt-corporate-events-bg.webp`}
-          alt="Corporate event venue at Curtain Bluff"
+          src={`${BLOB}corporateevent-1.webp`}
+          alt="Corporate team gathering at Curtain Bluff resort"
         />
         <img
-          src={`${BLOB}72-oa-cocktailhour.webp`}
-          alt="Cocktail hour at Curtain Bluff corporate event"
+          src={`${BLOB}corporateevent-2.webp`}
+          alt="Executive meeting in the Tamarind events room"
         />
         <img
-          src={`${BLOB}17-er-dinnerdancing.webp`}
-          alt="Corporate dinner event at Curtain Bluff"
+          src={`${BLOB}corporateevent-3.webp`}
+          alt="Corporate cocktail reception overlooking the Caribbean"
+        />
+        <img
+          src={`${BLOB}corporateevent-4.webp`}
+          alt="Group dining event at Curtain Bluff"
         />
       </div>
 
@@ -268,8 +272,8 @@ export default function CorporateEventsTemplate({
           </Link>
           <Link href="/caribbean-weddings" className="explore-card">
             <img
-              src={`${BLOB}17-er-dinnerdancing.webp`}
-              alt="Caribbean Weddings at Curtain Bluff"
+              src={`${BLOB}wedding03.webp`}
+              alt="Beach wedding ceremony at Curtain Bluff"
             />
             <div className="explore-card-ov">
               <span>Say I Do</span>
@@ -278,8 +282,8 @@ export default function CorporateEventsTemplate({
           </Link>
           <Link href="/honeymoon" className="explore-card">
             <img
-              src={`${BLOB}28-oa-coupleportraits.webp`}
-              alt="Honeymoon at Curtain Bluff"
+              src={`${BLOB}honeymoon-1.webp`}
+              alt="Romantic honeymoon escape at Curtain Bluff"
             />
             <div className="explore-card-ov">
               <span>Romance</span>

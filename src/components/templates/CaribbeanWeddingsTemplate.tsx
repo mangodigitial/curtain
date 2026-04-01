@@ -99,20 +99,20 @@ export default function CaribbeanWeddingsTemplate({
       {/* ═══════ GALLERY BAND ═══════ */}
       <div className="gallery-band reveal">
         <img
-          src={`${BLOB}9-er-portraits-1.webp`}
-          alt="Couple portraits at Curtain Bluff wedding"
+          src={`${BLOB}wedding03.webp`}
+          alt="Beach wedding ceremony at Curtain Bluff"
         />
         <img
-          src={`${BLOB}28-oa-coupleportraits.webp`}
-          alt="Romantic couple at Curtain Bluff"
+          src={`${BLOB}wedding05.webp`}
+          alt="Bride and groom exchanging vows on the sand"
         />
         <img
-          src={`${BLOB}72-oa-cocktailhour.webp`}
-          alt="Wedding cocktail hour at Curtain Bluff"
+          src={`${BLOB}wedding06.webp`}
+          alt="Wedding reception under the Caribbean stars"
         />
         <img
-          src={`${BLOB}17-er-dinnerdancing.webp`}
-          alt="Dinner and dancing at Curtain Bluff wedding"
+          src={`${BLOB}wedding07.webp`}
+          alt="Newlyweds celebrating at Curtain Bluff"
         />
       </div>
 
@@ -257,8 +257,8 @@ export default function CaribbeanWeddingsTemplate({
           </Link>
           <Link href="/honeymoon" className="explore-card">
             <img
-              src={`${BLOB}72-oa-cocktailhour.webp`}
-              alt="Honeymoon at Curtain Bluff"
+              src={`${BLOB}honeymoon-1.webp`}
+              alt="Romantic honeymoon escape at Curtain Bluff"
             />
             <div className="explore-card-ov">
               <span>Romance</span>
@@ -267,8 +267,8 @@ export default function CaribbeanWeddingsTemplate({
           </Link>
           <Link href="/corporate-events" className="explore-card">
             <img
-              src={`${BLOB}pt-corporate-events-bg.webp`}
-              alt="Corporate events at Curtain Bluff"
+              src={`${BLOB}corporateevent-1.webp`}
+              alt="Corporate event at Curtain Bluff"
             />
             <div className="explore-card-ov">
               <span>Business</span>

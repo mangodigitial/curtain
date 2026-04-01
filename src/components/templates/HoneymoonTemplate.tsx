@@ -13,8 +13,8 @@ export default function HoneymoonTemplate({
       <section className="sub-hero">
         <img
           className="sub-hero-img"
-          src={`${BLOB}28-oa-coupleportraits.webp`}
-          alt="Honeymoon couple at Curtain Bluff"
+          src={`${BLOB}pt-honeymoon-bg.webp`}
+          alt="Romantic honeymoon setting at Curtain Bluff"
         />
         <div className="sub-hero-bg" />
         <div className="sub-hero-content">
@@ -108,16 +108,20 @@ export default function HoneymoonTemplate({
       {/* ═══════ GALLERY BAND ═══════ */}
       <div className="gallery-band reveal">
         <img
-          src={`${BLOB}28-oa-coupleportraits.webp`}
-          alt="Romantic couple portraits at Curtain Bluff"
+          src={`${BLOB}honeymoon-1.webp`}
+          alt="Couple strolling along the beach at Curtain Bluff"
         />
         <img
-          src={`${BLOB}9-er-portraits-1.webp`}
-          alt="Couple enjoying the gardens at Curtain Bluff"
+          src={`${BLOB}honeymoon-2.webp`}
+          alt="Romantic sunset dinner for two on the sand"
         />
         <img
-          src={`${BLOB}28-oa-coupleportraits.webp`}
-          alt="Honeymoon couple on the beach at Curtain Bluff"
+          src={`${BLOB}honeymoon-3.webp`}
+          alt="Couple relaxing in a secluded garden daybed"
+        />
+        <img
+          src={`${BLOB}honeymoon-5.webp`}
+          alt="Oceanside spa treatments for honeymooners"
         />
       </div>
 
@@ -211,8 +215,8 @@ export default function HoneymoonTemplate({
           </Link>
           <Link href="/caribbean-weddings" className="explore-card">
             <img
-              src={`${BLOB}17-er-dinnerdancing.webp`}
-              alt="Caribbean Weddings at Curtain Bluff"
+              src={`${BLOB}wedding03.webp`}
+              alt="Beach wedding ceremony at Curtain Bluff"
             />
             <div className="explore-card-ov">
               <span>Say I Do</span>
@@ -221,8 +225,8 @@ export default function HoneymoonTemplate({
           </Link>
           <Link href="/corporate-events" className="explore-card">
             <img
-              src={`${BLOB}pt-corporate-events-bg.webp`}
-              alt="Corporate events at Curtain Bluff"
+              src={`${BLOB}corporateevent-1.webp`}
+              alt="Corporate event at Curtain Bluff"
             />
             <div className="explore-card-ov">
               <span>Business</span>
