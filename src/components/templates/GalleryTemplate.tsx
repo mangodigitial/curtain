@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import type { FilterGallerySection } from "@/components/sections/types";
 
@@ -26,16 +27,26 @@ export default function GalleryTemplate({ sections }: { sections: any[] }) {
 
   return (
     <>
-      {/* ═══ Page Header (no hero image -- gallery IS the visual) ═══ */}
-      <div className="page-header">
-        <h1>
-          {hero?.title ?? "Photo"}{" "}
-          <em>{hero?.titleItalic ?? "Gallery"}</em>
-        </h1>
-        {(hero?.subtitle || !hero) && (
-          <p>{hero?.subtitle ?? "Explore Curtain Bluff through our lens"}</p>
-        )}
-      </div>
+      {/* ═══ HERO ═══ */}
+      <section className="sub-hero">
+        <img
+          className="sub-hero-img"
+          src={hero?.image?.url ?? "https://ztjed0qworgbvtt3.public.blob.vercel-storage.com/images/pt-gallery-bg.webp"}
+          alt={hero?.image?.alt ?? "Photo Gallery at Curtain Bluff"}
+        />
+        <div className="sub-hero-bg" />
+        <div className="sub-hero-content">
+          <div className="sub-hero-breadcrumb">
+            <Link href="/">Home</Link> <span>&rarr;</span> Gallery
+          </div>
+          <h1 className="sub-hero-title">
+            {hero?.title ?? "Photo"} <em>{hero?.titleItalic ?? "Gallery"}</em>
+          </h1>
+          <p className="sub-hero-tagline">
+            {hero?.subtitle ?? "Explore Curtain Bluff through our lens"}
+          </p>
+        </div>
+      </section>
 
       {/* ═══ Filter Gallery (client-side interactivity) ═══ */}
       {filterGallery && <InlineFilterGallery data={filterGallery} />}
