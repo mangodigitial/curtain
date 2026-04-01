@@ -98,6 +98,10 @@ export default function GroundSportsTemplate({
           src={`${BLOB}/pt-ground-sports-bg.webp`}
           alt="Ground sports facilities at Curtain Bluff"
         />
+        <img
+          src={`${BLOB}/curtain-bluff-gym.webp`}
+          alt="Fitness centre and gym at Curtain Bluff"
+        />
       </div>
 
       {/* ═══════ TENNIS ═══════ */}

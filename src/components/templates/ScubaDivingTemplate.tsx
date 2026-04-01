@@ -95,6 +95,10 @@ export default function ScubaDivingTemplate({
           src={`${BLOB}/pt-padi-bg.webp`}
           alt="Underwater diving adventure at Curtain Bluff"
         />
+        <img
+          src={`${BLOB}/curtain-bluff-diving.webp`}
+          alt="Dive boat departing from Curtain Bluff beach"
+        />
       </div>
 
       {/* ═══════ DIVE SITES ═══════ */}
